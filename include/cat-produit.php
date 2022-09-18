@@ -162,7 +162,7 @@ while ($menu_menu = $PDO_query_menu_menu->fetch()){
 						$PDO_query_produit_index_image->closeCursor();
 						echo '</div>';
 						echo '<div class="content">';
-						echo '<h5 class="title"><a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'">';
+						echo '<h5 class="title"><a href="#">';
 						$text = wordwrap($produit_index['eg_produit_nom'], 50, "***", true); // insertion de marqueurs ***
 						$tcut = explode("***", $text); // on créé un tableau à partir des marqueurs ***
 						$part1 = $tcut[0]; // la partie à mettre en exergue

@@ -27,12 +27,12 @@
 			<div class="row justify-content-between align-items-center">
 				<div class="col-lg-3 col">
 					<div class="header-logo">
-						<a href="<?php echo $url?>"><img src="<?php echo $url?>assets/images/logo/logo.png" alt="Site Logo" width="120" /></a>
+						<a href="http://localhost/EXPERT-GAMING-FINAL/"><img src="assets/images/logo/logo.png" alt="Site Logo" width="120" /></a>
 					</div>
 				</div>
 				<div class="col-lg-6 d-none d-lg-block">
 					<div class="search-element">
-						<form action="<?php echo $url?>Recherche">
+						<form action="Recherche">
 							<input type="text" placeholder="Saisissez des mots clés à rechercher ..." />
 							<button><i class="pe-7s-search"></i></button>
 						</form>
@@ -65,7 +65,7 @@
 			<div class="row justify-content-between align-items-center">
 				<div class="col-lg-3 col">
 					<div class="header-logo">
-						<a href="<?php echo $url?>"><img src="<?php echo $url?>assets/images/logo/logo.png" alt="Site Logo"  width="90"/></a>
+						<a href="#"><img src="assets/images/logo/logo.png" alt="Site Logo"  width="90"/></a>
 					</div>
 				</div>
 				<div class="col-lg-6 d-none d-lg-block">
@@ -103,7 +103,7 @@
 			<div class="header-nav">
 				<div class="main-menu position-relative">
 					<ul>
-						<li class="dropdown"><a href="<?php echo $url?>">Accueil</a></li>                                
+						<li class="dropdown"><a href="http://localhost/EXPERT-GAMING-FINAL/">Accueil</a></li>                                
 						<?php
 
 							$PDO_query_menu = Bdd::connectBdd()->prepare("SELECT * FROM eg_menu WHERE eg_menu_statut = 1 ORDER BY eg_menu_ordre ASC");
@@ -112,32 +112,14 @@
 													
 									$PDO_query_count_menu = Bdd::connectBdd()->prepare("SELECT * FROM eg_categorie WHERE eg_categorie_statut = 1 AND eg_menu_id = :eg_menu_id ORDER BY eg_categorie_id ASC");
 									$PDO_query_count_menu->bindParam(":eg_menu_id", $menu['eg_menu_id'], PDO::PARAM_INT);
-
 									$PDO_query_count_menu->execute();
-
 									$count_menu = $PDO_query_count_menu->fetchColumn();
 									$PDO_query_count_menu->closeCursor();
-
-									if($count_menu == 0){
-
-										if($menu['eg_menu_id'] == 227){
-
-											echo '
-											<li class="dropdown"><a href="https://'.$_SERVER['SERVER_NAME'].'/Produit/'.$menu['eg_menu_id'].'">' . $menu['eg_menu_titre'] . '</a></li>';
-
-										}else{
-											
-											echo '
-											<li class="dropdown"><a href="https://'.$_SERVER['SERVER_NAME'].'/Produit/'.$menu['eg_menu_id'].'">' . $menu['eg_menu_titre'] . '</a></li>';
-
-										}
-
-									}else{
 													
 										echo '
 										
 										
-												<li class="dropdown position-static"><a href="https://'.$_SERVER['SERVER_NAME'].'/Produit/'.$menu['eg_menu_id'].'">' . $menu['eg_menu_titre'] . '</a>
+												<li class="dropdown position-static"><a href="liste_produits.php?cat='.$menu['eg_menu_id'].'">' . $menu['eg_menu_titre'] . '</a>
 												<ul class="mega-menu d-block">
 												<li class="d-flex flex-wrap align-content-between">
 												';
@@ -153,7 +135,7 @@
 
 														echo '
 														<ul class="d-block">
-														<li class="title"><a href="https://'.$_SERVER['SERVER_NAME'].'/Produit/cat/'.$categorie['eg_categorie_id'].'">'.$categorie['eg_categorie_nom'].'</a></li>';
+														<li class="title"><a href="liste_produits.php?cat='.$categorie['eg_categorie_id'].'">'.$categorie['eg_categorie_nom'].'</a></li>';
 
 
 
@@ -167,7 +149,7 @@
 														while ($sous_categorie = $PDO_query_sous_categorie->fetch()){
 
 															echo '
-															<li><a href="https://'.$_SERVER['SERVER_NAME'].'/Produit/scat/'.$sous_categorie['eg_sous_categorie_id'].'">'.$sous_categorie['eg_sous_categorie_nom'].'</a></li>';
+															<li><a href="liste_produits.php?scat='.$sous_categorie['eg_sous_categorie_id'].'">'.$sous_categorie['eg_sous_categorie_nom'].'</a></li>';
 
 														}
 
@@ -180,7 +162,7 @@
 										echo '</li>
 										</ul></li>';
 
-									}
+									
 							}
 							$PDO_query_menu->closeCursor();
 

@@ -1940,7 +1940,7 @@ body.offcanvas-open {
   border-width: 2px;
   border-color: white;
   border-style: solid;
-  border-radius: 18px;
+  border-radius: 5px;
   width: 215px;
   height: 61px;
   background-color: transparent;
@@ -2922,6 +2922,7 @@ body.offcanvas-open {
   overflow: hidden;
   border-radius: 0;
   border: 1px solid #efefef;
+  min-height: 600px;
 }
 .style-three .single-banner img {
   max-width: 100%;
@@ -2942,7 +2943,7 @@ body.offcanvas-open {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 10px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2959,7 +2960,7 @@ body.offcanvas-open {
 }
 .style-three .single-banner .banner-content .category {
   display: block;
-  color: #333333;
+  color: #ffffff;
   font-size: 30px;
   font-weight: bold;
   margin: 0 0 0px;
@@ -3036,7 +3037,7 @@ body.offcanvas-open {
           align-items: center;
   background-color: #f7bb11;
   color: #fff;
-  border-radius: 12px;
+  border-radius: 5px;
   position: absolute;
   top: auto;
   bottom: 10px;
@@ -4276,7 +4277,7 @@ body.offcanvas-open {
       flex-wrap: wrap;
   position: relative;
   border: 1px solid #e1e1e1;
-  padding: 100px 55px;
+  padding: 40px 55px;
   border-radius: 5px;
   z-index: 1;
 }
@@ -5074,8 +5075,9 @@ body.offcanvas-open {
           flex-direction: row;
   border-radius: 0px;
   padding: 0px;
-  margin: -5px;
+  margin: 0px;
   background-color: #efefef;
+  min-height: 680px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .single-feature-content {
@@ -5087,6 +5089,12 @@ body.offcanvas-open {
 }
 .single-feature-content .feature-image img {
   max-width: 100%;
+  opacity: 0.6;
+  
+}
+.single-feature-content .feature-image img:hover {
+  max-width: 100%;
+  opacity: 1;
   
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
@@ -5184,7 +5192,7 @@ body.offcanvas-open {
 }
 .single-feature-content .bottom-content .deal-timing .cdown {
   display: inline-block;
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .single-feature-content .bottom-content .deal-timing .cdown .cdown-1 {
   width: 100px;
@@ -5205,10 +5213,10 @@ body.offcanvas-open {
   border: 1px solid #f7bb11;
   border-radius: 50%;
   font-size: 30px;
-  color: #000000;
+  color: #f7bb11;
   font-weight: 600;
   position: relative;
-  background-color: #ffffff;
+  background-color: #333;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 767px) {
   .single-feature-content .bottom-content .deal-timing .cdown .cdown-1 {
@@ -5843,11 +5851,11 @@ margin-bottom: 50px;
 }
 
 .footer-bottom {
-  background: #e2f2ff none repeat scroll 0 0;
-  padding: 25px 0 20px 0;
+  background: #f7bb11 none repeat scroll 0 0;
+  padding: 10px 0 10px 0;
 }
 .footer-bottom .copy-text {
-  color: #4d4d4d;
+  color: #333333;
   font-size: 16px;
   line-height: 26px;
   font-weight: 400;

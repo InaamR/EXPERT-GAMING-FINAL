@@ -27,7 +27,7 @@
 						<!-- Start single blog -->
 						<div class="col-md-6 col-lg-3 col-sm-6 mb-lm-30px pl-lg-60px">
 							<div class="single-wedge">
-								<h4 class="footer-herading">Information</h4>
+								<h4 class="footer-herading">Expert</h4>
 								<div class="footer-links">
 									<div class="footer-row">
 										<ul class="align-items-center">
@@ -40,8 +40,23 @@
 							</div>
 						</div>
 						<!-- End single blog -->
+						<div class="col-md-6 col-lg-3 col-sm-6 mb-lm-30px pl-lg-40px">
+                                <div class="single-wedge">
+                                    <h4 class="footer-herading">Mon Compte</h4>
+                                    <div class="footer-links">
+                                        <div class="footer-row">
+                                            <ul class="align-items-center">
+                                                <li class="li"><a class="single-link" href="my-account.html">Mon espace</a></li>
+                                                <li class="li"><a class="single-link" href="contact.html">Contact</a></li>
+                                                <li class="li"><a class="single-link" href="cart.html">Panier</a></li>
+                                                <li class="li"><a class="single-link" href="login.html">Déconnexion</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 						<!-- Start single blog -->
-						<div class="col-md-6 col-lg-6 col-sm-12">
+						<div class="col-md-6 col-lg-3 col-sm-12">
 							<div class="single-wedge">
 								<h4 class="footer-herading">Contact Info</h4>
 								<div class="footer-links">
@@ -54,6 +69,20 @@
 							</div>
 						</div>
 						<!-- End single blog -->
+					</div>
+				</div>
+			</div>
+			<div class="footer-bottom">
+				<div class="container">
+					<div class="line-shape-top line-height-1">
+						<div class="row flex-md-row-reverse align-items-center">
+							<div class="col-md-6 text-center text-md-end">
+								<div class="payment-mth"><a href="#"><img class="img img-fluid" src="assets/images/icons/payment.png" alt="payment-image"></a></div>
+							</div>
+							<div class="col-md-6 text-center text-md-start">
+								<p class="copy-text"> © 2022 <strong>Expert Gaming</strong>.</p>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
