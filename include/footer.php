@@ -4,7 +4,7 @@
 				<div class="container">
 					<div class="row">
 						<!-- Start single blog -->
-						<div class="col-md-6 col-lg-6 mb-md-30px mb-lm-30px">
+						<div class="col-md-6 col-lg-3 mb-md-30px mb-lm-30px">
 							<div class="single-wedge">
 								<div class="footer-logo">
 									<a href="index.html"><img src="assets/images/logo/footer-logo.png" alt=""></a>
@@ -41,7 +41,7 @@
 						</div>
 						<!-- End single blog -->
 						<!-- Start single blog -->
-						<div class="col-md-6 col-lg-3 col-sm-12">
+						<div class="col-md-6 col-lg-6 col-sm-12">
 							<div class="single-wedge">
 								<h4 class="footer-herading">Contact Info</h4>
 								<div class="footer-links">

@@ -1,6 +1,5 @@
 @charset "UTF-8";
 /*-----------------------------------------------------------------------------------
-    Template Name: Hmart-Smart Product eCommerce html Template
     Version: 1.0
 -----------------------------------------------------------------------------------
 
@@ -624,7 +623,7 @@ header .header-top .top-nav ul li a i {
   }
 }
 header .header-bottom {
-  padding: 30px 0;
+  padding: 15px 0;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   header .header-bottom {
@@ -907,12 +906,12 @@ header .main-menu ul li .mega-menu li ul li a {
   text-transform: capitalize;
   line-height: 30px;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 13px;
   display: block;
   padding: 0;
   border: 0;
   height: auto;
-  margin-bottom: 15px;
+  margin-bottom: 0px;
 }
 header .main-menu ul li .mega-menu li ul li a:hover {
   color: #f7bb11;
@@ -2123,8 +2122,8 @@ body.offcanvas-open {
 }
 
 .product-tab-nav.nav {
-  -ms-flex-wrap: inherit;
-      flex-wrap: inherit;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 .product-tab-nav .nav-item {
   display: inline-block;
@@ -2133,6 +2132,7 @@ body.offcanvas-open {
   cursor: pointer;
   -webkit-transition: all 300ms ease;
   transition: all 300ms ease;
+  margin-bottom: 10px;
 }
 .product-tab-nav .nav-item:not(:first-child) {
   margin-left: 20px;
@@ -2160,7 +2160,7 @@ body.offcanvas-open {
       -ms-flex-align: center;
           align-items: center;
   border: 1px solid #eaeaeb;
-  border-radius: 18px;
+  border-radius: 5px;
   font-size: 18px;
   font-weight: 600;
   color: #666;
@@ -2298,11 +2298,13 @@ body.offcanvas-open {
   background: #fff;
   border-color: #e1e1e1;
   border-style: solid;
-  padding: 5px;
+  padding: 20px;
   margin-bottom: 0;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   z-index: 0;
+  border-radius: 5px;
+  min-height:100%;
 }
 .product .badges {
   position: absolute;
@@ -2396,14 +2398,14 @@ body.offcanvas-open {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 32px;
   -webkit-transition: all 0.3s ease 0s;
   transition: all 0.3s ease 0s;
   text-decoration: none;
   color: #ffffff;
   border-radius: 5px;
-  background-color: #707070;
+  background-color: #191919;
   font-size: 24px;
 }
 .product .actions .action + .action {
@@ -2419,6 +2421,7 @@ body.offcanvas-open {
 .product .thumb {
   position: relative;
   overflow: hidden;
+  min-height: 260px;
 }
 .product .thumb .image {
   position: relative;
@@ -2456,7 +2459,7 @@ body.offcanvas-open {
           align-items: center;
   line-height: 1;
   background-color: #fff;
-  padding: 0 0 30px;
+  padding: 0 0 5px;
 }
 .product .content .category a {
   font-size: 14px;
@@ -2470,6 +2473,7 @@ body.offcanvas-open {
   font-size: 16px;
   margin: 10px 0 15px;
   font-family: "Poppins", sans-serif;
+  text-align: center;
 }
 .product .content .title a {
   text-decoration: none;
@@ -2570,6 +2574,7 @@ body.offcanvas-open {
   position: relative;
   overflow: hidden;
   border-radius: 0;
+  
 }
 .style-one .single-banner img {
   max-width: 100%;
@@ -2916,6 +2921,7 @@ body.offcanvas-open {
   position: relative;
   overflow: hidden;
   border-radius: 0;
+  border: 1px solid #efefef;
 }
 .style-three .single-banner img {
   max-width: 100%;
@@ -2926,8 +2932,8 @@ body.offcanvas-open {
 .style-three .single-banner .banner-content {
   position: absolute;
   top: auto;
-  bottom: 40px;
-  left: 50px;
+  bottom: 0px;
+  left: 0px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2936,6 +2942,8 @@ body.offcanvas-open {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
+  background-color: rgba(0, 0, 0, 0.3);
+  padding: 10px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .style-three .single-banner .banner-content {
@@ -2945,15 +2953,15 @@ body.offcanvas-open {
 }
 @media only screen and (max-width: 479px) {
   .style-three .single-banner .banner-content {
-    left: 30px;
-    bottom: 20px;
+    left: 0px;
+    bottom: 0px;
   }
 }
 .style-three .single-banner .banner-content .category {
   display: block;
-  color: #161616;
-  font-size: 24px;
-  font-weight: 500;
+  color: #333333;
+  font-size: 30px;
+  font-weight: bold;
   margin: 0 0 0px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
@@ -2975,7 +2983,7 @@ body.offcanvas-open {
   }
 }
 .style-three .single-banner .banner-content .title {
-  color: #999da0;
+  color: #ffffff;
   font-size: 36px;
   line-height: 46px;
   font-weight: 600;
@@ -3031,10 +3039,10 @@ body.offcanvas-open {
   border-radius: 12px;
   position: absolute;
   top: auto;
-  bottom: 6px;
+  bottom: 10px;
   overflow: hidden;
   font-weight: 600;
-  right: 100px;
+  right: 10px;
 }
 .style-three .single-banner .banner-content .shop-link:hover {
   background-color: #000000;
@@ -3085,6 +3093,7 @@ body.offcanvas-open {
         -ms-flex-direction: column;
             flex-direction: column;
   }
+  .hide{display: none;}
 }
 .single-blog .blog-image {
   overflow: hidden;
@@ -4266,9 +4275,9 @@ body.offcanvas-open {
   -ms-flex-wrap: wrap;
       flex-wrap: wrap;
   position: relative;
-  border: 2px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
   padding: 100px 55px;
-  border-radius: 20px;
+  border-radius: 5px;
   z-index: 1;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -4962,9 +4971,9 @@ body.offcanvas-open {
 }
 
 .brand-slider {
-  border: 2px solid #e1e1e1;
-  padding: 100px 0;
-  border-radius: 20px;
+  border: 1px solid #e1e1e1;
+  padding: 0px;
+  border-radius: 5px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .brand-slider {
@@ -5262,8 +5271,9 @@ body.offcanvas-open {
       -ms-flex-direction: row;
           flex-direction: row;
   border-radius: 0px;
-  padding: 0px;
+  padding: 12px;
   margin: -5px;
+  min-height: 510px;
 }
 @media only screen and (max-width: 479px) {
   .feature-right-content {
@@ -5279,8 +5289,8 @@ body.offcanvas-open {
 .feature-right-content .image-side {
   width: 270px;
   position: relative;
-  height: 380px;
-  padding: 50px 0 50px 0;
+  height: auto;
+  padding: 50px 10px 50px 10px;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px), only screen and (max-width: 575px) {
   .feature-right-content .image-side {
@@ -5407,7 +5417,7 @@ body.offcanvas-open {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #f7bb11;
+  background-color: #dc3545;
   color: #fff;
   width: 250px;
   height: 30px;
@@ -5665,7 +5675,7 @@ margin-bottom: 50px;
   background: #191919;
 }
 .footer-area .footer-top {
-  padding: 100px 0 100px 0;
+  padding: 40px 0 40px 0;
 }
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
   .footer-area .footer-top {

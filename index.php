@@ -1,6 +1,10 @@
 <?php
 	session_start();
+    header('Access-Control-Allow-Origin: https://betatest.expert-gaming.tn/error/erreur.php?erreur=403');
+    header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
+    header('Access-Control-Allow-Headers: Content-Type');
 	include("config/fonction.php");
+    
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -9,11 +13,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expert Gaming</title>
+    <title>Expert Gaming Tunisie</title>
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="Expert Gaming, Vente Pc Gamer, Carte Graphique, Processeur en Tunisie, Vente Pc Gamer et accessoires en Tunisie" />
     <meta name="robots" content="index, follow" />
-	<meta name="author" content="Malek MENCHAOUI, Mohamed Inaam RACHDI, Zied JLASSI, Negi CHAIEB, Zied GROMBALI, Hedi JMEL">
+	<meta name="author" content="Expert Gaming Tunisie">
 	<meta name="description" content="Expert Gaming : Vente de matériel Gaming et informatique en Tunisie"/>
     <!-- Favicon -->
     <link rel="shortcut icon" type="image/x-icon" href="ico/favicon.png" />
@@ -37,64 +41,113 @@
     <div class="main-wrapper">
         <?php
 			include("include/top.php");
-		?>        
+		?>
+
         <!-- offcanvas overlay start -->
         <div class="offcanvas-overlay"></div>
         <!-- offcanvas overlay end -->
+
         <!-- OffCanvas Wishlist Start -->
         <?php
             include("include/favoris.php");
         ?>
         <!-- OffCanvas Wishlist End -->
+
         <!-- OffCanvas Cart Start -->
         <?php
             include("include/panier.php");
         ?>
         <!-- OffCanvas Cart End -->
+
         <!-- OffCanvas Menu Start -->
         <?php
             include("include/menu_mobile.php");
         ?>
         <!-- OffCanvas Menu End -->
+
         <!-- Hero/Intro Slider Start -->
         <?php
             include("include/banniere.php");
         ?>        
         <!-- Hero/Intro Slider End -->
+
         <!-- Product Area Start -->
-        <div class="product-area pb-100px pt-100px">
+        <div class="product-area pb-40px pt-100px">
             <div class="container">
-                <!-- Section Title & Tab Start -->
                 <?php
                     include("include/cat-index.php");
                 ?> 
-                <!-- Section Title & Tab End -->
                 <div class="row">
                     <div class="col">
                         <div class="tab-content mt-60px">
-                            <!-- tab start -->
                             <?php
                                 include("include/cat-produit.php");
                             ?> 
-                            <!-- tab end -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!-- Product Area End -->
-        <!-- Fashion Area Start -->
+        <!-- Banner Area Start -->
         <?php
-            include("include/section_produit_millieu.php");
+            include("include/configuration.php");
         ?>
-        <!-- Fashion Area End -->
+        
+        <!-- Banner Area End -->
         <!-- Feature product area start -->
         <?php
             include("include/promo.php");
         ?>
         <!-- Feature product area End -->
+        <!-- Feature Area Srart -->
+        <div class="feature-area">
+            <div class="container">
+                <div class="feature-wrapper">
+                    <div class="single-feture-col mb-md-30px mb-lm-30px">
+                        <!-- single item -->
+                        <div class="single-feature">
+                            <div class="feature-icon">
+                                <img src="assets/images/icons/1.png" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">LIVRAISON GRATUITE</h4>
+                                <span class="sub-title">À partir de 300 DT d'achat</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single item -->
+                    <div class="single-feture-col mb-md-30px mb-lm-30px">
+                        <div class="single-feature">
+                            <div class="feature-icon">
+                                <img src="assets/images/icons/2.png" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">Facilité de paiement</h4>
+                                <span class="sub-title">de 3 à 9 mois</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- single item -->
+                    <div class="single-feture-col">
+                        <div class="single-feature">
+                            <div class="feature-icon">
+                                <img src="assets/images/icons/3.png" alt="">
+                            </div>
+                            <div class="feature-content">
+                                <h4 class="title">Service après-vente</h4>
+                                <span class="sub-title">Qualité garantie</span>
+                            </div>
+                        </div>
+                        <!-- single item -->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Feature Area End -->
+
         <!-- Brand area start -->
-        <div class="brand-area pt-100px pb-100px">
+        <div class="brand-area pt-100px pb-40px">
             <div class="container">
                 <div class="brand-slider swiper-container">
                     <div class="swiper-wrapper align-items-center">
@@ -106,32 +159,13 @@
             </div>
         </div>
         <!-- Brand area end -->
-        <!-- Blog area start from here -->
-        <div class="main-blog-area pb-100px">
-            <div class="container">
-                <!-- section title start -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="section-title text-center mb-30px0px">
-                            <h2 class="title">Actualités Expert</h2>
-                            <p>Toutes nos informations et nos nouvelles configurations</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- section title start -->
-                <div class="row">
-                    <?php
-                        include("include/actualites.php");
-                    ?>
-                </div>
-            </div>
-        </div>
-        <!-- Blog area end here -->
+
         <!-- Footer Area Start -->
         <?php
             include("include/footer.php");
         ?>
         <!-- Footer Area End -->
+
     </div>
 
     
@@ -326,7 +360,6 @@
     <script src="assets/js/vendor/jquery-3.6.0.min.js"></script>
     <script src="assets/js/vendor/jquery-migrate-3.3.2.min.js"></script>
     <script src="assets/js/vendor/modernizr-3.11.2.min.js"></script>
-    <script src="assets/js/plugins/jquery.countdown.min.js"></script>
     <script src="assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>

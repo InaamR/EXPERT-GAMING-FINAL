@@ -1,126 +1,56 @@
-<div class="module titleLine">	
-	<h3 class="modtitle modtitle--small">Configurateur</h3>
-	<div class="module">
-		<div class="modcontent clearfix">
-			<div class="banner-wraps ">
-				<div class="m-banner row">
-
-					<!-- banniere top -->
-
-				
-								<?php
-								/*
-	
-									$PDO_query_img_config_top = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_config WHERE eg_image_config_statut = 1 AND eg_image_config_type = 1 ORDER BY eg_image_config_price ASC LIMIT 3");
-									$PDO_query_img_config_top->execute();
-	
-										while ($img_config_top = $PDO_query_img_config_top->fetch()){
-											
-											echo '
-
-												<div class="banner htmlconten1 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-													<div class="banners">
-														<div>
-			
-															<div class="item">
-																<a href="#"><img src="https://betatest.expert-gaming.tn' . $img_config_top['eg_image_config_nom'] . '" alt="' . $img_config_top['eg_image_config_title'] . '" class="img-responsive"></a>
-															</div>
-
-														</div>
-													</div>
-												</div>
-		
-											';
-
-										}
-	
-									$PDO_query_img_config_top->closeCursor();
-									*/
-	
-								?>
-							
+<div class="banner-area style-three pb-100px">
+	<div class="container">
+		<div class="row">
+			<div class="col-12">
+			<div class="section-title text-center">
+					<h2 class="title">Nos Config / Gaming Laptop</h2>
 				</div>
 			</div>
 		</div>
-	</div>
-</div>
+		<div class="row">
 
-<div class="module titleLine container-full">
 
-	<!-- baniere large-->
+		<?php
 
-		<div class="container">
-			<div class="item">
-				<a  href="https://<?php echo $_SERVER['SERVER_NAME']; ?>/<?php echo $PARAM_url_non_doc_site; ?>Produit/cat/11"><img src="image/banner/config.jpg" alt="Configuration" class="img-responsive"></a>
+			$PDO_query_produit_star = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_produit_config = 1 ORDER BY RAND() LIMIT 2");
+			$PDO_query_produit_star->execute();
+			while($produit_star = $PDO_query_produit_star->fetch()){						
+
+		?>
+
+			<div class="col-md-6">
+				<div class="single-banner mb-lm-30px">
+					<?php
+					$PDO_query_produit_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
+					$PDO_query_produit_image->bindParam(":eg_produit_id", $produit_star['eg_produit_id'], PDO::PARAM_INT);
+					$PDO_query_produit_image->execute();
+	
+					while ($produit_image = $PDO_query_produit_image->fetch()){
+	
+							echo '
+							<img src="https://betatest.expert-gaming.tn/' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '" title="' . $produit_image['eg_image_produit_title'] . '">
+							';
+	
+					}
+	
+					$PDO_query_produit_image->closeCursor();
+					?>
+
+					<div class="banner-content nth-child-3">
+						<h3 class="title"><?php echo $produit_star['eg_produit_nom']; ?></h3>
+						<span class="category"><?php echo round($produit_star['eg_produit_prix']); ?>DT</span>
+						<a href="#" class="shop-link">Commander <i class="fa fa-arrow-right" aria-hidden="true"></i></a>
+					</div>
+				</div>
 			</div>
-			<?php
 
-				/*$PDO_query_img_config_banniere = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_config WHERE eg_image_config_statut = 1 AND eg_image_config_type = 2 ORDER BY eg_image_config_date ASC LIMIT 1");
-				$PDO_query_img_config_banniere->execute();
-			
-				$img_config_banniere = $PDO_query_img_config_banniere->fetch();
-					
-					//rendre la banniere dynamique
-
-					echo '
-
-						<div class="item">
-							<a href="#"><img src="admin/upload_images/' . $img_config_banniere['eg_image_config_nom'] . '" alt="' . $img_config_banniere['eg_image_config_title'] . '" class="img-responsive"></a>
-						</div>
-			
-					';
-				
-				$PDO_query_img_config_banniere->closeCursor();*/
-
-			?>
-			
-		</div>
-		
-</div>
+		<?php
+			}
+			$PDO_query_produit_star->closeCursor();
+		?>
 
 
 
-<div class="module">
-	<div class="modcontent clearfix">
-		<div class="banner-wraps ">
-			<div class="m-banner row">
-
-				<!-- banniere bottom -->
-
-
-							<?php
-							/*
-
-								$PDO_query_img_config_bottom = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_config WHERE eg_image_config_statut = 1 AND eg_image_config_type = 3 ORDER BY eg_image_config_price ASC LIMIT 3");
-								$PDO_query_img_config_bottom->execute();
-
-								while ($img_config_bottom = $PDO_query_img_config_bottom->fetch()){
-									
-									echo '
-
-									<div class="banner htmlconten1 col-lg-4 col-md-12 col-sm-12 col-xs-12">
-										<div class="banners">
-											<div>
-
-												<div class="item">
-													<a href="#"><img src="https://betatest.expert-gaming.tn' . $img_config_bottom['eg_image_config_nom'] . '" alt="' . $img_config_bottom['eg_image_config_title'] . '" class="img-responsive"></a>
-												</div>
-
-											</div>
-										</div>
-									</div>
-
-									';
-
-								}
-
-									$PDO_query_img_config_bottom->closeCursor();
-							*/
-
-							?>
-					
-
-			</div>
 		</div>
 	</div>
 </div>

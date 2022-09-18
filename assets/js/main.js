@@ -456,14 +456,134 @@
     /*---------------------
         Countdown
     --------------------- */
-    $("[data-countdown]").each(function() {
-        var $this = $(this),
-            finalDate = $(this).data("countdown");
-        $this.countdown(finalDate, function(event) {
-            $this.html(event.strftime('<span class="cdown hour"><span class="cdown-1">%-d<p>Jour</p></span></span><span class="cdown hour"><span class="cdown-1">%-H<p>Heure</p></span></span> <span class="cdown minutes"><span class="cdown-1">%M<p>Min</p></span></span> <span class="cdown second"><span class="cdown-1"> %S<p>Sec</p></span></span>'));
-        });
+
+    $("[data-countdown1]").each(function() {
+        var finalDate = $(this).data("countdown1");
+
+        var countDownDate = new Date(finalDate).getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+            // Get today's date and time
+            var now = new Date().getTime();
+        
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+        
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            // Display the result in the element with id="demo"
+            document.getElementById("demo-1").innerHTML = days + "J " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+            // If the count down is finished, write some text
+            if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo-1").innerHTML = "EXPIRED";
+            }
+        }, 1000);
     });
 
+    $("[data-countdown2]").each(function() {
+        var finalDate = $(this).data("countdown2");
+
+        var countDownDate = new Date(finalDate).getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+            // Get today's date and time
+            var now = new Date().getTime();
+        
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+        
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            // Display the result in the element with id="demo"
+            document.getElementById("demo-2").innerHTML = days + "J " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+            // If the count down is finished, write some text
+            if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo-2").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    });
+
+    $("[data-countdown3]").each(function() {
+        var finalDate = $(this).data("countdown3");
+
+        var countDownDate = new Date(finalDate).getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+            // Get today's date and time
+            var now = new Date().getTime();
+        
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+        
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            // Display the result in the element with id="demo"
+            document.getElementById("demo-3").innerHTML = days + "J " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+            // If the count down is finished, write some text
+            if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo-3").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    });
+   
+    $("[data-countdown4]").each(function() {
+        var finalDate = $(this).data("countdown4");
+
+        var countDownDate = new Date(finalDate).getTime();
+
+        // Update the count down every 1 second
+        var x = setInterval(function() {
+        
+            // Get today's date and time
+            var now = new Date().getTime();
+        
+            // Find the distance between now and the count down date
+            var distance = countDownDate - now;
+        
+            // Time calculations for days, hours, minutes and seconds
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        
+            // Display the result in the element with id="demo"
+            document.getElementById("demo-4").innerHTML = days + "J " + hours + "h "
+            + minutes + "m " + seconds + "s ";
+        
+            // If the count down is finished, write some text
+            if (distance < 0) {
+            clearInterval(x);
+            document.getElementById("demo-4").innerHTML = "EXPIRED";
+            }
+        }, 1000);
+    });
     /*-----------------------------
         Blog Gallery Slider 
     -------------------------------- */
