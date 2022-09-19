@@ -1,4 +1,4 @@
-<div class="banner-area style-three pb-100px">
+<div class="banner-area style-three pt-70px pb-70px bg-gray">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">

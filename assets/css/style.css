@@ -259,7 +259,15 @@ border-bottom: 5px solid #f7bb11;
 .pt-70px {
   padding-top: 70px;
 }
-
+.pt-40px {
+  padding-top: 40px;
+}
+.pb-60px {
+  padding-bottom: 60px;
+}
+.pb-70px {
+  padding-bottom: 70px;
+}
 .pb-40px {
   padding-bottom: 40px;
 }
@@ -318,6 +326,10 @@ border-bottom: 5px solid #f7bb11;
 
 .mb-50px {
   margin-bottom: 50px;
+}
+
+.mb-60px {
+  margin-bottom: 60px;
 }
 
 .mb-40px {
@@ -2276,8 +2288,8 @@ body.offcanvas-open {
     width: 100%;
   }
 }
-.tab-content.mt-60px {
-  padding-top: 60px;
+.tab-content.mt-40px {
+  padding-top: 40px;
 }
 @media only screen and (max-width: 767px) {
   .tab-content.mt-60px {
@@ -2926,8 +2938,10 @@ body.offcanvas-open {
   position: relative;
   overflow: hidden;
   border-radius: 0;
-  border: 1px solid #efefef;
-  min-height: 600px;
+  border: 2px solid #dfdfdf;
+  min-height: auto;
+  padding: 20px;
+  background: #ffffff;
 }
 .style-three .single-banner img {
   max-width: 100%;
@@ -2948,8 +2962,9 @@ body.offcanvas-open {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 100%;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.35);
   padding: 10px;
+  height: 100%;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .style-three .single-banner .banner-content {
@@ -2965,10 +2980,13 @@ body.offcanvas-open {
 }
 .style-three .single-banner .banner-content .category {
   display: block;
-  color: #ffffff;
-  font-size: 30px;
+  color: #f7bb11;
+  font-size: 50px;
   font-weight: bold;
   margin: 0 0 0px;
+  text-decoration: underline;
+  position: absolute;
+  bottom: 20px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .style-three .single-banner .banner-content .category {

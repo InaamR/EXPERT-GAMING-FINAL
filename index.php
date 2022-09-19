@@ -79,7 +79,7 @@
                 ?> 
                 <div class="row">
                     <div class="col">
-                        <div class="tab-content mt-60px">
+                        <div class="tab-content mt-40px">
                             <?php
                                 include("include/cat-produit.php");
                             ?> 
