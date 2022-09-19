@@ -19,7 +19,7 @@
 		while($produit_promo = $PDO_query_produit_promo->fetch()){			
 
 		?>
-			<div class="col-xl-6 col-lg-6 mb-md-35px mb-lm-35px">
+			<div class="col-md-6">
 				<div class="single-feature-content">
 					<div class="feature-image">
 					<?php
@@ -44,8 +44,8 @@
 					<div class="top-content">
 						<h4 class="title"><a href="#"><?php echo $produit_promo['eg_produit_nom']; ?></a></h4>
 						<span class="price">
-					<span class="old"><del><?php echo round($produit_promo['eg_produit_prix']); ?>DT</del></span>
-						<span class="new text-danger"><?php echo round($produit_promo['eg_produit_promo']); ?>DT</span>
+						<span class="old"><del><?php echo round($produit_promo['eg_produit_prix']); ?>DT</del></span>
+						<span class="new text-danger"><u><?php echo round($produit_promo['eg_produit_promo']); ?>DT</u></span>
 						</span>
 					</div>
 					<div class="bottom-content">
@@ -55,7 +55,7 @@
 							echo date('M d, Y H:i:s', strtotime($originalDate));							
 							?>" id="demo-gros-<?php echo $i_gros;?>"></div>
 						</div>
-						<a href="#" class="btn btn-primary  m-auto"> Commander </a>
+						<a href="#" class="btn btn-primary m-auto"> Profiter de l'offre </a>
 					</div>
 				</div>
 			</div>

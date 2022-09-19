@@ -72,7 +72,7 @@
         <!-- Hero/Intro Slider End -->
 
         <!-- Product Area Start -->
-        <div class="product-area pb-40px pt-100px">
+        <div class="product-area pb-40px pt-40px">
             <div class="container">
                 <?php
                     include("include/cat-index.php");

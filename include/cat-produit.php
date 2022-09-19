@@ -32,22 +32,42 @@
 			
 			echo '</span>';
 			echo '<div class="thumb">';
-			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
+			echo '<a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'" class="image">';
+
+			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id  AND eg_image_produit_ordre = 1 LIMIT 1");
 			$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
 			$PDO_query_produit_index_image->execute();
 			while ($produit_index_image = $PDO_query_produit_index_image->fetch()){
 
 					echo '
 					
-					<a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'" class="image">
+					
 						<img src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
-						<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
-					</a>
+					
 
 					';
 
 			}
 			$PDO_query_produit_index_image->closeCursor();
+
+			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 2 LIMIT 1");
+			$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
+			$PDO_query_produit_index_image->execute();
+			while ($produit_index_image = $PDO_query_produit_index_image->fetch()){
+
+					echo '
+					
+					
+						
+						<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
+					
+
+					';
+
+			}
+			$PDO_query_produit_index_image->closeCursor();
+
+			echo '</a>';
 			echo '</div>';
 			echo '<div class="content">';
 			echo '<h5 class="title"><a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'">';
@@ -75,6 +95,7 @@
 
 								echo '
 								<img src="https://betatest.expert-gaming.tn/' . $produit_promo_image_marque['eg_marque_logo'] . '" alt="' . $produit_promo_image_marque['eg_marque_nom'] . '" width="130">
+								
 								';
 
 						

@@ -1,4 +1,4 @@
-<div class="section hide">
+<div class="section hide border_bottom">
 	<div class="hero-slider swiper-container slider-nav-style-1 slider-dot-style-1">
 		<!-- Hero slider Active -->
 		<div class="swiper-wrapper">
