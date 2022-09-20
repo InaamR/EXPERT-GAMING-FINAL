@@ -64,7 +64,7 @@
         ?>
         <!-- OffCanvas Menu End -->
         <!-- Shop Page Start  -->
-        <div class="shop-category-area pt-100px pb-100px">
+        <div class="shop-category-area pt-70px pb-100px">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 order-lg-last col-md-12 order-md-first">

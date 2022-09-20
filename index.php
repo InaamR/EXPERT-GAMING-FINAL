@@ -89,6 +89,7 @@
             </div>
         </div>
         <!-- Product Area End -->
+        
         <!-- Banner Area Start -->
         <?php
             include("include/configuration.php");

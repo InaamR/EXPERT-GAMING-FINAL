@@ -3,7 +3,7 @@
 		
 		<div class="row">
 			<div class="col-12">
-			<div class="section-title text-center">
+				<div class="section-title text-center">
 					<h2 class="title">Promo spéciales Expert</h2>
 					<p>Profitez vite de nos promotions limitées !!</p>
 				</div>
@@ -19,7 +19,7 @@
 				while($produit_promo = $PDO_query_produit_promo->fetch()){			
 
 			?>
-				<div class="col-lg-6">
+				<div class="col-lg-6 mb-40px">
 					<div class="single-feature-content">
 						<div class="feature-image">
 						<?php
@@ -67,12 +67,13 @@
 		</div>
 		<div class="row">
 			<div class="col-12">
-			<div class="section-title text-center">
+				<div class="section-title text-center">
 					<h2 class="title">Promo FLASH 24h</h2>
 					<p>Profitez vite de nos promotions chez Expert Gaming</p>
 				</div>
 			</div>
 		</div>
+		
 		<div class="row pb-40px">
 			<?php
 

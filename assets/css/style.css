@@ -3002,8 +3002,9 @@ body.offcanvas-open {
 }
 @media only screen and (max-width: 479px) {
   .style-three .single-banner .banner-content .category {
-    font-size: 18px;
-    line-height: 28px;
+    font-size: 20px;
+    line-height: 50px;
+    position: sticky;
   }
 }
 .style-three .single-banner .banner-content .title {
@@ -7111,7 +7112,7 @@ margin-bottom: 20px;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  margin: 30px 0;
+  margin: 20px 0;
   width: 100%;
 }
 .product-details-content .pro-details-quality .cart-plus-minus {

@@ -7,6 +7,7 @@
 				</div>
 			</div>
 		</div>
+		
 		<div class="row">
 
 
@@ -21,21 +22,20 @@
 			<div class="col-md-6">
 				<div class="single-banner mb-lm-30px">
 					<?php
-					$PDO_query_produit_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
-					$PDO_query_produit_image->bindParam(":eg_produit_id", $produit_star['eg_produit_id'], PDO::PARAM_INT);
-					$PDO_query_produit_image->execute();
-	
-					while ($produit_image = $PDO_query_produit_image->fetch()){
-	
-							echo '
-							<img src="https://betatest.expert-gaming.tn/' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '" title="' . $produit_image['eg_image_produit_title'] . '">
-							';
-	
-					}
-	
-					$PDO_query_produit_image->closeCursor();
+						$PDO_query_produit_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
+						$PDO_query_produit_image->bindParam(":eg_produit_id", $produit_star['eg_produit_id'], PDO::PARAM_INT);
+						$PDO_query_produit_image->execute();
+		
+						while ($produit_image = $PDO_query_produit_image->fetch()){
+		
+								echo '
+								<img src="https://betatest.expert-gaming.tn/' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '" title="' . $produit_image['eg_image_produit_title'] . '">
+								';
+		
+						}
+		
+						$PDO_query_produit_image->closeCursor();
 					?>
-
 					<div class="banner-content nth-child-3">
 						<h3 class="title"><?php echo $produit_star['eg_produit_nom']; ?></h3>
 						<span class="category"><?php echo round($produit_star['eg_produit_prix']); ?>DT</span>
