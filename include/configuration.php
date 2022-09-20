@@ -3,7 +3,7 @@
 		<div class="row">
 			<div class="col-12">
 			<div class="section-title text-center">
-					<h2 class="title">Nos Config / Gaming Laptop</h2>
+					<h2 class="title">Nos TOP Gaming Laptop</h2>
 				</div>
 			</div>
 		</div>

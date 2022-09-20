@@ -4,8 +4,8 @@
 		<div class="row">
 			<div class="col-12">
 			<div class="section-title text-center">
-					<h2 class="title">Promo FLASH 24h</h2>
-					<p>Profitez vite de nos promotions chez Expert Gaming</p>
+					<h2 class="title">Promo spéciales Expert</h2>
+					<p>Profitez vite de nos promotions limitées !!</p>
 				</div>
 			</div>
 		</div>
@@ -45,7 +45,7 @@
 							<h4 class="title"><a href="#"><?php echo $produit_promo['eg_produit_nom']; ?></a></h4>
 							<span class="price">
 							<span class="old"><del><?php echo round($produit_promo['eg_produit_prix']); ?>DT</del></span>
-							<span class="new text-danger"><u><?php echo round($produit_promo['eg_produit_promo']); ?>DT</u></span>
+							<span class="new text-danger"><u><?php echo round($produit_promo['eg_produit_promo']); ?>DT</u></span>							
 							</span>
 						</div>
 						<div class="bottom-content">
@@ -55,7 +55,7 @@
 								echo date('M d, Y H:i:s', strtotime($originalDate));							
 								?>" id="demo-gros-<?php echo $i_gros;?>"></div>
 							</div>
-							<a href="#" class="btn btn-primary m-auto"> Profiter de l'offre </a>
+							<a href="#" class="btn btn-primary m-auto"> Profitez de notre offre </a>
 						</div>
 					</div>
 				</div>

@@ -111,9 +111,9 @@
                                         <div class="tab-pane fade show active" id="shop-grid">
                                             <div class="row mb-n-30px">
                                                 <?php
-                                                $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND() LIMIT 4");
-                                                $PDO_query_produit->bindParam(":eg_sous_categorie_id", $_GET['scat']);
-                                                $PDO_query_produit->execute();
+                                                    $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND() LIMIT 4");
+                                                    $PDO_query_produit->bindParam(":eg_sous_categorie_id", $_GET['scat']);
+                                                    $PDO_query_produit->execute();
                                                     while ($produit = $PDO_query_produit->fetch()){
                                                 
                                                         echo '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
@@ -143,7 +143,7 @@
                                                         }
                                                         echo '</span>';
                                                         echo '<div class="thumb">';
-                                                        echo '<a href="#" class="image">';
+                                                        echo '<a href="produit_details.php?id_prod='.$produit['eg_produit_id'].'" class="image">';
                                                         $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
                                                         $PDO_query_produit_img->bindParam(":eg_produit_id", $produit['eg_produit_id'], PDO::PARAM_INT);
                                                         $PDO_query_produit_img->execute();
