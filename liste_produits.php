@@ -111,7 +111,7 @@
                                         <div class="tab-pane fade show active" id="shop-grid">
                                             <div class="row mb-n-30px">
                                                 <?php
-                                                    $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND() LIMIT 4");
+                                                    $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND()");
                                                     $PDO_query_produit->bindParam(":eg_sous_categorie_id", $_GET['scat']);
                                                     $PDO_query_produit->execute();
                                                     while ($produit = $PDO_query_produit->fetch()){
@@ -149,8 +149,8 @@
                                                         $PDO_query_produit_img->execute();
                                                         while ($produit_image = $PDO_query_produit_img->fetch()){
 
-                                                            echo '<img src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '" />';
-                                                            echo '<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '" />';
+                                                            echo '<img src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '"  loading="lazy"/>';
+                                                            echo '<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '"  loading="lazy"/>';
 
                                                         }
                                                         $PDO_query_produit_img->closeCursor();

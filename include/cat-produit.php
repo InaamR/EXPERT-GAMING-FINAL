@@ -1,7 +1,7 @@
 <div class="tab-pane fade active" id="all">
 <div class="row">
 <?php
-	$PDO_query_produit_index = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 ORDER BY RAND() LIMIT 8");
+	$PDO_query_produit_index = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1  AND eg_produit_dispo <> 0 ORDER BY RAND() LIMIT 8");
 	$PDO_query_produit_index->execute();
 		while ($produit_index = $PDO_query_produit_index->fetch()){
 	
@@ -32,7 +32,7 @@
 			
 			echo '</span>';
 			echo '<div class="thumb">';
-			echo '<a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'" class="image">';
+			echo '<a href="produit_details.php?id_prod='.$produit_index['eg_produit_id'].'" class="image">';
 
 			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id  AND eg_image_produit_ordre = 1 LIMIT 1");
 			$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
@@ -42,7 +42,7 @@
 					echo '
 					
 					
-						<img src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
+						<img src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '"  loading="lazy"/>
 					
 
 					';
@@ -59,7 +59,7 @@
 					
 					
 						
-						<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
+						<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '"  loading="lazy"/>
 					
 
 					';
@@ -70,7 +70,7 @@
 			echo '</a>';
 			echo '</div>';
 			echo '<div class="content">';
-			echo '<h5 class="title"><a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'">';
+			echo '<h5 class="title"><a href="produit_details.php?id_prod='.$produit_index['eg_produit_id'].'">';
 			$text = wordwrap($produit_index['eg_produit_nom'], 50, "***", true); // insertion de marqueurs ***
 			$tcut = explode("***", $text); // on créé un tableau à partir des marqueurs ***
 			$part1 = $tcut[0]; // la partie à mettre en exergue
@@ -135,7 +135,7 @@ while ($menu_menu = $PDO_query_menu_menu->fetch()){
 		<?php
 			while ($menu_scat = $PDO_query_menu_scat->fetch()){
 
-				$PDO_query_produit_index = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND() LIMIT 4");
+				$PDO_query_produit_index = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_produit_dispo <> 0 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND() LIMIT 4");
 				$PDO_query_produit_index->bindParam(":eg_sous_categorie_id", $menu_scat['eg_sous_categorie_id']);
 				$PDO_query_produit_index->execute();
 					while ($produit_index = $PDO_query_produit_index->fetch()){					
@@ -165,25 +165,42 @@ while ($menu_menu = $PDO_query_menu_menu->fetch()){
 							}						
 						echo '</span>';
 						echo '<div class="thumb">';
-						$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
+						echo '<a href="produit_details.php?id_prod='.$produit_index['eg_produit_id'].'" class="image">';
+						$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 1 LIMIT 1");
 						$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
 						$PDO_query_produit_index_image->execute();
 						while ($produit_index_image = $PDO_query_produit_index_image->fetch()){
 
 								echo '
 								
-								<a href="https://'.$_SERVER['SERVER_NAME'].'/'.$PARAM_url_non_doc_site.'ProduitDetails/'.$produit_index['eg_produit_id'].'" class="image">
-									<img src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
-									<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '" />
-								</a>
+									<img src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '"  loading="lazy"/>
+									
 
 								';
 
 						}
 						$PDO_query_produit_index_image->closeCursor();
+
+						$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 2 LIMIT 1");
+						$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
+						$PDO_query_produit_index_image->execute();
+						while ($produit_index_image = $PDO_query_produit_index_image->fetch()){
+
+								echo '
+								
+								
+									
+									<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_index_image['eg_image_produit_nom'] . '" alt="' . $produit_index_image['eg_image_produit_title'] . '"  loading="lazy"/>
+								
+
+								';
+
+						}
+						$PDO_query_produit_index_image->closeCursor();
+						echo '</a>';
 						echo '</div>';
 						echo '<div class="content">';
-						echo '<h5 class="title"><a href="#">';
+						echo '<h5 class="title"><a href="produit_details.php?id_prod='.$produit_index['eg_produit_id'].'">';
 						$text = wordwrap($produit_index['eg_produit_nom'], 50, "***", true); // insertion de marqueurs ***
 						$tcut = explode("***", $text); // on créé un tableau à partir des marqueurs ***
 						$part1 = $tcut[0]; // la partie à mettre en exergue

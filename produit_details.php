@@ -69,97 +69,160 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
-                        <div class="single-product-sticky mb-30px">
-                            <div class="single-product-slider-wrapper d-flex flex-wrap mb-n-30px">
-                                    <?php
-                                    $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id");
+                        <!-- Swiper -->
+                        <div class="swiper-container zoom-top">
+                            <div class="swiper-wrapper">
+
+                                <?php
+                                    $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_image_produit_ordre DESC");
                                     $PDO_query_produit_img->bindParam(":eg_produit_id", $_GET['id_prod'], PDO::PARAM_INT);
                                     $PDO_query_produit_img->execute();
                                     while ($produit_image = $PDO_query_produit_img->fetch()){
                                         echo'
-                                                <div class="single-product-slider-item mb-30px" data-aos="fade-up" data-aos-delay="200">
-                                                    <a class="venobox" data-gall="myGallery" href="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" title="' . $produit_image['eg_image_produit_title'] . '"><img class="img-responsive" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '"></a>
-                                                </div>
+                                        <div class="swiper-slide">
+                                            <img class="img-responsive m-auto" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '">
+                                            <a class="venobox full-preview" data-gall="myGallery" href="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '">
+                                                <i class="fa fa-arrows-alt" aria-hidden="true"></i>
+                                            </a>
+                                        </div>
                                         ';
                                             
                                     
                                     }
                                     $PDO_query_produit_img->closeCursor();
-                                    ?>
+                                ?>                                
+
+                            </div>
+                        </div>
+                        <div class="swiper-container mt-20px zoom-thumbs slider-nav-style-1 small-nav">
+                            <div class="swiper-wrapper">
+
+                                <?php
+                                    $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_image_produit_ordre DESC");
+                                    $PDO_query_produit_img->bindParam(":eg_produit_id", $_GET['id_prod'], PDO::PARAM_INT);
+                                    $PDO_query_produit_img->execute();
+                                    while ($produit_image = $PDO_query_produit_img->fetch()){
+                                        echo'
+                                        <div class="swiper-slide">
+                                            <img class="img-responsive m-auto" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '">
+                                        </div>
+                                        ';
+                                            
+                                    
+                                    }
+                                    $PDO_query_produit_img->closeCursor();
+                                ?>
+                            </div>
+                            <!-- Add Arrows -->
+                            <div class="swiper-buttons">
+                                <div class="swiper-button-next"></div>
+                                <div class="swiper-button-prev"></div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-12 col-xs-12">
-                        <div class="product-details-sticky">
-                            <div class="product-details-content quickview-content ml-25px">
-                                <h2><?php echo $produit['eg_produit_nom']; ?></h2>
-                                <div class="pricing-meta">
-                                    <ul class="d-flex">
-                                        <li class="new-price">Prix : <?php echo $produit['eg_produit_prix']; ?> TND</li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-rating-wrap">
-                                    <div class="rating-product">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <span class="read-review"><a class="reviews" href="#"></a></span>
-                                </div>
-                                <p class="mt-30px"><?php echo $produit['eg_produit_description']; ?></p>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>REF :</span>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#"><?php echo $produit['eg_produit_reference']; ?></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>Modéle : </span>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#"><?php echo $produit['eg_produit_modele']; ?></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <ul class="d-flex">
-                                        <li>
-                                            <?php
-                                            $PDO_query_produit_marque= Bdd::connectBdd()->prepare("SELECT * FROM eg_marque WHERE eg_marque_statut = 1 AND eg_marque_id  = :eg_marque_id");
-                                            $PDO_query_produit_marque->bindParam(":eg_marque_id", $produit['eg_marque_id'], PDO::PARAM_INT);
-                                            $PDO_query_produit_marque->execute();
-                                            $produit_promo_image_marque = $PDO_query_produit_marque->fetch();
-                                                    echo '
-                                                    <img src="https://betatest.expert-gaming.tn/' . $produit_promo_image_marque['eg_marque_logo'] . '" alt="' . $produit_promo_image_marque['eg_marque_nom'] . '" width="150" style="height: 60px; object-fit: cover;">
-                                                    ';                                      
+                    <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                        <div class="product-details-content quickview-content ml-25px">
+                            <h2><?php echo $produit['eg_produit_nom']; ?></h2>
+                            <div class="pricing-meta">
+                                <ul class="d-flex">
+                                    <li class="new-price text-danger">Prix : <?php echo $produit['eg_produit_prix']; ?> TND</li>
+                                </ul>                                
+                            </div>
+                            <p class="mt-30px"><?php echo $produit['eg_produit_description']; ?></p>
+                            <hr>
+                            <p class="facilite">Payez en plusieurs fois :</p>
+                            <div class="product-details-table table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td class="titre_tab"><b>3 mois</b></td>
+                                            <td class="titre_tab"><b>6 mois</b></td>
+                                            <td class="titre_tab"><b>9 mois</b></td>
+                                        </tr>
+                                        <tr>
+                                            <td><span class="amount">150.000dt</span></td>
+                                            <td><span class="amount">1542.000dt</span></td>
+                                            <td><span class="amount">1542.000dt</span></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>REF :</span>
+                                <ul class="d-flex">
+                                    <li>
+                                        <?php echo $produit['eg_produit_reference']; ?>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>Modéle :</span>
+                                <ul class="d-flex">
+                                    <li>
+                                        <?php echo $produit['eg_produit_modele']; ?>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <span>Tags: </span>
+                                <ul class="d-flex">
+                                    <li>
+                                        <a href="#">TEST, </a>
+                                    </li>
+                                    <li>
+                                        <a href="#">TEST</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                <ul class="d-flex">
+                                    <li>
+                                        <?php
+                                        $PDO_query_produit_marque= Bdd::connectBdd()->prepare("SELECT * FROM eg_marque WHERE eg_marque_statut = 1 AND eg_marque_id  = :eg_marque_id");
+                                        $PDO_query_produit_marque->bindParam(":eg_marque_id", $produit['eg_marque_id'], PDO::PARAM_INT);
+                                        $PDO_query_produit_marque->execute();
+                                        $produit_promo_image_marque = $PDO_query_produit_marque->fetch();
+                                                echo '
+                                                <img src="https://betatest.expert-gaming.tn/' . $produit_promo_image_marque['eg_marque_logo'] . '" alt="' . $produit_promo_image_marque['eg_marque_nom'] . '"  width="150" style="height: 60px; object-fit: cover;">
+                                                ';                                      
 
-                                            $PDO_query_produit_marque->closeCursor(); 
-                                            ?>
-                                        </li>
-                                    </ul>
+                                        $PDO_query_produit_marque->closeCursor(); 
+                                        ?>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="pro-details-quality">
+                                <div class="cart-plus-minus">
+                                    <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
                                 </div>
-                                <div class="pro-details-quality">
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
-                                    </div>
-                                    <div class="pro-details-cart">
-                                        <button class="add-cart"> Ajouter au panier</button>
-                                    </div>
-                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
-                                    </div>
-                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                        <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
-                                    </div>
+                                <div class="pro-details-cart">
+                                    <button class="add-cart">Ajouter au panier</button>
+                                </div>
+                                <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                    <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                </div>
+                                <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                    <a href="compare.html"><i class="pe-7s-refresh-2"></i></a>
                                 </div>
                             </div>
+                            <hr>
+                            <ul class="link-follow">
+                                <li>
+                                    <a class="m-0" title="facebook" target="_blank" rel="noopener noreferrer" href="#"><i class="fa fa-facebook"
+                                        aria-hidden="true"></i></a>
+                                </li>
+                                <li>
+                                    <a title="Instagram" target="_blank" rel="noopener noreferrer" href="#"><i class="fa fa-instagram" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a title="Copier le lien" target="_blank" rel="noopener noreferrer" href="#"><i class="fa fa-link" aria-hidden="true"></i>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
+                        
                     </div>
-
                 </div>
             </div>
         </div>
@@ -170,21 +233,19 @@
                     <!-- product details description area start -->
                     <div class="description-review-wrapper">
                         <div class="description-review-topbar nav">
-                            <button class="active" data-bs-toggle="tab" data-bs-target="#des-details2">Information</button>
-                            <button data-bs-toggle="tab" data-bs-target="#des-details1">Description</button>
+                            <button data-bs-toggle="tab" data-bs-target="#des-details2">Information</button>
+                            <button class="active" data-bs-toggle="tab" data-bs-target="#des-details1">Description</button>
                         </div>
                         <div class="tab-content description-review-bottom">
-                            <div id="des-details2" class="tab-pane active">
+                            <div id="des-details2" class="tab-pane">
                                 <div class="product-anotherinfo-wrapper text-start">
                                     <ul>
-                                        <li><span>Weight</span> 400 g</li>
-                                        <li><span>Dimensions</span>10 x 10 x 15 cm</li>
-                                        <li><span>Materials</span> 60% cotton, 40% polyester</li>
-                                        <li><span>Other Info</span> American heirloom jean shorts pug seitan letterpress</li>
+                                        <li><span>VARIABLE 1 :</span> VARIABLE 2</li>
+                                        <li><span>VARIABLE 1 :</span> VARIABLE 2</li>
                                     </ul>
                                 </div>
                             </div>
-                            <div id="des-details1" class="tab-pane">
+                            <div id="des-details1" class="tab-pane active">
                                 <div class="product-description-wrapper">
                                     <?php echo $produit['eg_produit_description_longue']; ?>
                                 </div>
