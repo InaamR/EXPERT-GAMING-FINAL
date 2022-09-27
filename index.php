@@ -92,7 +92,7 @@
         
         <!-- Banner Area Start -->
         <?php
-            //include("include/configuration.php");
+            include("include/configuration.php");
         ?>
         
         <!-- Banner Area End -->
