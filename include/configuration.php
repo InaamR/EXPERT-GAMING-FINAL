@@ -40,10 +40,6 @@
 							class="pe-7s-shopbag"></i></button>
 					</div>
 					<div class="content-side">
-						<div class="deal-timing">
-							<span>End In:</span>
-							<div data-countdown="2021/09/15"></div>
-						</div>
 						<div class="prize-content">
 							<h5 class="title"><a href="single-product.html"><?php echo $produit_star['eg_produit_nom']; ?></a></h5>
 							<span class="price">
