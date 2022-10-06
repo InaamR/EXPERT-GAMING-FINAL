@@ -624,13 +624,13 @@ header .header-top .top-nav ul li a {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  line-height: 1;
+  line-height: 1.5;
 }
 header .header-top .top-nav ul li a:hover {
   color: #f7bb11;
 }
 header .header-top .top-nav ul li a i {
-  margin-right: 15px;
+  margin-right: 10px;
   font-size: 18px;
   color: #f7bb11;
 }
@@ -4618,12 +4618,12 @@ body.offcanvas-open {
     - Breadvrumb  
 =================================*/
 .breadcrumb-area {
-  background-image: url(../images/about/breadcrunb-bg.webp);
-  background-color: #cad5e1;
+  /*background-image: url(../images/about/breadcrunb-bg.webp);*/
+  background-color: #efefef;
   background-repeat: no-repeat;
   background-position: center center;
   border-bottom-width: 0px;
-  height: 406px;
+  height: 70px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -4638,16 +4638,15 @@ body.offcanvas-open {
       -ms-flex-align: center;
           align-items: center;
   background-size: cover;
-  line-height: 1;
 }
 @media only screen and (max-width: 767px), only screen and (min-width: 768px) and (max-width: 991px), only screen and (min-width: 992px) and (max-width: 1199px) {
   .breadcrumb-area {
-    height: 300px;
+    height: 60px;
   }
 }
 @media only screen and (max-width: 575px) {
   .breadcrumb-area {
-    height: 260px;
+    height: 60px;
   }
 }
 .breadcrumb-area .breadcrumb-title {
@@ -4670,10 +4669,9 @@ body.offcanvas-open {
 
 .breadcrumb-list li {
   display: inline-block;
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 400;
   text-transform: uppercase;
-  margin-top: 14px;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
   .breadcrumb-list li {
@@ -7900,7 +7898,7 @@ margin-bottom: 20px;
 .cart-main-area .table-content table tbody > tr td.product-wishlist-cart > a {
   background-color: #f7bb11;
   border-radius: 0px;
-  color: #fff;
+  color: #000;
   font-size: 14px;
   font-weight: 600;
   line-height: 1;
@@ -7909,6 +7907,7 @@ margin-bottom: 20px;
 }
 .cart-main-area .table-content table tbody > tr td.product-wishlist-cart > a:hover {
   background-color: #000000;
+  color: #fff;
 }
 .cart-main-area .cart-shiping-update-wrapper {
   display: -webkit-box;
@@ -7970,7 +7969,7 @@ margin-bottom: 20px;
 
 .cart-shiping-update-wrapper .cart-clear > a {
   background-color: #f7bb11;
-  color: #fff;
+  color: #000;
 }
 
 .cart-shiping-update-wrapper .cart-clear > a:hover {
@@ -8092,7 +8091,7 @@ margin-bottom: 20px;
 .discount-code-wrapper .discount-code button.cart-btn-2 {
   background: #f7bb11;
   border-radius: 0px;
-  color: #fff;
+  color: #000;
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
@@ -8151,7 +8150,7 @@ margin-bottom: 20px;
   float: right;
 }
 .grand-totall .grand-totall-title {
-  color: #f7bb11;
+  color: #f44336;
   font-size: 20px;
   font-weight: 600;
   margin: 0 0 25px;
@@ -8162,7 +8161,7 @@ margin-bottom: 20px;
 .grand-totall a {
   background-color: #f7bb11;
   border-radius: 0px;
-  color: #fff;
+  color: #000;
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -8487,7 +8486,7 @@ margin-bottom: 20px;
 .compare-table .table tbody tr td.pro-addtocart .add-to-cart {
   position: relative;
   background-color: #f7bb11;
-  color: #fff;
+  color: #000000;
   border-radius: 0px;
   display: inline-block;
   width: 170px;
@@ -8499,6 +8498,7 @@ margin-bottom: 20px;
 }
 .compare-table .table tbody tr td.pro-addtocart .add-to-cart:hover {
   background-color: #000000;
+  color: #fff;
 }
 .compare-table .table tbody tr td.pro-remove button {
   border: none;
@@ -8693,7 +8693,7 @@ Pages - My Account
 .dashboard_tab_button li .nav-link {
   font-weight: 600;
   color: #fff;
-  background-color: #000000;
+  background-color: #191919;
   font-size: 16px;
   text-transform: uppercase;
   display: block;
@@ -8911,7 +8911,7 @@ Pages - My Account
   background: transparent none repeat scroll 0 0;
   -webkit-box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  padding: 80px;
+  padding: 50px;
   text-align: left;
 }
 .login-register-wrapper .login-form-container .login-register-form input {

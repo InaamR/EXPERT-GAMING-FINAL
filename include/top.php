@@ -13,7 +13,7 @@
 						<ul>
 							<li><a href="tel:58554255"><i class="fa fa-phone"></i> 58 554 255</a></li>
 							<li><a href="mailto:contact@expert-gaming.tn"><i class="fa fa-envelope-o"></i> contact@expert-gaming.tn</a></li>
-							<li><a href="#"><i class="fa fa-user"></i> Compte</a></li>
+							<li><a href="login.php"><i class="fa fa-user"></i> Compte</a></li>
 						</ul>
 					</div>
 				</div>
