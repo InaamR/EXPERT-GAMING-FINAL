@@ -1,4 +1,4 @@
-<div class="feature-product-area pt-70px pb-40px">
+<div class="feature-product-area pt-40px pb-40px">
 	<div class="container">
 		
 		<div class="row">
