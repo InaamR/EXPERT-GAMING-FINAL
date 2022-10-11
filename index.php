@@ -75,7 +75,7 @@
             <div class="container">
                 <?php
                     include("include/cat-index.php");
-                ?> 
+                ?>
                 <div class="row">
                     <div class="col">
                         <div class="tab-content mt-40px">
