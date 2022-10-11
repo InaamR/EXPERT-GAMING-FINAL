@@ -47,7 +47,7 @@
                                         <div class="footer-row">
                                             <ul class="align-items-center">
                                                 <li class="li"><a class="single-link" href="my-account.html">Mon espace</a></li>
-                                                <li class="li"><a class="single-link" href="contact.html">Contact</a></li>
+                                                <li class="li"><a class="single-link" href="contact.php">Contact</a></li>
                                                 <li class="li"><a class="single-link" href="cart.html">Panier</a></li>
                                                 <li class="li"><a class="single-link" href="login.html">Déconnexion</a></li>
                                             </ul>
