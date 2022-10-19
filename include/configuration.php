@@ -3,8 +3,8 @@
 		<div class="row">
 			<div class="col-12">
 			<div class="section-title text-center">
-					<h2 class="title">Nos TOP Gaming Laptop</h2>
-					<p>Notre meilleur gamme de pc gaming pour tous vos besoins !</p>
+					<h2 class="title">Nos Laptops</h2>
+					<p>Notre meilleur selection de pc gaming pour tous vos besoins !</p>
 				</div>
 			</div>
 		</div>

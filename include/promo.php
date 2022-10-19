@@ -4,8 +4,8 @@
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title text-center">
-					<h2 class="title">Promo spéciales Expert</h2>
-					<p>Profitez vite de nos promotions limitées !!</p>
+					<h2 class="title">Promo Expert</h2>
+					<p>Profitez vite de nos promotions exceptionnel !!</p>
 				</div>
 			</div>
 		</div>
