@@ -64,30 +64,30 @@
         ?>
         <!-- OffCanvas Menu End -->
         <!-- Shop Page Start  -->
-        <div class="shop-category-area pt-70px pb-100px">
+        <div class="shop-category-area pt-40px pb-100px">
             <div class="container">
                 <div class="row">
+                    
                     <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
                     
                         <div id="product_area"></div>
                         <div id="skeleton_area"></div>
-                        <div id="pagination_area" class="mt-2 mb-5" ></div>
+                        <div id="pagination_area"></div>
+
                     </div>
                     
                     <!-- Sidebar Area Start -->
                     <div class="col-lg-3 order-lg-first col-md-12 order-md-last">
                         <div class="shop-sidebar-wrap">
-                            
-                            <div class="sidebar-widget">
-                                <div class="row">
-                                    <div class="col-12">
-                                        <input type="text" class="form-control" id="search_textbox" placeholder="Search Product" aria-label="Search Product" aria-describedby="search_button" />
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="sidebar-widget">
+                            <div class="sidebar-widget mb-2">
                                 <button type="button" name="clear_filter" class="btn btn-danger btn-sm" id="clear_filter">Annuler le filtre</button>
                             </div>
+                            <div class="sidebar-widget">
+                                <div class="sidebar-widget-category">
+                                    <input type="text" class="form-control" id="search_textbox" placeholder="Recherche" aria-label="Search Product" aria-describedby="search_button"  onkeypress="pressEnter(event);"/>
+                                </div>
+                            </div>
+                            
                             <!-- Sidebar single item -->
                             <div class="sidebar-widget">
                                 <h4 class="sidebar-title">Marque</h4>
@@ -104,6 +104,7 @@
                             </div>
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
@@ -395,6 +396,7 @@
                                 html += '<div class="col">';
 
                                     html += '<div class="tab-content">';
+
                                         html += '<div class="tab-pane fade show active" id="shop-grid">';
                                             html += '<div class="row mb-n-30px">';
 
@@ -405,25 +407,25 @@
                                                         html += '<div class="product">';
 
                                                             html += '<span class="badges">';
-                                                                html += '<span class="dispo">Disponible</span>';
+                                                                html += ''+responseData.data[i].status+'';
                                                                 html += '</span>';
 
                                                             html += '<div class="thumb">';
-                                                                html += '<a href="produit_details.php?id_prod=12" class="image">';
-                                                                    html += '<img src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
-                                                                    html += '<img class="hover-image" src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
+                                                                html += '<a href="'+responseData.data[i].link_details+'" class="image">';
+                                                                    html += '<img src="https://betatest.expert-gaming.tn'+responseData.data[i].image+'" alt="'+responseData.data[i].image_nom+'" loading="lazy">';
+                                                                    html += '<img class="hover-image" src="https://betatest.expert-gaming.tn'+responseData.data[i].image+'" alt="'+responseData.data[i].image_nom+'" loading="lazy">';
                                                                 html += '</a>';
                                                             html += '</div>';
 
                                                             html += '<div class="content">';
                                                                 html += '<span class="category">';
-                                                                    html += '<img src="https://betatest.expert-gaming.tn//ckfinder/userfiles/images/partenaire/MSI.jpg" alt="MSI" width="130">';
+                                                                    html += '<img src="https://betatest.expert-gaming.tn'+responseData.data[i].logo_marque+'" alt="'+responseData.data[i].nom_marque+'" width="130">';
                                                                 html += '</span>';
                                                                 html += '<h5 class="title">';
-                                                                    html += '<a href="#">'+responseData.data[i].name+'</a>';
+                                                                    html += '<a href="'+responseData.data[i].link_details+'">'+responseData.data[i].name+'</a>';
                                                                 html += '</h5>';
                                                                 html += '<span class="price">';
-                                                                    html += '<span class="new">'+responseData.data[i].price+' TND</span>';
+                                                                    html += responseData.data[i].price;
                                                                 html += '</span>';
                                                             html += '</div>';
 
@@ -440,6 +442,49 @@
 
                                             html += '</div>';
                                         html += '</div>';
+
+                                        html += '<div class="tab-pane fade mb-n-30px" id="shop-list">';
+                                            for(var i = 0; i < responseData.data.length; i++)
+                                            {
+                                                html += '<div class="shop-list-wrapper mb-30px">';
+                                                html += '<div class="row">';                                                   
+                                                html += '<div class="col-md-5 col-lg-5 col-xl-4 mb-lm-30px">';
+                                                html += '<div class="product">';
+                                                html += '<div class="thumb">';
+                                                html += '<a href="'+responseData.data[i].link_details+'" class="image">';
+                                                html += '<img src="https://betatest.expert-gaming.tn'+responseData.data[i].image+'" alt="'+responseData.data[i].image_nom+'" />';
+                                                html += '<img class="hover-image" src="https://betatest.expert-gaming.tn'+responseData.data[i].image+'" alt="'+responseData.data[i].image_nom+'" />';
+                                                html += '</a>';
+                                                html += '<span class="badges">';
+                                                html += ''+responseData.data[i].status+'';
+                                                html += '</span>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '<div class="col-md-7 col-lg-7 col-xl-8">';
+                                                html += '<div class="content-desc-wrap">';
+                                                html += '<div class="content">';
+                                                html += '<h5 class="title"><a href="'+responseData.data[i].link_details+'">'+responseData.data[i].name+'</a></h5>';
+                                                html += '<p>'+responseData.data[i].desc+'</p>';
+                                                html += '</div>';
+                                                html += '<div class="box-inner">';
+                                                html += '<span class="price">';
+                                                html += responseData.data[i].price;
+                                                html += '</span>';
+                                                html += '<div class="actions">';
+                                                html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
+                                                html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
+                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
+                                                html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '</div>';
+                                                html += '</div>';   
+                                            }
+                                        html += '</div>';
+
                                     html += '</div>';
 
                                 html += '</div>';
@@ -451,7 +496,7 @@
                     }
                     else
                     {
-                        $('#product_area').innerHTML = '<p class="h6">No Product Found</p>';
+                        $('#product_area').innerHTML = '<div class="alert alert-warning text-center"><h4 class="alert-heading"><b>Malheureusement !</b></h4><hr><p class="mb-0">Aucun produit trouvé !</p></div>';
                     }
                 }
 
@@ -475,9 +520,9 @@
         {
             var output = '<div class="row">';
 
-            for(var count = 0; count < 8; count++)
+            for(var count = 0; count < 6; count++)
             {
-                output += '<div class="col-md-3 mb-3 p-4">';
+                output += '<div class="col-4 mb-3 p-4">';
 
                 output += '<div class="mb-2 bg-light text-dark" style="height:240px;"></div>';
 
@@ -627,15 +672,17 @@
 
         }
 
-        $('#search_textbox').onclick = function(){
+        function pressEnter(event) {
+                var code=event.which || event.keyCode; //Selon le navigateur c'est which ou keyCode
+                if (code==13) { //le code de la touche Enter
 
-            var search_query = $('#search_textbox').value;
+                var search_query = $('#search_textbox').value;
 
-            if(search_query != '')
-            {
-                load_product(page = 1, make_query());
+                if(search_query != '')
+                {
+                    load_product(page = 1, make_query());
+                }
             }
-
         }
 
     </script>

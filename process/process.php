@@ -94,6 +94,7 @@ if(isset($_GET["page"]))
 	}else{
 		$where = 'WHERE eg_sous_categorie_id = :scat';
 	}
+
 	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC");
 	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query->execute();
@@ -110,13 +111,73 @@ if(isset($_GET["page"]))
 	{
 		//$image_array = explode(" ~ ", $row["eg_produit_id"]);
 		//$image_array[0]
+		if($row['eg_produit_dispo'] == 0){
+
+			$status = '<span class="hs">Hors stock</span>';
+
+		}elseif($row['eg_produit_dispo'] == 1){
+
+			$status = '<span class="dispo">Disponible</span>';
+
+		}elseif($row['eg_produit_dispo'] == 2){
+
+			$status = '<span class="commande">Sur commande 48H</span>';
+
+		}elseif($row['eg_produit_dispo'] == 3){
+
+			$status = '<span class="commande">Sur commande</span>';
+
+		}elseif($row['eg_produit_dispo'] == 4){
+
+			$status = '<span class="arrivage">En arrivage</span>';
+
+		}
+		$link_details = 'produit_details.php?id_prod='.$row['eg_produit_id'];
+
+		$PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
+		$PDO_query_produit_img->bindParam(":eg_produit_id", $row['eg_produit_id'], PDO::PARAM_INT);
+		$PDO_query_produit_img->execute();
+		$produit_image = $PDO_query_produit_img->fetch();
+		$image = $produit_image['eg_image_produit_nom'];
+		$image_nom = $produit_image['eg_image_produit_title'];		
+		$PDO_query_produit_img->closeCursor();
+
+		$PDO_query_produit_marque= Bdd::connectBdd()->prepare("SELECT * FROM eg_marque WHERE eg_marque_statut = 1 AND eg_marque_id  = :eg_marque_id");
+		$PDO_query_produit_marque->bindParam(":eg_marque_id", $row['eg_marque_id'], PDO::PARAM_INT);
+		$PDO_query_produit_marque->execute();
+		$produit_promo_image_marque = $PDO_query_produit_marque->fetch();
+		$logo_marque = $produit_promo_image_marque['eg_marque_logo'];
+		$nom_marque = $produit_promo_image_marque['eg_marque_nom'];
+		$PDO_query_produit_marque->closeCursor(); 
+
+		if($row['eg_produit_promo'] <> "0.000"){
+			$prix = '<span class="old">' . round($row['eg_produit_promo'], 3) . ' TND</span>';
+			$prix .= '<span class="new text-danger"> ' . round($row['eg_produit_prix'], 3) . 'TND</span>';
+		}else{
+			$prix = '<span class="new"> ' . round($row['eg_produit_prix'], 3) . 'TND</span>';
+		}
+
+		$phrase_event = $row['eg_produit_description'];
+		$max_words = 40;
+		$phrase_array = explode(' ',$phrase_event);
+		if(count($phrase_array) > $max_words && $max_words > 0){
+			$phrase_courte = implode(' ',array_slice($phrase_array, 0, $max_words)).'...'; 
+		}else{$phrase_courte = $row['eg_produit_description'];}
+		$desc = strip_tags($phrase_courte);
 
 		$data[] = array(
 			'name'		=>	$row['eg_produit_nom'],
-			'price'		=>	$row['eg_produit_prix'],
+			'price'		=>	$prix,
 			'brand'		=>	$row['eg_marque_id'],
-			'image'		=>	$row["eg_produit_id"]
+			'status'		=>	$status,
+			'link_details'		=>	$link_details,
+			'desc'		=>	$desc,
+			'image'		=>	$image,
+			'image_nom'		=>	$image_nom,
+			'logo_marque'		=>	$logo_marque,
+			'nom_marque'		=>	$nom_marque
 		);
+
 	}
 	$PDO_query->closeCursor();
 	$pagination_html = '
