@@ -1,4 +1,5 @@
 <header>
+	
 	<!-- Header top area start -->
 	<div class="header-top">
 		<div class="container">
@@ -33,8 +34,8 @@
 				<div class="col-lg-6 d-none d-lg-block">
 					<div class="search-element">
 						<form action="Recherche">
-							<input type="text" placeholder="Saisissez des mots clés à rechercher ..." />
-							<button><i class="pe-7s-search"></i></button>
+							<input type="text" placeholder="Saisissez des mots clés à rechercher ..." id="prod_name" name="prod_name"/>
+							<button class="recherche_btn"><i class="pe-7s-search"></i></button>
 						</form>
 					</div>
 				</div>

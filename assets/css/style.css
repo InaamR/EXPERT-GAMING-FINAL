@@ -958,7 +958,7 @@ header .main-menu ul li .mega-menu li ul li:last-child a {
   border-radius: 5px;
   padding-right: 80px;
 }
-.search-element form button {
+.search-element form button.recherche_btn {
   position: absolute;
   top: 0;
   right: 0;

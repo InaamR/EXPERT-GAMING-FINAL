@@ -4,7 +4,8 @@
     header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE');
     header('Access-Control-Allow-Headers: Content-Type');
 	include("config/fonction.php");
-    
+    include("process/recherche.php");
+
 ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -314,6 +315,7 @@
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>
     <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/autocomplete.js"></script>
 
     <!-- Minify Version -->
     <!-- <script src="assets/js/vendor.min.js"></script>
@@ -323,6 +325,12 @@
     <!--Main JS (Common Activation Codes)-->
     <script src="assets/js/main.js"></script>
     <script>
+        var auto_complete = new Autocomplete(document.getElementById('prod_name'), {
+            data:<?php echo json_encode($data); ?>,
+            maximumItems:10,
+            highlightTyped:true,
+            highlightClass : 'fw-bold text-primary'
+        });
         
         function $(selector){
 
@@ -683,7 +691,7 @@
                     load_product(page = 1, make_query());
                 }
             }
-        }
+        }      
 
     </script>
 </body>
