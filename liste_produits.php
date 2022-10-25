@@ -68,15 +68,25 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
+                    
                         <div id="product_area"></div>
                         <div id="skeleton_area"></div>
                         <div id="pagination_area" class="mt-2 mb-5" ></div>
                     </div>
+                    
                     <!-- Sidebar Area Start -->
                     <div class="col-lg-3 order-lg-first col-md-12 order-md-last">
                         <div class="shop-sidebar-wrap">
+                            
                             <div class="sidebar-widget">
-                            <button type="button" name="clear_filter" class="btn btn-warning btn-sm" id="clear_filter">Clear Filter</button>
+                                <div class="row">
+                                    <div class="col-12">
+                                        <input type="text" class="form-control" id="search_textbox" placeholder="Search Product" aria-label="Search Product" aria-describedby="search_button" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sidebar-widget">
+                                <button type="button" name="clear_filter" class="btn btn-danger btn-sm" id="clear_filter">Annuler le filtre</button>
                             </div>
                             <!-- Sidebar single item -->
                             <div class="sidebar-widget">
@@ -92,20 +102,6 @@
                                 <div id="price_filter" class="mb-2"></div>
                                 </div>
                             </div>
-                            <!-- Sidebar single item -->
-                            <div class="sidebar-widget">
-                                <h4 class="sidebar-title">Brands</h4>
-                                <div class="sidebar-widget-brand">
-                                    <ul>
-                                        <li><a href="#" class="selected m-0"> Lakmeeto<span>(65)</span> </a></li>
-                                        <li><a href="#" class=""> Beautifill <span>(14)</span></a></li>
-                                        <li><a href="#" class=""> Made In GD <span>(21)</span></a></li>
-                                        <li><a href="#" class=""> Pecifico <span>(16)</span></a></li>
-                                        <li><a href="#" class=""> Xlovgtir<span>(12)</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Sidebar single item -->
                         </div>
                     </div>
                 </div>
@@ -358,84 +354,98 @@
                     if(responseData.data.length > 0)
                     {
                         html += '<div class="shop-top-bar d-flex">';
-                        html += '<p class="compare-product"> <span>'+responseData.total_data+'</span> Produits trouvés</p>';
-                        html += '<!-- Left Side End -->';
-                        html += '<div class="shop-tab nav">';
-                        html += '<button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">';
-                        html += '<i class="fa fa-th" aria-hidden="true"></i>';
-                        html += '</button>';
-                        html += '<button data-bs-target="#shop-list" data-bs-toggle="tab">';
-                        html += '<i class="fa fa-list" aria-hidden="true"></i>';
-                        html += '</button>';
-                        html += '</div>';
-                        html += '<!-- Right Side Start -->';
-                        html += '<div class="select-shoing-wrap d-flex align-items-center">';
-                        html += '<div class="shot-product">';
-                        html += '<p>Sort By:</p>';
-                        html += '</div>';
-                        html += '<!-- Single Wedge End -->';
-                        html += '<div class="header-bottom-set dropdown">';
-                        html += '<button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>';
-                        html += '<ul class="dropdown-menu dropdown-menu-right">';
-                        html += '<li><a class="dropdown-item" href="#">Name, A to Z</a></li>';
-                        html += '<li><a class="dropdown-item" href="#">Name, Z to A</a></li>';
-                        html += '<li><a class="dropdown-item" href="#">Price, low to high</a></li>';
-                        html += '<li><a class="dropdown-item" href="#">Price, high to low</a></li>';
-                        html += '<li><a class="dropdown-item" href="#">Sort By new</a></li>';
-                        html += '<li><a class="dropdown-item" href="#">Sort By old</a></li>';
-                        html += '</ul>';
-                        html += '</div>';
-                        html += '<!-- Single Wedge Start -->';
-                        html += '</div>';
-                        html += '<!-- Right Side End -->';
+
+                            html += '<p class="compare-product"> <span>'+responseData.total_data+'</span> Produits trouvés</p>';
+
+                            html += '<!-- Left Side End -->';
+                            html += '<div class="shop-tab nav">';
+                                html += '<button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">';
+                                    html += '<i class="fa fa-th" aria-hidden="true"></i>';
+                                html += '</button>';
+                                html += '<button data-bs-target="#shop-list" data-bs-toggle="tab">';
+                                     html += '<i class="fa fa-list" aria-hidden="true"></i>';
+                                html += '</button>';
+                            html += '</div>';
+
+                            html += '<!-- Right Side Start -->';
+                            html += '<div class="select-shoing-wrap d-flex align-items-center">';
+                                html += '<div class="shot-product">';
+                                    html += '<p>Sort By:</p>';
+                                html += '</div>';
+                                html += '<!-- Single Wedge End -->';
+                                html += '<div class="header-bottom-set dropdown">';
+                                    html += '<button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>';
+                                    html += '<ul class="dropdown-menu dropdown-menu-right">';
+                                        html += '<li><a class="dropdown-item" href="#">Name, A to Z</a></li>';
+                                        html += '<li><a class="dropdown-item" href="#">Name, Z to A</a></li>';
+                                        html += '<li><a class="dropdown-item" href="#">Price, low to high</a></li>';
+                                        html += '<li><a class="dropdown-item" href="#">Price, high to low</a></li>';
+                                        html += '<li><a class="dropdown-item" href="#">Sort By new</a></li>';
+                                        html += '<li><a class="dropdown-item" href="#">Sort By old</a></li>';
+                                    html += '</ul>';
+                                html += '</div>';
+                                html += '<!-- Single Wedge Start -->';
+                            html += '</div>';
+                            html += '<!-- Right Side End -->';
                         html += '</div>';
 
                         html += '<div class="shop-bottom-area">';
-                        html += '<!-- Tab Content Area Start -->';
-                        html += '<div class="row">';
-                        html += '<div class="col">';
-                        html += '<div class="tab-content">';
-                        html += '<div class="tab-pane fade show active" id="shop-grid">';
-                        html += '<div class="row mb-n-30px">';
+                            html += '<!-- Tab Content Area Start -->';
+                            html += '<div class="row">';
+                                html += '<div class="col">';
 
-                        for(var i = 0; i < responseData.data.length; i++)
-                        {
-                            html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
-                            html += '<!-- Single Prodect -->';
-                            html += '<div class="product">';
-                            html += '<span class="badges">';
-                            html += '<span class="dispo">Disponible</span>';
-                            html += '</span>';
-                            html += '<div class="thumb">';
-                            html += '<a href="produit_details.php?id_prod=12" class="image">';
-                            html += '<img src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
-                            html += '<img class="hover-image" src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
-                            html += '</a>';
-                            html += '</div>';
-                            html += '<div class="content">';
-                            html += '<span class="category">';
-                            html += '<img src="https://betatest.expert-gaming.tn//ckfinder/userfiles/images/partenaire/MSI.jpg" alt="MSI" width="130">';
-                            html += '</span>';
-                            html += '<h5 class="title">';
-                            html += '<a href="#">'+responseData.data[i].name+' -- '+responseData.data[i].id+'</a>';
-                            html += '</h5>';
-                            html += '<span class="price">';
-                            html += '<span class="new">'+responseData.data[i].price+' TND</span>';
-                            html += '</span>';
-                            html += '</div>';
-                            html += '<div class="actions">';
-                            html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
-                            html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                            html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
-                            html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
-                            html += '</div>';
-                            html += '</div>';
-                            html += '</div>';
-                        }
+                                    html += '<div class="tab-content">';
+                                        html += '<div class="tab-pane fade show active" id="shop-grid">';
+                                            html += '<div class="row mb-n-30px">';
 
-                        html += '</div>';
-                        html += '</div>';
-                        html += '</div>';
+                                                for(var i = 0; i < responseData.data.length; i++)
+                                                {
+                                                    html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
+                                                        html += '<!-- Single Prodect -->';
+                                                        html += '<div class="product">';
+
+                                                            html += '<span class="badges">';
+                                                                html += '<span class="dispo">Disponible</span>';
+                                                                html += '</span>';
+
+                                                            html += '<div class="thumb">';
+                                                                html += '<a href="produit_details.php?id_prod=12" class="image">';
+                                                                    html += '<img src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
+                                                                    html += '<img class="hover-image" src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
+                                                                html += '</a>';
+                                                            html += '</div>';
+
+                                                            html += '<div class="content">';
+                                                                html += '<span class="category">';
+                                                                    html += '<img src="https://betatest.expert-gaming.tn//ckfinder/userfiles/images/partenaire/MSI.jpg" alt="MSI" width="130">';
+                                                                html += '</span>';
+                                                                html += '<h5 class="title">';
+                                                                    html += '<a href="#">'+responseData.data[i].name+'</a>';
+                                                                html += '</h5>';
+                                                                html += '<span class="price">';
+                                                                    html += '<span class="new">'+responseData.data[i].price+' TND</span>';
+                                                                html += '</span>';
+                                                            html += '</div>';
+
+                                                            html += '<div class="actions">';
+                                                                html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
+                                                                html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
+                                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
+                                                                html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
+                                                            html += '</div>';
+
+                                                        html += '</div>';
+                                                    html += '</div>';
+                                                }
+
+                                            html += '</div>';
+                                        html += '</div>';
+                                    html += '</div>';
+
+                                html += '</div>';
+                            html += '</div>';                                 
+
+                        //Pagination zone
 
                         $('#product_area').innerHTML = html;
                     }
@@ -456,7 +466,7 @@
 
                     $('#skeleton_area').style.display = 'none';
 
-                }, 3000);
+                }, 1000);
 
             });
         }
@@ -581,9 +591,9 @@
                 }
             }            
 
-            /*var search_query = $('#search_textbox').value;
+            var search_query = $('#search_textbox').value;
 
-            query += '&search_filter='+search_query+'';*/
+            query += '&search_filter='+search_query+'';
 
             return query;
         }
@@ -617,7 +627,7 @@
 
         }
 
-        $('#search_button').onclick = function(){
+        $('#search_textbox').onclick = function(){
 
             var search_query = $('#search_textbox').value;
 

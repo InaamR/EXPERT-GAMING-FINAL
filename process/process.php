@@ -8,7 +8,7 @@ if(isset($_GET["page"]))
 {
 	$data = array();
 
-	$limit = 8;
+	$limit = 6;
 
 	$page = 1;
 
@@ -38,11 +38,11 @@ if(isset($_GET["page"]))
 	{
 		if($where != '')
 		{
-			$where .= ' AND '. $_GET["price_filter"].'AND eg_sous_categorie_id = :scat';
+			$where .= ' AND '. $_GET["price_filter"].' AND eg_sous_categorie_id = :scat';
 		}
 		else
 		{
-			$where .= $_GET["price_filter"].'AND eg_sous_categorie_id = :scat';
+			$where .= $_GET["price_filter"].' AND eg_sous_categorie_id = :scat';
 		}
 
 		$search_query .= '&price_filter='.$_GET["price_filter"];
@@ -91,13 +91,20 @@ if(isset($_GET["page"]))
 	if($where != '')
 	{
 		$where = 'WHERE ' . $where;
+	}else{
+		$where = 'WHERE eg_sous_categorie_id = :scat';
 	}
+	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC");
+	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
+	$PDO_query->execute();
+	$total_data = $PDO_query->rowCount();
+	$PDO_query->closeCursor();
 
 	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC LIMIT ".$start.", ".$limit."");
 	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query->execute();
 	$produit = $PDO_query->fetchAll();
-	$total_data = $PDO_query->rowCount();
+	
 
 	foreach($produit as $row)
 	{
@@ -111,11 +118,15 @@ if(isset($_GET["page"]))
 			'image'		=>	$row["eg_produit_id"]
 		);
 	}
-
+	$PDO_query->closeCursor();
 	$pagination_html = '
-	<ul>
-	';
+	<!--  Pagination Area Start -->
+	<div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
+		<div class="pages">
 
+			<ul>
+	';
+	
 	$total_links = ceil($total_data/$limit);
 
 	$previous_link = '';
@@ -184,7 +195,7 @@ if(isset($_GET["page"]))
 		if($page == $page_array[$count])
 		{
 			$page_link .= '
-				<li class="li"><a class="page-link" href="#">'.$page_array[$count].'</a></li>
+				<li class="li"><a class="page-link active" href="#">'.$page_array[$count].'</a></li>
 			';
 
 			$previous_id = $page_array[$count] - 1;
@@ -206,9 +217,7 @@ if(isset($_GET["page"]))
 			if($next_id > $total_links)
 			{
 				$next_link = '
-					<li class="page-item disabled">
-		        		<a class="page-link" href="#">Next</a>
-		      		</li>
+					<li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
 				';
 			}
 			else
@@ -223,7 +232,7 @@ if(isset($_GET["page"]))
 			if($page_array[$count] == '...')
 			{
 				$page_link .= '
-					<li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
+					<li class="li"><a class="page-link" href="#">...</a>
 				';
 			}
 			else
@@ -239,8 +248,15 @@ if(isset($_GET["page"]))
 
 
 	$pagination_html .= '
-		</ul>
+			</ul>
+
+			</div>
+		</div>
+		<!--  Pagination Area End -->
+
+		</div>
 	';
+				
 
 	$output = array(
 		'data'		=>	$data,
