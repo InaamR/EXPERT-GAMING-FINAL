@@ -104,16 +104,19 @@
                         <!-- Shop Top Area End -->
                         <!-- Shop Bottom Area Start -->
                         <div class="shop-bottom-area">
+
                             <!-- Tab Content Area Start -->
                             <div class="row">
                                 <div class="col">
                                     <div class="tab-content">
                                         <div class="tab-pane fade show active" id="shop-grid">
                                             <div class="row mb-n-30px">
+
                                                 <?php
                                                     $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND()");
                                                     $PDO_query_produit->bindParam(":eg_sous_categorie_id", $_GET['scat']);
                                                     $PDO_query_produit->execute();
+
                                                     while ($produit = $PDO_query_produit->fetch()){
                                                 
                                                         echo '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
@@ -141,9 +144,12 @@
                                                             echo '<span class="arrivage">En arrivage</span>';
                             
                                                         }
+
                                                         echo '</span>';
+
                                                         echo '<div class="thumb">';
                                                         echo '<a href="produit_details.php?id_prod='.$produit['eg_produit_id'].'" class="image">';
+
                                                         $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
                                                         $PDO_query_produit_img->bindParam(":eg_produit_id", $produit['eg_produit_id'], PDO::PARAM_INT);
                                                         $PDO_query_produit_img->execute();
@@ -158,6 +164,7 @@
 
                                                         echo '</a>';
                                                         echo '</div>';
+
                                                         echo '<div class="content">';
                                                         echo '<span class="category">';
                                                         $PDO_query_produit_marque= Bdd::connectBdd()->prepare("SELECT * FROM eg_marque WHERE eg_marque_statut = 1 AND eg_marque_id  = :eg_marque_id");
@@ -171,7 +178,9 @@
                                                         $PDO_query_produit_marque->closeCursor();                                       
                                                         
                                                         echo'</span>';
-                                                        echo '<h5 class="title"><a href="#">';
+
+                                                        echo '<h5 class="title">';
+                                                        echo '<a href="#">';
                                                         $text = wordwrap($produit['eg_produit_nom'], 100, "***", true); // insertion de marqueurs ***
                                                         $tcut = explode("***", $text); // on créé un tableau à partir des marqueurs ***
                                                         $part1 = $tcut[0]; // la partie à mettre en exergue
@@ -183,6 +192,7 @@
                                                         echo $part1;
                                                         echo '</a>';
                                                         echo '</h5>';
+
                                                         echo '<span class="price">';
                                                         if($produit['eg_produit_promo'] <> "0.000"){
                                                         echo '<span class="old">' . round($produit['eg_produit_promo'], 3) . ' TND</span>';
@@ -192,23 +202,24 @@
                                                         }
                                                         echo '</span>';
                                                         echo '</div>';
+
                                                         echo '<div class="actions">';
-                                                        echo '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                                class="pe-7s-shopbag"></i></button>
-                                                            <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                                    class="pe-7s-like"></i></button>
+                                                        echo '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>
+                                                            <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist">
+                                                            <i class="pe-7s-like"></i></button>
                                                             <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                            <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                                    class="pe-7s-refresh-2"></i></button>';
+                                                            <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare">
+                                                            <i class="pe-7s-refresh-2"></i></button>';
                                                         echo '</div>';
                                                         echo '</div>';
                                                         echo '</div>';
-                                                }
-                                                $PDO_query_produit->closeCursor();
+                                                    }
+                                                    $PDO_query_produit->closeCursor();
                                                 ?>
+
                                             </div>
                                         </div>
-                                        <div class="tab-pane fade mb-n-30px" id="shop-list">
+                                        <!--<div class="tab-pane fade mb-n-30px" id="shop-list">
 
                                             <div class="shop-list-wrapper mb-30px">
                                                 <div class="row">                                                    
@@ -254,11 +265,12 @@
                                                 </div>
                                             </div>
 
-                                        </div>
+                                        </div>-->
                                     </div>
                                 </div>
                             </div>
                             <!-- Tab Content Area End -->
+
                             <!--  Pagination Area Start -->
                             <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
                                 <div class="pages">
@@ -274,82 +286,28 @@
                                 </div>
                             </div>
                             <!--  Pagination Area End -->
+
                         </div>
                         <!-- Shop Bottom Area End -->
                     </div>
                     <!-- Sidebar Area Start -->
                     <div class="col-lg-3 order-lg-first col-md-12 order-md-last">
                         <div class="shop-sidebar-wrap">
+                            <div class="sidebar-widget">
+                            <button type="button" name="clear_filter" class="btn btn-warning btn-sm" id="clear_filter">Clear Filter</button>
+                            </div>
                             <!-- Sidebar single item -->
                             <div class="sidebar-widget">
-                                <h4 class="sidebar-title">Top Categories</h4>
+                                <h4 class="sidebar-title">Marque</h4>
                                 <div class="sidebar-widget-category">
-                                    <ul>
-                                        <li><a href="#" class="selected m-0"> All
-                                                <span>(65)</span> </a></li>
-                                        <li><a href="#" class=""> Computer
-                                                <span>(12)</span> </a></li>
-                                        <li><a href="#" class=""> Covid-19
-                                                <span>(22)</span> </a></li>
-                                        <li><a href="#" class=""> Electronics
-                                                <span>(19)</span> </a></li>
-                                        <li><a href="#" class=""> Frame Sunglasses
-                                                <span>(17)</span> </a></li>
-                                        <li><a href="#" class=""> Furniture
-                                                <span>(7)</span> </a></li>
-                                        <li><a href="#" class=""> Genuine Leather
-                                                <span>(9)</span> </a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Sidebar single item -->
-                            <div class="sidebar-widget mt-8">
-                                <h4 class="sidebar-title">Price Filter</h4>
-                                <div class="price-filter">
-                                    <div class="price-slider-amount">
-                                        <input type="text" id="amount" class="p-0 h-auto lh-1" name="price" placeholder="Add Your Price" />
-                                    </div>
-                                    <div id="slider-range"></div>
+                                    <div id="marque_filter" class="mb-2"></div>
                                 </div>
                             </div>
                             <!-- Sidebar single item -->
                             <div class="sidebar-widget">
-                                <h4 class="sidebar-title">Color</h4>
-                                <div class="sidebar-widget-color">
-                                    <ul class="d-flex flex-wrap">
-                                        <li><a href="#" class="color-1"></a></li>
-                                        <li><a href="#" class="color-2"></a></li>
-                                        <li><a href="#" class="color-3"></a></li>
-                                        <li><a href="#" class="color-4"></a></li>
-                                        <li><a href="#" class="color-5"></a></li>
-                                        <li><a href="#" class="color-6"></a></li>
-                                        <li><a href="#" class="color-7"></a></li>
-                                        <li><a href="#" class="color-8"></a></li>
-                                        <li><a href="#" class="color-9"></a></li>
-                                        <li><a href="#" class="color-10"></a></li>
-                                        <li><a href="#" class="color-11"></a></li>
-                                        <li><a href="#" class="color-12"></a></li>
-                                        <li><a href="#" class="color-13"></a></li>
-                                        <li><a href="#" class="color-14"></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!-- Sidebar single item -->
-                            <div class="sidebar-widget">
-                                <h4 class="sidebar-title">Size</h4>
+                                <h4 class="sidebar-title">Prix</h4>
                                 <div class="sidebar-widget-size">
-                                    <ul>
-                                        <li><a href="#" class="selected m-0"> All
-                                                <span>(6)</span> </a></li>
-                                        <li><a href="#" class=""> S <span>(12)</span> </a>
-                                        </li>
-                                        <li><a href="#" class=""> M <span>(21)</span> </a>
-                                        </li>
-                                        <li><a href="#" class=""> L <span>(16)</span> </a>
-                                        </li>
-                                        <li><a href="#" class=""> XL <span>(22)</span> </a>
-                                        </li>
-                                    </ul>
+                                <div id="price_filter" class="mb-2"></div>
                                 </div>
                             </div>
                             <!-- Sidebar single item -->
@@ -577,7 +535,6 @@
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>
     <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
 
     <!-- Minify Version -->
     <!-- <script src="assets/js/vendor.min.js"></script>
@@ -586,6 +543,272 @@
 
     <!--Main JS (Common Activation Codes)-->
     <script src="assets/js/main.js"></script>
+    <script>
+        
+        function $(selector){
+
+            return document.querySelector(selector);
+
+        }
+
+        /*load_product(1);
+        
+        function load_product(page = 1, query = '')
+        {
+            $('#product_area').style.display = 'none';
+
+            $('#skeleton_area').style.display = 'block';
+
+            $('#skeleton_area').innerHTML = make_skeleton();
+
+            fetch('process.php?page='+page+query+'').then(function(response){
+
+                return response.json();
+
+            }).then(function(responseData){
+
+                var html = '';
+
+                if(responseData.data)
+                {
+                    if(responseData.data.length > 0)
+                    {
+                        html += '<p class="h6">'+responseData.total_data+' Products Found</p>';
+
+                        html += '<div class="row">';
+
+                        for(var i = 0; i < responseData.data.length; i++)
+                        {
+                            html += '<div class="col-md-3 mb-2 p-3">';
+
+                            html += '<img src ="'+responseData.data[i].image+'" class="img-fluid border mb-3 p-3" />';
+
+                            html += '<p class="fs-6 text-center">'+responseData.data[i].name+'&nbsp;&nbsp;&nbsp;<span class="badge bg-info text-dark">'+responseData.data[i].brand+'</span><br />';
+
+                            html += '<span class="fw-bold text-danger"><span>&#8377;</span> '+responseData.data[i].price+'</span>';
+
+                            html += '</div>';
+                        }
+
+                        html += '</div>';
+
+                        $('#product_area').innerHTML = html;
+                    }
+                    else
+                    {
+                        $('#product_area').innerHTML = '<p class="h6">No Product Found</p>';
+                    }
+                }
+
+                if(responseData.pagination)
+                {
+                    $('#pagination_area').innerHTML = responseData.pagination;
+                }
+
+                setTimeout(function(){
+
+                    $('#product_area').style.display = 'block';
+
+                    $('#skeleton_area').style.display = 'none';
+
+                }, 3000);
+
+            });
+        }
+
+        function make_skeleton()
+        {
+            var output = '<div class="row">';
+
+            for(var count = 0; count < 8; count++)
+            {
+                output += '<div class="col-md-3 mb-3 p-4">';
+
+                output += '<div class="mb-2 bg-light text-dark" style="height:240px;"></div>';
+
+                output += '<div class="mb-2 bg-light text-dark" style="height:50px;"></div>';
+
+                output += '<div class="mb-2 bg-light text-dark" style="height:25px;"></div>';
+
+                output += '</div>';
+            }
+
+            output += '</div>';
+
+            return output;
+        }*/
+
+        
+        load_filter();
+        function load_filter()
+        {
+            window.$_GET = new URLSearchParams(location.search);
+            var scat = $_GET.get('scat');
+            fetch('process/process.php?action=filter&scat='+scat+'').then(function(response){
+
+                return response.json();
+
+            }).then(function(responseData){
+
+                if(responseData.marque)
+                {
+
+                    if(responseData.marque.length > 0)            
+                    {
+                        var html = '<div class="input-radio-filtre flex">';
+
+                        for(var i = 0; i < responseData.marque.length; i++)
+                        {
+                            html += '<span class="custom-radio"><input type="radio" name="marque_filter" value="'+responseData.marque[i].name+'" class="marque_filter"> '+responseData.marque[i].name+' - ('+responseData.marque[i].total+')</span>';
+                        }
+
+                        html += '</div>';
+                        $('#marque_filter').innerHTML = html;
+
+                        var marque_elements = document.getElementsByClassName('marque_filter');
+
+                        for(var i = 0; i < marque_elements.length; i++)
+                        {
+                            marque_elements[i].onclick = function(){
+
+                                load_product(page = 1, make_query());
+
+                            }
+                        }
+                    }
+
+                }
+                if(responseData.price)
+                {
+                    if(responseData.price.length > 0)
+                    {
+                        var html = '<div class="list-group">';
+
+                        for(var i = 0; i < responseData.price.length; i++)
+                        {
+                            html += '<a href="#" class="list-group-item list-group-item-action price_filter" id="'+responseData.price[i].condition+'">'+responseData.price[i].name+' TND <span class="text-muted">('+responseData.price[i].total+')</a>';
+                        }
+
+                        html += '</div>';
+
+                        $('#price_filter').innerHTML = html;
+
+                        var price_elements = document.getElementsByClassName('price_filter');
+
+                        for(var i = 0; i < price_elements.length; i++)
+                        {
+                            price_elements[i].onclick = function()
+                            {
+                                remove_active_class(price_elements);
+
+                                this.classList.add('active');
+
+                                load_product(page = 1, make_query());
+                            }
+                        }
+                    }
+                }
+
+            });
+        }
+
+        function make_query()
+        {
+            var query = '';
+
+            var marque_elements = document.getElementsByClassName('marque_filter');
+
+            for(var i = 0; i < marque_elements.length; i++)
+            {
+                if(marque_elements[i].checked)
+                {
+                    query += '&marque_filter='+marque_elements[i].value+'';
+                }
+            }
+
+            var price_elements = document.getElementsByClassName('price_filter');
+
+            for(var i = 0; i < price_elements.length; i++)
+            {
+                if(price_elements[i].matches('.active'))
+                {
+                    query += '&price_filter='+price_elements[i].getAttribute('id')+'';
+                }
+            }
+
+            var brand_elements = document.getElementsByClassName('brand_filter');
+
+            var brandlist = '';
+
+            for(var i = 0; i < brand_elements.length; i++)
+            {
+                if(brand_elements[i].checked)
+                {
+                    brandlist += brand_elements[i].value +',';
+                }
+            }
+
+            if(brandlist != '')
+            {
+                query += '&brand_filter='+brandlist+'';
+            }
+
+            var search_query = $('#search_textbox').value;
+
+            query += '&search_filter='+search_query+'';
+
+            return query;
+        }
+
+        function remove_active_class(element)
+        {
+            for(var i = 0; i < element.length; i++)
+            {
+                if(element[i].matches('.active'))
+                {
+                    element[i].classList.remove("active");
+                }
+            }
+        }
+
+        $('#clear_filter').onclick = function(){
+
+            var gender_elements = document.getElementsByClassName('gender_filter');
+
+            for(var count = 0; count < gender_elements.length; count++)
+            {
+                gender_elements[count].checked = false;
+            }
+
+            var price_elements = document.getElementsByClassName('price_filter');
+
+            remove_active_class(price_elements);
+
+            var brand_elements = document.getElementsByClassName('brand_filter');
+
+            for(var count = 0; count < brand_elements.length; count++)
+            {
+                brand_elements[count].checked = false;
+            }
+
+            $('#search_textbox').value = '';
+
+            load_product(1, '');
+
+        }
+
+        $('#search_button').onclick = function(){
+
+            var search_query = $('#search_textbox').value;
+
+            if(search_query != '')
+            {
+                load_product(page = 1, make_query());
+            }
+
+        }
+
+    </script>
 </body>
 
 </html>

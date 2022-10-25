@@ -1942,10 +1942,10 @@ body.offcanvas-open {
   border-width: 2px;
   border-color: white;
   border-style: solid;
-  border-radius: 18px;
-  width: 215px;
-  height: 61px;
-  background-color: transparent;
+  border-radius: 5px;
+  width: 100%;
+  height: 45px;
+  /*background-color: transparent;*/
 }
 .btn:focus {
   -webkit-box-shadow: none;
@@ -8723,14 +8723,30 @@ Pages - My Account
   color: #f7bb11;
   font-weight: 600;
 }
-
+.flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+.input-radio-filtre span {
+  color: #8a8a8a;
+  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
+  font-weight: 300;
+  line-height: 1;
+}
 .input-radio span {
-  font-weight: 600;
+  font-weight: normal;
   padding-right: 10px;
+  font-size: 14px;
 }
 
 .input-radio span input[type=radio],
-.account_login_form form span input[type=checkbox] {
+.account_login_form form span input[type=checkbox],
+.input-radio-filtre span input[type=radio] {
   width: 15px;
   height: 15px;
   margin-right: 2px;
