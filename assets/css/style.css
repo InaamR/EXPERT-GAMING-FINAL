@@ -6475,7 +6475,7 @@ margin-bottom: 20px;
 }
 
 .header-bottom-set {
-  width: 70%;
+  width: 50%;
 }
 .header-bottom-set .dropdown-toggle {
   display: -webkit-box;
@@ -6516,7 +6516,7 @@ margin-bottom: 20px;
           box-shadow: 0 3px 25.5px 4.5px rgba(0, 0, 0, 0.06);
   -webkit-transform: translate3d(0, 0, 0) !important;
           transform: translate3d(0, 0, 0) !important;
-  inset: 40px 0 auto -45px !important;
+  inset: 40px 0 auto -85px !important;
 }
 @media only screen and (min-width: 768px) and (max-width: 991px) {
   .header-bottom-set .dropdown-menu {

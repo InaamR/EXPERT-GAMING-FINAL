@@ -29,7 +29,7 @@ if(isset($_GET["page"]))
 
 	if(isset($_GET["marque_filter"]))
 	{
-		$where .= ' eg_marque_id = "'.trim($_GET["marque_filter"]).'" AND eg_sous_categorie_id = :scat';
+		$where .= ' AND eg_marque_id = "'.trim($_GET["marque_filter"]).'"';
 
 		$search_query .= '&marque_filter='.trim($_GET["marque_filter"]);
 	}
@@ -38,15 +38,17 @@ if(isset($_GET["page"]))
 	{
 		if($where != '')
 		{
-			$where .= ' AND '. $_GET["price_filter"].' AND eg_sous_categorie_id = :scat';
+			$where .= ' AND '. $_GET["price_filter"].'';
 		}
 		else
 		{
-			$where .= $_GET["price_filter"].' AND eg_sous_categorie_id = :scat';
+			$where .= ' AND '. $_GET["price_filter"].'';
 		}
 
 		$search_query .= '&price_filter='.$_GET["price_filter"];
 	}
+
+	
 
 	/*if(isset($_GET["brand_filter"]))
 	{
@@ -79,29 +81,42 @@ if(isset($_GET["page"]))
 
 		if($where != '')
 		{
-			$where .= ' AND ( eg_produit_nom LIKE "%'.$search_string.'%" ) AND eg_sous_categorie_id = :scat';
+			$where .= ' AND ( eg_produit_nom LIKE "%'.$search_string.'%" )';
 		}
 		else
 		{
-			$where .= 'eg_produit_nom LIKE "%'.$search_string.'%" AND eg_sous_categorie_id = :scat';
+			$where .= 'AND eg_produit_nom LIKE "%'.$search_string.'%"';
 		}
 		$search_query .= '&search_filter='.$_GET["search_filter"].'';
 	}
 
+	if(isset($_GET["ordre_filter"]))
+	{
+		if($where != '')
+		{
+			$where .= ' ORDER BY '. $_GET["ordre_filter"].'';
+		}
+		else
+		{
+			$where .= ' ORDER BY '. $_GET["ordre_filter"].'';
+		}
+
+		$search_query .= '&ordre_filter='.$_GET["ordre_filter"];
+	}
+
 	if($where != '')
 	{
-		$where = 'WHERE ' . $where;
+		$where = 'WHERE eg_sous_categorie_id = :scat ' . $where;
 	}else{
 		$where = 'WHERE eg_sous_categorie_id = :scat';
 	}
-
-	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC");
+	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where."");
 	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query->execute();
 	$total_data = $PDO_query->rowCount();
 	$PDO_query->closeCursor();
 
-	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC LIMIT ".$start.", ".$limit."");
+	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." LIMIT ".$start.", ".$limit."");
 	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query->execute();
 	$produit = $PDO_query->fetchAll();
@@ -347,11 +362,11 @@ if(isset($_GET["action"]))
 	$PDO_query_filtre->closeCursor();
 
 	$price_range = array(
-		'eg_produit_prix < 500'					=>	'Moin de 500',
+		'eg_produit_prix < 500' =>	'Moin de 500',
 		'eg_produit_prix > 500 && eg_produit_prix < 1500'	=>	'500 - 1500',
 		'eg_produit_prix > 1500 && eg_produit_prix < 3000'	=>	'1500 - 3000',
-		'eg_produit_prix > 3000 && eg_produit_prix < 6000'=>	'3000 - 6000',
-		'eg_produit_prix > 6000'					=>	'Plus de 6000'
+		'eg_produit_prix > 3000 && eg_produit_prix < 6000'=> '3000 - 6000',
+		'eg_produit_prix > 6000' =>	'Plus de 6000'
 	);
 
 	foreach($price_range as $key => $value)
@@ -370,8 +385,29 @@ if(isset($_GET["action"]))
 			$sub_data['condition'] = $key;
 		}
 		$data['price'][] = $sub_data;
+		$PDO_query_filtre->closeCursor();
 	}
-	$PDO_query_filtre->closeCursor();
+
+	$ordre_range = array(
+		'eg_produit_nom ASC' => 'Nom, A à Z',
+		'eg_produit_nom DESC' => 'Nom, Z à A',
+		'eg_produit_prix ASC' => 'Prix ​​croissant',
+		'eg_produit_prix DESC' => 'Prix décroissant',
+		'eg_produit_id ASC' => 'Trier par nouveau',
+		'eg_produit_id DESC' => 'Trier par ancien'
+	);
+
+	foreach($ordre_range as $key => $value)
+	{
+		
+		
+		$sub_data = array();
+		$sub_data['name'] = $value;
+		$sub_data['condition'] = $key;
+		
+		$data['ordre'][] = $sub_data;
+	}
+	
 
 	/*$query = "
 	SELECT brand, COUNT(sample_id) AS Total 

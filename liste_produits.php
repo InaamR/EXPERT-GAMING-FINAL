@@ -70,7 +70,34 @@
                 <div class="row">
                     
                     <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
-                    
+                        <div class="shop-top-bar d-flex">
+
+                            <p class="compare-product"> <span id="total_prod"></span> Produits trouvés</p>
+
+                            <!-- Left Side End -->
+                            <div class="shop-tab nav">
+                                <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">
+                                    <i class="fa fa-th" aria-hidden="true"></i>
+                                </button>
+                                <button data-bs-target="#shop-list" data-bs-toggle="tab">
+                                    <i class="fa fa-list" aria-hidden="true"></i>
+                                </button>
+                            </div>
+
+                            <!-- Right Side Start -->
+                            <div class="select-shoing-wrap d-flex align-items-center">
+                                <div class="shot-product">
+                                    <p>Ordre Par :</p>
+                                </div>
+                                <!-- Single Wedge End -->
+                                <div class="header-bottom-set dropdown">
+                                    <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown"><span id="affiche_ordre">Par default</span> <i class="fa fa-angle-down"></i></button>
+                                    <ul class="dropdown-menu dropdown-menu-right" id="ordre_filter"></ul>
+                                </div>
+                                <!-- Single Wedge Start -->
+                            </div>
+                        <!-- Right Side End -->
+                        </div>
                         <div id="product_area"></div>
                         <div id="skeleton_area"></div>
                         <div id="pagination_area"></div>
@@ -85,7 +112,7 @@
                             </div>
                             <div class="sidebar-widget">
                                 <div class="sidebar-widget-category">
-                                    <input type="text" class="form-control" id="search_textbox" placeholder="Recherche" aria-label="Search Product" aria-describedby="search_button"  onkeypress="pressEnter(event);"/>
+                                    <input type="text" class="form-control" id="search_textbox" placeholder="Rechercher ..." aria-label="Search Product" aria-describedby="search_button"  onkeypress="pressEnter(event);"/>
                                 </div>
                             </div>
                             
@@ -337,9 +364,9 @@
             return document.querySelector(selector);
 
         }
-
         load_product(1);
         
+
         function load_product(page = 1, query = '')
         {
             window.$_GET = new URLSearchParams(location.search);
@@ -361,43 +388,8 @@
                 if(responseData.data)
                 {
                     if(responseData.data.length > 0)
-                    {
-                        html += '<div class="shop-top-bar d-flex">';
-
-                            html += '<p class="compare-product"> <span>'+responseData.total_data+'</span> Produits trouvés</p>';
-
-                            html += '<!-- Left Side End -->';
-                            html += '<div class="shop-tab nav">';
-                                html += '<button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">';
-                                    html += '<i class="fa fa-th" aria-hidden="true"></i>';
-                                html += '</button>';
-                                html += '<button data-bs-target="#shop-list" data-bs-toggle="tab">';
-                                     html += '<i class="fa fa-list" aria-hidden="true"></i>';
-                                html += '</button>';
-                            html += '</div>';
-
-                            html += '<!-- Right Side Start -->';
-                            html += '<div class="select-shoing-wrap d-flex align-items-center">';
-                                html += '<div class="shot-product">';
-                                    html += '<p>Sort By:</p>';
-                                html += '</div>';
-                                html += '<!-- Single Wedge End -->';
-                                html += '<div class="header-bottom-set dropdown">';
-                                    html += '<button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>';
-                                    html += '<ul class="dropdown-menu dropdown-menu-right">';
-                                        html += '<li><a class="dropdown-item" href="#">Name, A to Z</a></li>';
-                                        html += '<li><a class="dropdown-item" href="#">Name, Z to A</a></li>';
-                                        html += '<li><a class="dropdown-item" href="#">Price, low to high</a></li>';
-                                        html += '<li><a class="dropdown-item" href="#">Price, high to low</a></li>';
-                                        html += '<li><a class="dropdown-item" href="#">Sort By new</a></li>';
-                                        html += '<li><a class="dropdown-item" href="#">Sort By old</a></li>';
-                                    html += '</ul>';
-                                html += '</div>';
-                                html += '<!-- Single Wedge Start -->';
-                            html += '</div>';
-                            html += '<!-- Right Side End -->';
-                        html += '</div>';
-
+                    {                        
+                        $('#total_prod').textContent = responseData.total_data;
                         html += '<div class="shop-bottom-area">';
                             html += '<!-- Tab Content Area Start -->';
                             html += '<div class="row">';
@@ -501,6 +493,7 @@
                         //Pagination zone
 
                         $('#product_area').innerHTML = html;
+                        
                     }
                     else
                     {
@@ -520,6 +513,7 @@
                     $('#skeleton_area').style.display = 'none';
 
                 }, 1000);
+                
 
             });
         }
@@ -580,6 +574,7 @@
                             marque_elements[i].onclick = function(){
 
                                 load_product(page = 1, make_query());
+                                $('html, body').animate({scrollTop: '0px'}, 1000); 
 
                             }
                         }
@@ -594,7 +589,7 @@
 
                         for(var i = 0; i < responseData.price.length; i++)
                         {
-                            html += '<a href="#" class="list-group-item list-group-item-action price_filter" id="'+responseData.price[i].condition+'">'+responseData.price[i].name+' TND <span class="text-muted">('+responseData.price[i].total+')</a>';
+                            html += '<a href="#" class="list-group-item list-group-item-action price_filter" id="'+responseData.price[i].condition+'">'+responseData.price[i].name+' TND <span class="text-muted">('+responseData.price[i].total+')</span></a>';
                         }
 
                         html += '</div>';
@@ -612,6 +607,37 @@
                                 this.classList.add('active');
 
                                 load_product(page = 1, make_query());
+                                $('html, body').animate({scrollTop: '0px'}, 1000); 
+                            }
+                        }
+                    }
+                }
+                if(responseData.ordre)
+                {
+                    if(responseData.ordre.length > 0)
+                    {
+                        var html = '';
+
+                        for(var i = 0; i < responseData.ordre.length; i++)
+                        {
+                            html += '<li><a class="dropdown-item ordre_filter" href="#" id="'+responseData.ordre[i].condition+'">'+responseData.ordre[i].name+'</a></li>';
+                        }
+
+
+                        $('#ordre_filter').innerHTML = html;
+
+                        var ordre_elements = document.getElementsByClassName('ordre_filter');
+
+                        for(var i = 0; i < ordre_elements.length; i++)
+                        {
+                            ordre_elements[i].onclick = function()
+                            {
+                                remove_active_class(ordre_elements);
+
+                                this.classList.add('active_ordre');
+                                $('#affiche_ordre').innerHTML = $('.active_ordre').textContent;
+                                load_product(page = 1, make_query());
+                                $('html, body').animate({scrollTop: '0px'}, 1000); 
                             }
                         }
                     }
@@ -642,7 +668,17 @@
                 {
                     query += '&price_filter='+price_elements[i].getAttribute('id')+'';
                 }
-            }            
+            }  
+            
+            var ordre_elements = document.getElementsByClassName('ordre_filter');
+
+            for(var i = 0; i < ordre_elements.length; i++)
+            {
+                if(ordre_elements[i].matches('.active_ordre'))
+                {
+                    query += '&ordre_filter='+ordre_elements[i].getAttribute('id')+'';
+                }
+            } 
 
             var search_query = $('#search_textbox').value;
 
@@ -658,6 +694,10 @@
                 if(element[i].matches('.active'))
                 {
                     element[i].classList.remove("active");
+                }
+                if(element[i].matches('.active_ordre'))
+                {
+                    element[i].classList.remove("active_ordre");
                 }
             }
         }
@@ -677,21 +717,28 @@
             $('#search_textbox').value = '';
 
             load_product(1, '');
+            $('html, body').animate({scrollTop: '0px'}, 1000); 
 
         }
 
         function pressEnter(event) {
-                var code=event.which || event.keyCode; //Selon le navigateur c'est which ou keyCode
-                if (code==13) { //le code de la touche Enter
+            var code=event.which || event.keyCode; //Selon le navigateur c'est which ou keyCode
+            if (code==13) { //le code de la touche Enter
 
                 var search_query = $('#search_textbox').value;
 
                 if(search_query != '')
                 {
                     load_product(page = 1, make_query());
+                    $('html, body').animate({scrollTop: '0px'}, 1000); 
                 }
             }
-        }      
+        } 
+            $('.page-link').onclick = function()
+            {
+                $('html, body').animate({scrollTop: '0px'}, 1000); 
+            } 
+            
 
     </script>
 </body>
