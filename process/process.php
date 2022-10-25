@@ -4,7 +4,7 @@ session_start();
 include("../config/fonction.php");
 
 
-/*if(isset($_GET["page"]))
+if(isset($_GET["page"]))
 {
 	$data = array();
 
@@ -27,28 +27,28 @@ include("../config/fonction.php");
 
 	$search_query = '';
 
-	if(isset($_GET["gender_filter"]))
+	if(isset($_GET["marque_filter"]))
 	{
-		$where .= ' gender = "'.trim($_GET["gender_filter"]).'" ';
+		$where .= ' eg_marque_id = "'.trim($_GET["marque_filter"]).'" AND eg_sous_categorie_id = :scat';
 
-		$search_query .= '&gender_filter='.trim($_GET["gender_filter"]);
+		$search_query .= '&marque_filter='.trim($_GET["marque_filter"]);
 	}
 
 	if(isset($_GET["price_filter"]))
 	{
 		if($where != '')
 		{
-			$where .= ' AND '. $_GET["price_filter"];
+			$where .= ' AND '. $_GET["price_filter"].'AND eg_sous_categorie_id = :scat';
 		}
 		else
 		{
-			$where .= $_GET["price_filter"];
+			$where .= $_GET["price_filter"].'AND eg_sous_categorie_id = :scat';
 		}
 
 		$search_query .= '&price_filter='.$_GET["price_filter"];
 	}
 
-	if(isset($_GET["brand_filter"]))
+	/*if(isset($_GET["brand_filter"]))
 	{
 		$brand_array = explode(",", $_GET["brand_filter"]);
 
@@ -71,7 +71,7 @@ include("../config/fonction.php");
 		}
 
 		$search_query .= '&brand_filter='.$_GET["brand_filter"];
-	}
+	}*/
 
 	if(isset($_GET["search_filter"]))
 	{
@@ -79,11 +79,11 @@ include("../config/fonction.php");
 
 		if($where != '')
 		{
-			$where .= ' AND ( name LIKE "%'.$search_string.'%" ) ';
+			$where .= ' AND ( eg_produit_nom LIKE "%'.$search_string.'%" ) AND eg_sous_categorie_id = :scat';
 		}
 		else
 		{
-			$where .= 'name LIKE "%'.$search_string.'%" ';
+			$where .= 'eg_produit_nom LIKE "%'.$search_string.'%" AND eg_sous_categorie_id = :scat';
 		}
 		$search_query .= '&search_filter='.$_GET["search_filter"].'';
 	}
@@ -93,38 +93,27 @@ include("../config/fonction.php");
 		$where = 'WHERE ' . $where;
 	}
 
-	$query = "
-	SELECT name, price, images, brand 
-	FROM sample_data 
-	".$where."
-	ORDER BY sample_id ASC
-	";
+	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where." ORDER BY eg_produit_id ASC LIMIT ".$start.", ".$limit."");
+	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
+	$PDO_query->execute();
+	$produit = $PDO_query->fetchAll();
+	$total_data = $PDO_query->rowCount();
 
-	$filter_query = $query . ' LIMIT ' . $start . ', ' . $limit . '';
-
-	$statement = $connect->prepare($query);
-
-	$statement->execute();
-
-	$total_data = $statement->rowCount();
-
-	$result = $connect->query($filter_query);
-
-	foreach($result as $row)
+	foreach($produit as $row)
 	{
-		$image_array = explode(" ~ ", $row["images"]);
+		//$image_array = explode(" ~ ", $row["eg_produit_id"]);
+		//$image_array[0]
 
 		$data[] = array(
-			'name'		=>	$row['name'],
-			'price'		=>	$row['price'],
-			'brand'		=>	$row['brand'],
-			'image'		=>	$image_array[0]
+			'name'		=>	$row['eg_produit_nom'],
+			'price'		=>	$row['eg_produit_prix'],
+			'brand'		=>	$row['eg_marque_id'],
+			'image'		=>	$row["eg_produit_id"]
 		);
 	}
 
 	$pagination_html = '
-	<nav aria-label="Page navigation example">
-  		<ul class="pagination justify-content-center">
+	<ul>
 	';
 
 	$total_links = ceil($total_data/$limit);
@@ -195,23 +184,20 @@ include("../config/fonction.php");
 		if($page == $page_array[$count])
 		{
 			$page_link .= '
-				<li class="page-item active">
-		      		<a class="page-link" href="#">'.$page_array[$count].'</a>
-		    	</li>
+				<li class="li"><a class="page-link" href="#">'.$page_array[$count].'</a></li>
 			';
 
 			$previous_id = $page_array[$count] - 1;
 
 			if($previous_id > 0)
 			{
-				$previous_link = '<li class="page-item"><a class="page-link" href="javascript:load_product('.$previous_id.', `'.$search_query.'`)">Previous</a></li>';
+				
+				$previous_link = '<li class="li"><a class="page-link"  href="javascript:load_product('.$previous_id.', `'.$search_query.'`)"><i class="fa fa-angle-left"></i></a></li>';
 			}
 			else
 			{
 				$previous_link = '
-					<li class="page-item disabled">
-				        <a class="page-link" href="#">Previous</a>
-				    </li>
+				<li class="li"><a class="page-link"  href="#"><i class="fa fa-angle-left"></i></a></li>
 				';
 			}
 
@@ -228,7 +214,7 @@ include("../config/fonction.php");
 			else
 			{
 				$next_link = '
-				<li class="page-item"><a class="page-link" href="javascript:load_product('.$next_id.', `'.$search_query.'`)">Next</a></li>
+				<li class="li"><a class="page-link" href="javascript:load_product('.$next_id.', `'.$search_query.'`)"><i class="fa fa-angle-right"></i></a>
 				';
 			}
 		}
@@ -237,17 +223,13 @@ include("../config/fonction.php");
 			if($page_array[$count] == '...')
 			{
 				$page_link .= '
-					<li class="page-item disabled">
-		          		<a class="page-link" href="#">...</a>
-		      		</li>
+					<li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
 				';
 			}
 			else
 			{
 				$page_link .= '
-					<li class="page-item">
-						<a class="page-link" href="javascript:load_product('.$page_array[$count].', `'.$search_query.'`)">'.$page_array[$count].'</a>
-					</li>
+					<li class="li"><a class="page-link" href="javascript:load_product('.$page_array[$count].', `'.$search_query.'`)">'.$page_array[$count].'</a></li>
 				';
 			}
 		}
@@ -258,7 +240,6 @@ include("../config/fonction.php");
 
 	$pagination_html .= '
 		</ul>
-	</nav>
 	';
 
 	$output = array(
@@ -268,13 +249,13 @@ include("../config/fonction.php");
 	);
 
 	echo json_encode($output);
-}*/
+}
 
 if(isset($_GET["action"]))
 {
 	$data = array();
 
-	$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT eg_marque.eg_marque_nom, COUNT(eg_produit.eg_produit_id) FROM eg_produit INNER JOIN eg_marque ON eg_produit.eg_marque_id = eg_marque.eg_marque_id WHERE eg_produit.eg_sous_categorie_id = :scat GROUP BY eg_marque.eg_marque_nom");
+	$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT eg_marque.eg_marque_nom, COUNT(eg_produit.eg_produit_id), eg_produit.eg_marque_id FROM eg_produit INNER JOIN eg_marque ON eg_produit.eg_marque_id = eg_marque.eg_marque_id WHERE eg_produit.eg_sous_categorie_id = :scat GROUP BY eg_marque.eg_marque_nom");
 	$PDO_query_filtre->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query_filtre->execute();
 	$marque_filtre = $PDO_query_filtre->fetchAll();
@@ -283,6 +264,7 @@ if(isset($_GET["action"]))
 		$sub_data = array();
 		$sub_data['name'] = $row[0];
 		$sub_data['total'] = $row[1];
+		$sub_data['id'] = $row[2];
 		$data['marque'][] = $sub_data;
 	}
 	$PDO_query_filtre->closeCursor();
@@ -313,6 +295,7 @@ if(isset($_GET["action"]))
 		$data['price'][] = $sub_data;
 	}
 	$PDO_query_filtre->closeCursor();
+
 	/*$query = "
 	SELECT brand, COUNT(sample_id) AS Total 
 	FROM sample_data 

@@ -68,227 +68,9 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-9 order-lg-last col-md-12 order-md-first">
-                        <!-- Shop Top Area Start -->
-                        <div class="shop-top-bar d-flex">
-                            <p class="compare-product"> <span>12</span> Product Found of <span>30</span></p>
-                            <!-- Left Side End -->
-                            <div class="shop-tab nav">
-                                <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">
-                                    <i class="fa fa-th" aria-hidden="true"></i>
-                                </button>
-                                <button data-bs-target="#shop-list" data-bs-toggle="tab">
-                                    <i class="fa fa-list" aria-hidden="true"></i>
-                                </button>
-                            </div>
-                            <!-- Right Side Start -->
-                            <div class="select-shoing-wrap d-flex align-items-center">
-                                <div class="shot-product">
-                                    <p>Sort By:</p>
-                                </div>
-                                <!-- Single Wedge End -->
-                                <div class="header-bottom-set dropdown">
-                                    <button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>
-                                    <ul class="dropdown-menu dropdown-menu-right">
-                                        <li><a class="dropdown-item" href="#">Name, A to Z</a></li>
-                                        <li><a class="dropdown-item" href="#">Name, Z to A</a></li>
-                                        <li><a class="dropdown-item" href="#">Price, low to high</a></li>
-                                        <li><a class="dropdown-item" href="#">Price, high to low</a></li>
-                                        <li><a class="dropdown-item" href="#">Sort By new</a></li>
-                                        <li><a class="dropdown-item" href="#">Sort By old</a></li>
-                                    </ul>
-                                </div>
-                                <!-- Single Wedge Start -->
-                            </div>
-                            <!-- Right Side End -->
-                        </div>
-                        <!-- Shop Top Area End -->
-                        <!-- Shop Bottom Area Start -->
-                        <div class="shop-bottom-area">
-
-                            <!-- Tab Content Area Start -->
-                            <div class="row">
-                                <div class="col">
-                                    <div class="tab-content">
-                                        <div class="tab-pane fade show active" id="shop-grid">
-                                            <div class="row mb-n-30px">
-
-                                                <?php
-                                                    $PDO_query_produit = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_sous_categorie_id = :eg_sous_categorie_id ORDER BY RAND()");
-                                                    $PDO_query_produit->bindParam(":eg_sous_categorie_id", $_GET['scat']);
-                                                    $PDO_query_produit->execute();
-
-                                                    while ($produit = $PDO_query_produit->fetch()){
-                                                
-                                                        echo '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
-                                                        echo '<!-- Single Prodect -->';
-                                                        echo '<div class="product">';
-                                                        echo '<span class="badges">';
-                                                        if($produit['eg_produit_dispo'] == 0){
-
-                                                            echo '<span class="hs">Hors stock</span>';
-                            
-                                                        }elseif($produit['eg_produit_dispo'] == 1){
-                            
-                                                            echo '<span class="dispo">Disponible</span>';
-                            
-                                                        }elseif($produit['eg_produit_dispo'] == 2){
-                            
-                                                            echo '<span class="commande">Sur commande 48H</span>';
-                            
-                                                        }elseif($produit['eg_produit_dispo'] == 3){
-                            
-                                                            echo '<span class="commande">Sur commande</span>';
-                            
-                                                        }elseif($produit['eg_produit_dispo'] == 4){
-                            
-                                                            echo '<span class="arrivage">En arrivage</span>';
-                            
-                                                        }
-
-                                                        echo '</span>';
-
-                                                        echo '<div class="thumb">';
-                                                        echo '<a href="produit_details.php?id_prod='.$produit['eg_produit_id'].'" class="image">';
-
-                                                        $PDO_query_produit_img = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id LIMIT 1");
-                                                        $PDO_query_produit_img->bindParam(":eg_produit_id", $produit['eg_produit_id'], PDO::PARAM_INT);
-                                                        $PDO_query_produit_img->execute();
-                                                        while ($produit_image = $PDO_query_produit_img->fetch()){
-
-                                                            echo '<img src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '"  loading="lazy"/>';
-                                                            echo '<img class="hover-image" src="https://betatest.expert-gaming.tn' . $produit_image['eg_image_produit_nom'] . '" alt="' . $produit_image['eg_image_produit_title'] . '"  loading="lazy"/>';
-
-                                                        }
-                                                        $PDO_query_produit_img->closeCursor();
-                                                        
-
-                                                        echo '</a>';
-                                                        echo '</div>';
-
-                                                        echo '<div class="content">';
-                                                        echo '<span class="category">';
-                                                        $PDO_query_produit_marque= Bdd::connectBdd()->prepare("SELECT * FROM eg_marque WHERE eg_marque_statut = 1 AND eg_marque_id  = :eg_marque_id");
-                                                        $PDO_query_produit_marque->bindParam(":eg_marque_id", $produit['eg_marque_id'], PDO::PARAM_INT);
-                                                        $PDO_query_produit_marque->execute();
-                                                        $produit_promo_image_marque = $PDO_query_produit_marque->fetch();
-                                                                echo '
-                                                                <img src="https://betatest.expert-gaming.tn/' . $produit_promo_image_marque['eg_marque_logo'] . '" alt="' . $produit_promo_image_marque['eg_marque_nom'] . '" width="130">
-                                                                ';                                      
-
-                                                        $PDO_query_produit_marque->closeCursor();                                       
-                                                        
-                                                        echo'</span>';
-
-                                                        echo '<h5 class="title">';
-                                                        echo '<a href="#">';
-                                                        $text = wordwrap($produit['eg_produit_nom'], 100, "***", true); // insertion de marqueurs ***
-                                                        $tcut = explode("***", $text); // on créé un tableau à partir des marqueurs ***
-                                                        $part1 = $tcut[0]; // la partie à mettre en exergue
-                                                        $part2 = '';
-                                                        for($i=1; $i<count($tcut); $i++) {
-                                                            $part2 .= $tcut[$i].' ';
-                                                        }
-                                                        $part2 = trim($part2); //suppression du dernier espace dans la partie de texte restante
-                                                        echo $part1;
-                                                        echo '</a>';
-                                                        echo '</h5>';
-
-                                                        echo '<span class="price">';
-                                                        if($produit['eg_produit_promo'] <> "0.000"){
-                                                        echo '<span class="old">' . round($produit['eg_produit_promo'], 3) . ' TND</span>';
-                                                        echo '<span class="new text-danger"> ' . round($produit['eg_produit_prix'], 3) . 'TND</span>';
-                                                        }else{
-                                                        echo '<span class="new">' . round($produit['eg_produit_prix'], 3) . 'TND</span>';
-                                                        }
-                                                        echo '</span>';
-                                                        echo '</div>';
-
-                                                        echo '<div class="actions">';
-                                                        echo '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>
-                                                            <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist">
-                                                            <i class="pe-7s-like"></i></button>
-                                                            <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                            <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare">
-                                                            <i class="pe-7s-refresh-2"></i></button>';
-                                                        echo '</div>';
-                                                        echo '</div>';
-                                                        echo '</div>';
-                                                    }
-                                                    $PDO_query_produit->closeCursor();
-                                                ?>
-
-                                            </div>
-                                        </div>
-                                        <!--<div class="tab-pane fade mb-n-30px" id="shop-list">
-
-                                            <div class="shop-list-wrapper mb-30px">
-                                                <div class="row">                                                    
-                                                    <div class="col-md-5 col-lg-5 col-xl-4 mb-lm-30px">
-                                                        <div class="product">
-                                                            <div class="thumb">
-                                                                <a href="single-product.html" class="image">
-                                                                    <img src="assets/images/product-image/1.webp" alt="Product" />
-                                                                    <img class="hover-image" src="assets/images/product-image/1.webp" alt="Product" />
-                                                                </a>
-                                                                <span class="badges">
-                                                                <span class="new">New</span>
-                                                                </span>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-7 col-lg-7 col-xl-8">
-                                                        <div class="content-desc-wrap">
-                                                            <div class="content">
-                                                                <span class="category"><a href="#">Accessories</a></span>
-                                                                <h5 class="title"><a href="single-product.html">Modern Smart Phone</a></h5>
-                                                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-                                                                    sed do eiusmodol tempor incididunt ut labore et dolore
-                                                                    magna aliqua. Ut enim ad minim veni quis nostrud
-                                                                    exercitation ullamco laboris </p>
-                                                            </div>
-                                                            <div class="box-inner">
-                                                                <span class="price">
-                                                                <span class="new">$38.50</span>
-                                                                </span>
-                                                                <div class="actions">
-                                                                    <button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i
-                                                                        class="pe-7s-shopbag"></i></button>
-                                                                    <button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i
-                                                                            class="pe-7s-like"></i></button>
-                                                                    <button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>
-                                                                    <button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i
-                                                                            class="pe-7s-refresh-2"></i></button>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-                                        </div>-->
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Tab Content Area End -->
-
-                            <!--  Pagination Area Start -->
-                            <div class="pro-pagination-style text-center text-lg-end" data-aos="fade-up" data-aos-delay="200">
-                                <div class="pages">
-                                    <ul>
-                                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-left"></i></a>
-                                        </li>
-                                        <li class="li"><a class="page-link" href="#">1</a></li>
-                                        <li class="li"><a class="page-link active" href="#">2</a></li>
-                                        <li class="li"><a class="page-link" href="#">3</a></li>
-                                        <li class="li"><a class="page-link" href="#"><i class="fa fa-angle-right"></i></a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <!--  Pagination Area End -->
-
-                        </div>
-                        <!-- Shop Bottom Area End -->
+                        <div id="product_area"></div>
+                        <div id="skeleton_area"></div>
+                        <div id="pagination_area" class="mt-2 mb-5" ></div>
                     </div>
                     <!-- Sidebar Area Start -->
                     <div class="col-lg-3 order-lg-first col-md-12 order-md-last">
@@ -551,17 +333,19 @@
 
         }
 
-        /*load_product(1);
+        load_product(1);
         
         function load_product(page = 1, query = '')
         {
+            window.$_GET = new URLSearchParams(location.search);
+            var scat = $_GET.get('scat');
             $('#product_area').style.display = 'none';
 
             $('#skeleton_area').style.display = 'block';
 
             $('#skeleton_area').innerHTML = make_skeleton();
 
-            fetch('process.php?page='+page+query+'').then(function(response){
+            fetch('process/process.php?page='+page+query+'&scat='+scat+'').then(function(response){
 
                 return response.json();
 
@@ -573,23 +357,84 @@
                 {
                     if(responseData.data.length > 0)
                     {
-                        html += '<p class="h6">'+responseData.total_data+' Products Found</p>';
+                        html += '<div class="shop-top-bar d-flex">';
+                        html += '<p class="compare-product"> <span>'+responseData.total_data+'</span> Produits trouvés</p>';
+                        html += '<!-- Left Side End -->';
+                        html += '<div class="shop-tab nav">';
+                        html += '<button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">';
+                        html += '<i class="fa fa-th" aria-hidden="true"></i>';
+                        html += '</button>';
+                        html += '<button data-bs-target="#shop-list" data-bs-toggle="tab">';
+                        html += '<i class="fa fa-list" aria-hidden="true"></i>';
+                        html += '</button>';
+                        html += '</div>';
+                        html += '<!-- Right Side Start -->';
+                        html += '<div class="select-shoing-wrap d-flex align-items-center">';
+                        html += '<div class="shot-product">';
+                        html += '<p>Sort By:</p>';
+                        html += '</div>';
+                        html += '<!-- Single Wedge End -->';
+                        html += '<div class="header-bottom-set dropdown">';
+                        html += '<button class="dropdown-toggle header-action-btn" data-bs-toggle="dropdown">Default <i class="fa fa-angle-down"></i></button>';
+                        html += '<ul class="dropdown-menu dropdown-menu-right">';
+                        html += '<li><a class="dropdown-item" href="#">Name, A to Z</a></li>';
+                        html += '<li><a class="dropdown-item" href="#">Name, Z to A</a></li>';
+                        html += '<li><a class="dropdown-item" href="#">Price, low to high</a></li>';
+                        html += '<li><a class="dropdown-item" href="#">Price, high to low</a></li>';
+                        html += '<li><a class="dropdown-item" href="#">Sort By new</a></li>';
+                        html += '<li><a class="dropdown-item" href="#">Sort By old</a></li>';
+                        html += '</ul>';
+                        html += '</div>';
+                        html += '<!-- Single Wedge Start -->';
+                        html += '</div>';
+                        html += '<!-- Right Side End -->';
+                        html += '</div>';
 
+                        html += '<div class="shop-bottom-area">';
+                        html += '<!-- Tab Content Area Start -->';
                         html += '<div class="row">';
+                        html += '<div class="col">';
+                        html += '<div class="tab-content">';
+                        html += '<div class="tab-pane fade show active" id="shop-grid">';
+                        html += '<div class="row mb-n-30px">';
 
                         for(var i = 0; i < responseData.data.length; i++)
                         {
-                            html += '<div class="col-md-3 mb-2 p-3">';
-
-                            html += '<img src ="'+responseData.data[i].image+'" class="img-fluid border mb-3 p-3" />';
-
-                            html += '<p class="fs-6 text-center">'+responseData.data[i].name+'&nbsp;&nbsp;&nbsp;<span class="badge bg-info text-dark">'+responseData.data[i].brand+'</span><br />';
-
-                            html += '<span class="fw-bold text-danger"><span>&#8377;</span> '+responseData.data[i].price+'</span>';
-
+                            html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
+                            html += '<!-- Single Prodect -->';
+                            html += '<div class="product">';
+                            html += '<span class="badges">';
+                            html += '<span class="dispo">Disponible</span>';
+                            html += '</span>';
+                            html += '<div class="thumb">';
+                            html += '<a href="produit_details.php?id_prod=12" class="image">';
+                            html += '<img src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
+                            html += '<img class="hover-image" src="https://betatest.expert-gaming.tn/ckfinder/userfiles/images/Casque/Casque-Gaming-MSI-IMMERSE-GH30-V2/Casque-Gaming-MSI-IMMERSE-GH30-V2-tunisie-1.jpg" alt="" loading="lazy">';
+                            html += '</a>';
+                            html += '</div>';
+                            html += '<div class="content">';
+                            html += '<span class="category">';
+                            html += '<img src="https://betatest.expert-gaming.tn//ckfinder/userfiles/images/partenaire/MSI.jpg" alt="MSI" width="130">';
+                            html += '</span>';
+                            html += '<h5 class="title">';
+                            html += '<a href="#">'+responseData.data[i].name+' -- '+responseData.data[i].id+'</a>';
+                            html += '</h5>';
+                            html += '<span class="price">';
+                            html += '<span class="new">'+responseData.data[i].price+' TND</span>';
+                            html += '</span>';
+                            html += '</div>';
+                            html += '<div class="actions">';
+                            html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
+                            html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
+                            html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
+                            html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
+                            html += '</div>';
+                            html += '</div>';
                             html += '</div>';
                         }
 
+                        html += '</div>';
+                        html += '</div>';
                         html += '</div>';
 
                         $('#product_area').innerHTML = html;
@@ -636,7 +481,7 @@
             output += '</div>';
 
             return output;
-        }*/
+        }
 
         
         load_filter();
@@ -659,7 +504,7 @@
 
                         for(var i = 0; i < responseData.marque.length; i++)
                         {
-                            html += '<span class="custom-radio"><input type="radio" name="marque_filter" value="'+responseData.marque[i].name+'" class="marque_filter"> '+responseData.marque[i].name+' - ('+responseData.marque[i].total+')</span>';
+                            html += '<span class="custom-radio"><input type="radio" name="marque_filter" value="'+responseData.marque[i].id+'" class="marque_filter"> '+responseData.marque[i].name+' - ('+responseData.marque[i].total+')</span>';
                         }
 
                         html += '</div>';
@@ -734,28 +579,11 @@
                 {
                     query += '&price_filter='+price_elements[i].getAttribute('id')+'';
                 }
-            }
+            }            
 
-            var brand_elements = document.getElementsByClassName('brand_filter');
+            /*var search_query = $('#search_textbox').value;
 
-            var brandlist = '';
-
-            for(var i = 0; i < brand_elements.length; i++)
-            {
-                if(brand_elements[i].checked)
-                {
-                    brandlist += brand_elements[i].value +',';
-                }
-            }
-
-            if(brandlist != '')
-            {
-                query += '&brand_filter='+brandlist+'';
-            }
-
-            var search_query = $('#search_textbox').value;
-
-            query += '&search_filter='+search_query+'';
+            query += '&search_filter='+search_query+'';*/
 
             return query;
         }
@@ -773,7 +601,7 @@
 
         $('#clear_filter').onclick = function(){
 
-            var gender_elements = document.getElementsByClassName('gender_filter');
+            var gender_elements = document.getElementsByClassName('marque_filter');
 
             for(var count = 0; count < gender_elements.length; count++)
             {
@@ -782,14 +610,6 @@
 
             var price_elements = document.getElementsByClassName('price_filter');
 
-            remove_active_class(price_elements);
-
-            var brand_elements = document.getElementsByClassName('brand_filter');
-
-            for(var count = 0; count < brand_elements.length; count++)
-            {
-                brand_elements[count].checked = false;
-            }
 
             $('#search_textbox').value = '';
 
