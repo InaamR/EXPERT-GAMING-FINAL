@@ -1,6 +1,6 @@
 <?php
 
-	$PDO_query = Bdd::connectBdd()->prepare("SELECT eg_produit_nom FROM eg_produit ORDER BY eg_produit_id ASC");
+	$PDO_query = Bdd::connectBdd()->prepare("SELECT eg_produit_nom FROM eg_produit WHERE eg_produit_statut = 1 ORDER BY eg_produit_id ASC");
 	$PDO_query->execute();
 	$total_data = $PDO_query->fetchAll();
 	
