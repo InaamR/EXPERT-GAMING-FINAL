@@ -10,7 +10,7 @@
 			</div>
 		</div>
 
-		<div class="row mb-60px">
+		<div class="row mb-40px">
 			<?php
 
 				$PDO_query_produit_promo = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit WHERE eg_produit_statut = 1 AND eg_produit_promo > '0' AND eg_produit_date_fin_promo <> '' AND eg_produit_top_vente = 1 ORDER BY RAND() LIMIT 2");

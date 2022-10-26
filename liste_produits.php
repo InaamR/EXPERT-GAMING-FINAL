@@ -364,6 +364,8 @@
             return document.querySelector(selector);
 
         }
+
+        var is_grid = true;
         load_product(1);
         
 
@@ -397,7 +399,7 @@
 
                                     html += '<div class="tab-content">';
 
-                                        html += '<div class="tab-pane fade show active" id="shop-grid">';
+                                        html += '<div class="tab-pane fade show active" id="shop-grid">'; // is_grid t5alli el show + active
                                             html += '<div class="row mb-n-30px">';
 
                                                 for(var i = 0; i < responseData.data.length; i++)
@@ -443,7 +445,7 @@
                                             html += '</div>';
                                         html += '</div>';
 
-                                        html += '<div class="tab-pane fade mb-n-30px" id="shop-list">';
+                                        html += '<div class="tab-pane fade mb-n-30px" id="shop-list">'; // !is_grid t7ott el show + active
                                             for(var i = 0; i < responseData.data.length; i++)
                                             {
                                                 html += '<div class="shop-list-wrapper mb-30px">';
@@ -499,6 +501,7 @@
                     {
                         $('#product_area').innerHTML = '<div class="alert alert-warning text-center"><h4 class="alert-heading"><b>Malheureusement !</b></h4><hr><p class="mb-0">Aucun produit trouvé !</p></div>';
                     }
+                    window.scrollTo(0, 0);
                 }
 
                 if(responseData.pagination)
@@ -733,12 +736,7 @@
                     $('html, body').animate({scrollTop: '0px'}, 1000); 
                 }
             }
-        } 
-            $('.page-link').onclick = function()
-            {
-                $('html, body').animate({scrollTop: '0px'}, 1000); 
-            } 
-            
+        }            
 
     </script>
 </body>
