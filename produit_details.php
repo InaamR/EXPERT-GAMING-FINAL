@@ -165,17 +165,6 @@
                                 </ul>
                             </div>
                             <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                <span>Tags: </span>
-                                <ul class="d-flex">
-                                    <li>
-                                        <a href="#">TEST, </a>
-                                    </li>
-                                    <li>
-                                        <a href="#">TEST</a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                                 <ul class="d-flex">
                                     <li>
                                         <?php
@@ -234,15 +223,27 @@
                     <!-- product details description area start -->
                     <div class="description-review-wrapper">
                         <div class="description-review-topbar nav">
-                            <button data-bs-toggle="tab" data-bs-target="#des-details2">Information</button>
+                            <button data-bs-toggle="tab" data-bs-target="#des-details2">Informations</button>
                             <button class="active" data-bs-toggle="tab" data-bs-target="#des-details1">Description</button>
                         </div>
                         <div class="tab-content description-review-bottom">
                             <div id="des-details2" class="tab-pane">
                                 <div class="product-anotherinfo-wrapper text-start">
                                     <ul>
-                                        <li><span>VARIABLE 1 :</span> VARIABLE 2</li>
-                                        <li><span>VARIABLE 1 :</span> VARIABLE 2</li>
+                                        <?php
+                                            $PDO_query_composant = Bdd::connectBdd()->prepare("SELECT * FROM eg_jointure INNER JOIN eg_produit_composant ON eg_produit_composant.eg_produit_composant_id = eg_jointure.eg_produit_composant_id WHERE eg_jointure_status = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_jointure_id ASC");
+                                            $PDO_query_composant->bindParam(":eg_produit_id", $_GET['id_prod'], PDO::PARAM_INT);
+                                            $PDO_query_composant->execute();
+                                            while ($composant = $PDO_query_composant->fetch()){
+
+                                                echo'
+                                                <li><span>' . $composant['eg_produit_composant_label'] . ' :</span> ' . $composant['eg_produit_composant_desc'] . '</li>
+                                                ';                                        
+                                            
+                                            }
+                                            $PDO_query_produit_img->closeCursor();
+                                        ?>
+
                                     </ul>
                                 </div>
                             </div>
