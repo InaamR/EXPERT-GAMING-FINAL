@@ -76,10 +76,10 @@
 
                             <!-- Left Side End -->
                             <div class="shop-tab nav">
-                                <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab">
+                                <button class="active" data-bs-target="#shop-grid" data-bs-toggle="tab" id="grid">
                                     <i class="fa fa-th" aria-hidden="true"></i>
                                 </button>
-                                <button data-bs-target="#shop-list" data-bs-toggle="tab">
+                                <button data-bs-target="#shop-list" data-bs-toggle="tab" id="list">
                                     <i class="fa fa-list" aria-hidden="true"></i>
                                 </button>
                             </div>
@@ -87,7 +87,7 @@
                             <!-- Right Side Start -->
                             <div class="select-shoing-wrap d-flex align-items-center">
                                 <div class="shot-product">
-                                    <p>Ordre Par :</p>
+                                    <p>Ordre :</p>
                                 </div>
                                 <!-- Single Wedge End -->
                                 <div class="header-bottom-set dropdown">
@@ -364,8 +364,13 @@
             return document.querySelector(selector);
 
         }
-
         var is_grid = true;
+        document.getElementById("list").onclick = function(event) {
+            is_grid = false;
+            event.preventDefault();
+        }
+        
+
         load_product(1);
         
 
@@ -399,7 +404,12 @@
 
                                     html += '<div class="tab-content">';
 
-                                        html += '<div class="tab-pane fade show active" id="shop-grid">'; // is_grid t5alli el show + active
+                                        if(is_grid == true)
+                                        {
+                                        html += '<div class="tab-pane fade show active" id="shop-grid">';
+                                        }else{
+                                            html += '<div class="tab-pane fade" id="shop-grid">';
+                                        }
                                             html += '<div class="row mb-n-30px">';
 
                                                 for(var i = 0; i < responseData.data.length; i++)
@@ -444,8 +454,14 @@
 
                                             html += '</div>';
                                         html += '</div>';
+                                        
+                                        if(is_grid == false)
+                                        {
+                                        html += '<div class="tab-pane fade mb-n-30px show active" id="shop-list">';
+                                        }else{
+                                            html += '<div class="tab-pane fade mb-n-30px" id="shop-list">';
+                                        }
 
-                                        html += '<div class="tab-pane fade mb-n-30px" id="shop-list">'; // !is_grid t7ott el show + active
                                             for(var i = 0; i < responseData.data.length; i++)
                                             {
                                                 html += '<div class="shop-list-wrapper mb-30px">';
