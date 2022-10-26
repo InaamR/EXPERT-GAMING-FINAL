@@ -106,9 +106,9 @@ if(isset($_GET["page"]))
 
 	if($where != '')
 	{
-		$where = 'WHERE eg_sous_categorie_id = :scat ' . $where;
+		$where = 'WHERE eg_sous_categorie_id = :scat AND eg_produit_statut = 1 ' . $where;
 	}else{
-		$where = 'WHERE eg_sous_categorie_id = :scat';
+		$where = 'WHERE eg_sous_categorie_id = :scat AND eg_produit_statut = 1';
 	}
 	$PDO_query = Bdd::connectBdd()->prepare("SELECT * FROM eg_produit ".$where."");
 	$PDO_query->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
@@ -347,7 +347,7 @@ if(isset($_GET["action"]))
 {
 	$data = array();
 
-	$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT eg_marque.eg_marque_nom, COUNT(eg_produit.eg_produit_id), eg_produit.eg_marque_id FROM eg_produit INNER JOIN eg_marque ON eg_produit.eg_marque_id = eg_marque.eg_marque_id WHERE eg_produit.eg_sous_categorie_id = :scat GROUP BY eg_marque.eg_marque_nom");
+	$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT eg_marque.eg_marque_nom, COUNT(eg_produit.eg_produit_id), eg_produit.eg_marque_id FROM eg_produit INNER JOIN eg_marque ON eg_produit.eg_marque_id = eg_marque.eg_marque_id WHERE eg_produit.eg_produit_statut = 1 AND eg_produit.eg_sous_categorie_id = :scat GROUP BY eg_marque.eg_marque_nom");
 	$PDO_query_filtre->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 	$PDO_query_filtre->execute();
 	$marque_filtre = $PDO_query_filtre->fetchAll();
@@ -372,7 +372,7 @@ if(isset($_GET["action"]))
 	foreach($price_range as $key => $value)
 	{
 		
-		$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT COUNT(eg_produit_id) AS Total FROM eg_produit WHERE ".$key." AND eg_sous_categorie_id = :scat");
+		$PDO_query_filtre = Bdd::connectBdd()->prepare("SELECT COUNT(eg_produit_id) AS Total FROM eg_produit WHERE ".$key." AND eg_sous_categorie_id = :scat AND eg_produit.eg_produit_statut = 1");
 		$PDO_query_filtre->bindParam(":scat", $_GET["scat"], PDO::PARAM_INT);
 		$PDO_query_filtre->execute();
 		$prix_filtre = $PDO_query_filtre->fetchAll();
@@ -393,8 +393,8 @@ if(isset($_GET["action"]))
 		'eg_produit_nom DESC' => 'Nom, Z à A',
 		'eg_produit_prix ASC' => 'Prix ​​croissant',
 		'eg_produit_prix DESC' => 'Prix décroissant',
-		'eg_produit_id ASC' => 'Trier par nouveau',
-		'eg_produit_id DESC' => 'Trier par ancien'
+		'eg_produit_id ASC' => 'Nouveau',
+		'eg_produit_id DESC' => 'Ancien'
 	);
 
 	foreach($ordre_range as $key => $value)
