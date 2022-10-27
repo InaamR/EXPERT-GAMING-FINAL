@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le : mer. 26 oct. 2022 à 17:31
+-- Généré le : jeu. 27 oct. 2022 à 19:56
 -- Version du serveur : 10.4.21-MariaDB
 -- Version de PHP : 7.4.25
 
@@ -1191,6 +1191,47 @@ INSERT INTO `eg_comm` (`eg_comm_id`, `eg_comm_user`, `eg_comm_email_user`, `eg_c
 (7, 34, NULL, '2021-12-13', 5, 'Déc', 2, 'Forza Horizon 5 : Banni 8000 ans pour un sticker sur sa voiture', 'Forza Horizon 5', '<p>Forza Horizon 5 propose aux joueurs de personnaliser leur voiture ... et parfois les choix de designs des joueurs les plus audacieux ne plaisent pas &agrave; Turn 10.</p>\r\n\r\n<p>Un joueur a eu la&nbsp;<strong>d&eacute;sagr&eacute;able suprise de d&eacute;couvrir qu&#39;il &eacute;tait banni jusqu&#39;au 31 d&eacute;cembre 9999</strong>&nbsp;sur&nbsp;<a href=\"https://www.jeuxvideo.com/jeux/jeu-1422286/\">Forza Horizon 5</a>. La raison d&#39;un bannissement aussi long peut surprendre : un mauvais choix de sticker ...</p>\r\n\r\n<h2>LES LIVR&Eacute;ES DANS FORZA, UN RISQUE ?</h2>\r\n\r\n<p>Turn 10 Studios laisse la&nbsp;<strong>libert&eacute; du choix aux joueurs</strong>. En effet, dans Forza, on peut&nbsp;<strong>cr&eacute;er ses propres stickers</strong>, sous forme de &quot;livr&eacute;es&quot;, autrement dit de&nbsp;<strong>designs applicables &agrave; ses voitures</strong>. C&#39;est une&nbsp;<strong>formidable fonctionnalit&eacute;</strong>&nbsp;pour d&eacute;velopper et admirer la&nbsp;<strong>cr&eacute;ativit&eacute; des joueurs</strong>, qui cr&eacute;ent parfois des designs splendides. Mais&nbsp;<strong>donner tant de libert&eacute; aux joueurs est aussi un risque</strong>&nbsp;: d&#39;aucuns pourraient v&eacute;hiculer des messages haineux, ou diffuser des images r&eacute;serv&eacute;es &agrave; un public averti. On se souvient par exemple des&nbsp;<strong>graffitis dans les anciens &eacute;pisodes de Counter-Strike</strong>&nbsp;qui permettaient de coller n&#39;importe quelle image sur les murs en jeu ... il y a parfois eu des d&eacute;bordements. Sur Forza,<strong>&nbsp;un joueur a donc &eacute;t&eacute; banni pr&egrave;s de 8000 ans pour son choix de livr&eacute;e</strong>.</p>\r\n\r\n<p>Alors&nbsp;<strong>pourquoi le bannir ?</strong>&nbsp;Est-ce, ce qui parait le plus probable, parce qu&#39;il a utilis&eacute;&nbsp;<strong>l&#39;image d&#39;un dictateur comme Kim Jong-Un</strong>&nbsp;? Est-ce parce qu&#39;il fait de la&nbsp;<strong>&quot;publicit&eacute; gratuite&quot; &agrave; la marque KFC</strong>&nbsp;? Est-ce &agrave; cause du&nbsp;<strong>hashtag #SendNukes</strong>&nbsp;(litt&eacute;ralement &quot;Envoyez des bombes nucl&eacute;aires&quot;) &agrave; l&#39;arri&egrave;re du v&eacute;hicule, inspir&eacute; des demandes de photos nues &quot;<em>Send nudes</em>&quot; et du climat g&eacute;opolitique de la&nbsp;<strong>Cor&eacute;e du Nord qui teste r&eacute;guli&egrave;rement des missiles nucl&eacute;aires et alerte la communaut&eacute; internationale</strong>&nbsp;&agrave; chaque fois ? Est-ce &agrave; cause des contrefa&ccedil;ons du&nbsp;<strong>logo Nike en Nuke</strong>&nbsp;et du&nbsp;<strong>logo Pirelli en Pyongyang</strong>&nbsp;? Pas de r&eacute;ponse pr&eacute;cise jusqu&#39;ici.</p>\r\n\r\n<p>Ce qui est certain c&#39;est que&nbsp;<strong>les joueurs sont d&eacute;sormais pr&eacute;venus</strong>&nbsp;: attention aux stickers que vous appliquez sur vos voitures dans Forza, ils pourraient vous co&ucirc;ter quelques ann&eacute;es d&#39;attente ... ou quelques mill&eacute;naires. D&#39;ailleurs,&nbsp;<strong>cette date du 31/12/9999 semble plus &ecirc;tre un genre de &quot;sentence maximale</strong>&quot;, avec la date la plus &eacute;lev&eacute;e que le syst&egrave;me peux g&eacute;rer, qu&#39;une punition savamment calcul&eacute;e. Reste &agrave; voir si Turn 10 reviendra sur sa d&eacute;cision et&nbsp;<strong>r&eacute;duira sa peine de quelques milliers d&#39;ann&eacute;es</strong>.</p>\r\n\r\n<p><strong>Pour rappel,&nbsp;<a href=\"https://www.jeuxvideo.com/jeux/jeu-1422286/\">Forza Horizon 5</a>&nbsp;est disponible sur PC, Xbox Series et Xbox One depuis le 9 novembre.</strong></p>\r\n', '<p>Forza Horizon 5 propose aux joueurs de personnaliser leur voiture ... et parfois les choix de designs des joueurs les plus audacieux ne plaisent pas &agrave; Turn 10.</p>\r\n\r\n<p>Un joueur a eu la&nbsp;<strong>d&eacute;sagr&eacute;able suprise de d&eacute;couvrir qu&#39;il &eacute;tait banni jusqu&#39;au 31 d&eacute;cembre 9999</strong>&nbsp;sur&nbsp;<a href=\"https://www.jeuxvideo.com/jeux/jeu-1422286/\">Forza Horizon 5</a>. La raison d&#39;un bannissement aussi long peut surprendre : un mauvais choix de sticker ...</p>\r\n', '/ckfinder/userfiles/files/actu/fh5.jpg', 1),
 (12, 34, NULL, '2021-12-13', 0, NULL, 2, 'PUBG devient free-to-play à partir du 12 janvier prochain', 'PUBG', '<p style=\"margin-left:0px; margin-right:0px; text-align:justify\">Lanc&eacute; en acc&egrave;s anticip&eacute; sur Steam en 2017, PUBG a largement contribu&eacute; &agrave; la d&eacute;mocratisation du Battle Royale aupr&egrave;s du grand public, lan&ccedil;ant une tendance &agrave; laquelle tous les plus grands studios se sont essay&eacute;s avec plus ou moins de succ&egrave;s. Epic Games ou encore Activision ont notamment r&eacute;ussi &agrave; tirer parti de cette mode du Battle Royale en proposant&nbsp;<a class=\"spip_in\" href=\"https://www.xboxygen.com/Jeux/Fortnite\" style=\"text-decoration: none; transition: background-color 0.3s ease-out 0s; box-sizing: border-box; color: rgb(124, 176, 34); font-weight: 700;\">Fortnite</a>&nbsp;et&nbsp;<a class=\"spip_in\" href=\"https://www.xboxygen.com/Jeux/Call-of-Duty-Warzone\" style=\"text-decoration: none; transition: background-color 0.3s ease-out 0s; box-sizing: border-box; color: rgb(124, 176, 34); font-weight: 700;\">Call of Duty Warzone</a>&nbsp;en free-to-play.</p>\r\n\r\n<p style=\"margin-left:0px; margin-right:0px; text-align:justify\">PUBG franchit donc le pas de la gratuit&eacute; tout en proposant des micro-transactions permettant d&rsquo;acc&eacute;der &agrave; des &eacute;l&eacute;ments cosm&eacute;tiques. Krafton a pr&eacute;vu d&rsquo;introduire une &laquo;&nbsp;mise &agrave; niveau de compte&nbsp;&raquo; facultative &agrave; 12&nbsp;&euro; nomm&eacute;e Battlegrounds Plus. Cette derni&egrave;re permettra aux joueurs d&rsquo;acc&eacute;der &agrave; des matchs class&eacute;s et personnalis&eacute;s, ainsi qu&rsquo;&agrave; des objets sp&eacute;ciaux et bien plus encore. Les joueurs ayant d&eacute;j&agrave; achet&eacute;s PUBG par le pass&eacute; recevront le pack comm&eacute;moratif sp&eacute;cial PUBG comprenant Battlegrounds Plus et des objets suppl&eacute;mentaires dans le jeu.</p>\r\n', '<p style=\"margin-left:0px; margin-right:0px; text-align:justify\"><a class=\"spip_in\" href=\"https://www.xboxygen.com/News/39045-Le-passage-de-PUBG-en-Free-to-Play-potentiellement-annonce-aux-Game-Awards\" style=\"text-decoration: none; transition: background-color 0.3s ease-out 0s; box-sizing: border-box; color: rgb(124, 176, 34); font-weight: 700;\">Les rumeurs</a>&nbsp;autour du passage de&nbsp;<a class=\"spip_in\" href=\"https://www.xboxygen.com/Jeux/PUBG-Battlegrounds\" style=\"text-decoration: none; transition: background-color 0.3s ease-out 0s; box-sizing: border-box; color: rgb(124, 176, 34); font-weight: 700;\">PUBG&nbsp;: Battlegrounds</a>&nbsp;au format free-to-play ont finalement &eacute;t&eacute; av&eacute;r&eacute;es lors des Game Awards 2021. Krafton a officiellement annonc&eacute; la nouvelle avec une date fix&eacute;e au 12 janvier 2022 quant &agrave; cette &eacute;volution.</p>\r\n', '/ckfinder/userfiles/files/Produit%202.0/p1_2903135_7345e5ac.jpg', 1),
 (14, 34, NULL, '2021-12-31', 0, NULL, 2, 'La trilogie Tomb Raider est disponible gratuitement sur l’Epic Games Store', ' Tomb Raider', '<h2 style=\"font-style:normal; text-align:start\"><span style=\"color:#000000\"><u>Une trilogie gratuite pour bien terminer 2021</u></span></h2>\r\n\r\n<p style=\"margin-left:0px; margin-right:0px; text-align:start\">Vous pouvez donc vous rendre d&eacute;sormais sur l&rsquo;<a href=\"https://www.epicgames.com/store/fr/\" rel=\"noopener\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(244, 67, 54); text-decoration: none; transition: all 250ms ease-in-out 0s;\" target=\"_blank\"><span style=\"color:#f39c12\">Epic Games Store</span></a>&nbsp;et obtenir gratuitement&nbsp;<a href=\"https://www.actugaming.net/jeux/tomb-raider/\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(244, 67, 54); text-decoration: none; transition: all 250ms ease-in-out 0s;\"><span style=\"color:#f39c12\"><em>Tomb Raider</em></span></a><span style=\"color:#f39c12\">,&nbsp;</span><a href=\"https://www.actugaming.net/jeux/rise-of-the-tomb-raider-20-year-celebration/\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(244, 67, 54); text-decoration: none; transition: all 250ms ease-in-out 0s;\"><span style=\"color:#f39c12\"><em>Rise of the Tomb Raider</em></span></a><span style=\"color:#f39c12\">&nbsp;</span>et&nbsp;<a href=\"https://www.actugaming.net/jeux/shadow-of-the-tomb-raider/\" style=\"box-sizing: border-box; background-color: transparent; color: rgb(244, 67, 54); text-decoration: none; transition: all 250ms ease-in-out 0s;\"><span style=\"color:#f39c12\"><em>Shadow of the Tomb Raider</em></span></a>. Pour ne rien g&acirc;cher, il s&rsquo;agit des versions ultimes de ces jeux,&nbsp;<strong>avec les diff&eacute;rents DLC</strong>, que ce soit les costumes en plus ou les &eacute;nigmes suppl&eacute;mentaires &agrave; r&eacute;soudre dans les trois jeux.</p>\r\n\r\n<p style=\"margin-left:0px; margin-right:0px; text-align:start\"><u><strong>Vous avez jusqu&rsquo;au 6 janvier prochain &agrave; 17 heures pour r&eacute;cup&eacute;rer ces jeux</strong></u>. Pensez donc &agrave; les ajouter dans votre biblioth&egrave;que en quelques clics pour les conserver &agrave; vie. Le rythme de jeux offerts va revenir &agrave; la normale d&egrave;s la semaine prochaine, mais avec tous les jeux offerts par l&rsquo;Epic Games Store, vous avez d&eacute;sormais de quoi bien vous occuper, sans avoir d&eacute;pens&eacute; un centime.</p>\r\n', '<p><span style=\"background-color:#ffffff; color:#1e1f23; font-family:Roboto,Arial,Helvetica,sans-serif; font-size:17px\">Durant deux semaines, l&rsquo;</span><strong>Epic Games Store</strong><span style=\"background-color:#ffffff; color:#1e1f23; font-family:Roboto,Arial,Helvetica,sans-serif; font-size:17px\">&nbsp;s&rsquo;est montr&eacute; tr&egrave;s <u>g&eacute;n&eacute;reux en distribuant un jeu gratuit par jour</u>. On arrive d&eacute;sormais &agrave; la fin de cette offre sp&eacute;ciale, et <u>histoire de conclure &ccedil;a de la plus belle des mani&egrave;res, ce n&rsquo;est pas un, mais plusieurs jeux qui sont offerts</u>, avec&nbsp;</span><strong>la derni&egrave;re trilogie<em>&nbsp;<u>Tomb Raider</u></em></strong><span style=\"background-color:#ffffff; color:#1e1f23; font-family:Roboto,Arial,Helvetica,sans-serif; font-size:17px\">.</span></p>\r\n', '/ckfinder/userfiles/files/Produit%202.0/Tomb-Raider-free-game(2).jpg', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `eg_composant`
+--
+
+CREATE TABLE `eg_composant` (
+  `eg_composant_id` int(11) NOT NULL,
+  `eg_composant_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `eg_composant_details` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `eg_composant_status` int(1) NOT NULL DEFAULT 1,
+  `eg_composant_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `eg_composant`
+--
+
+INSERT INTO `eg_composant` (`eg_composant_id`, `eg_composant_label`, `eg_composant_details`, `eg_composant_status`, `eg_composant_date`) VALUES
+(5, 'Processeur', '...', 1, '2022-10-27');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `eg_composant_details`
+--
+
+CREATE TABLE `eg_composant_details` (
+  `eg_composant_details_id` int(11) NOT NULL,
+  `eg_composant_id` int(11) NOT NULL DEFAULT 0,
+  `eg_composant_details_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `eg_composant_details_date` date DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+--
+-- Déchargement des données de la table `eg_composant_details`
+--
+
+INSERT INTO `eg_composant_details` (`eg_composant_details_id`, `eg_composant_id`, `eg_composant_details_label`, `eg_composant_details_date`) VALUES
+(1, 5, 'I5 10500F', '2022-10-27');
 
 -- --------------------------------------------------------
 
@@ -3768,7 +3809,7 @@ INSERT INTO `eg_image_produit` (`eg_image_produit_id`, `eg_image_produit_date`, 
 CREATE TABLE `eg_jointure` (
   `eg_jointure_id` int(11) NOT NULL,
   `eg_produit_id` int(11) NOT NULL DEFAULT 0,
-  `eg_produit_composant_id` int(11) NOT NULL DEFAULT 0,
+  `eg_composant_id` int(11) NOT NULL DEFAULT 0,
   `eg_jointure_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `eg_jointure_status` int(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -3777,11 +3818,8 @@ CREATE TABLE `eg_jointure` (
 -- Déchargement des données de la table `eg_jointure`
 --
 
-INSERT INTO `eg_jointure` (`eg_jointure_id`, `eg_produit_id`, `eg_produit_composant_id`, `eg_jointure_label`, `eg_jointure_status`) VALUES
-(1, 309, 2, 'Mémoire', 1),
-(2, 309, 1, 'Processeur', 1),
-(3, 309, 3, 'Ecran', 1),
-(4, 309, 4, 'Disque Dur', 1);
+INSERT INTO `eg_jointure` (`eg_jointure_id`, `eg_produit_id`, `eg_composant_id`, `eg_jointure_label`, `eg_jointure_status`) VALUES
+(2, 309, 5, 'Processeur', 1);
 
 -- --------------------------------------------------------
 
@@ -5782,30 +5820,6 @@ INSERT INTO `eg_produit` (`eg_produit_id`, `eg_produit_date`, `eg_produit_user`,
 -- --------------------------------------------------------
 
 --
--- Structure de la table `eg_produit_composant`
---
-
-CREATE TABLE `eg_produit_composant` (
-  `eg_produit_composant_id` int(11) NOT NULL,
-  `eg_produit_composant_label` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `eg_produit_composant_desc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `eg_produit_composant_status` int(1) NOT NULL DEFAULT 1,
-  `eg_produit_composant_date` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
---
--- Déchargement des données de la table `eg_produit_composant`
---
-
-INSERT INTO `eg_produit_composant` (`eg_produit_composant_id`, `eg_produit_composant_label`, `eg_produit_composant_desc`, `eg_produit_composant_status`, `eg_produit_composant_date`) VALUES
-(1, 'Processeur', 'i5-10300H', 1, '2022-10-26'),
-(2, 'Mémoire', '8Go', 1, '2022-10-26'),
-(3, 'Ecran', 'FHD 15,6 144 HZ IPS', 1, '2022-10-26'),
-(4, 'Disque Dur', '512 GB SSD NVMe', 1, '2022-10-26');
-
--- --------------------------------------------------------
-
---
 -- Structure de la table `eg_raccourci`
 --
 
@@ -6586,6 +6600,18 @@ ALTER TABLE `eg_comm`
   ADD PRIMARY KEY (`eg_comm_id`);
 
 --
+-- Index pour la table `eg_composant`
+--
+ALTER TABLE `eg_composant`
+  ADD PRIMARY KEY (`eg_composant_id`);
+
+--
+-- Index pour la table `eg_composant_details`
+--
+ALTER TABLE `eg_composant_details`
+  ADD PRIMARY KEY (`eg_composant_details_id`);
+
+--
 -- Index pour la table `eg_image_produit`
 --
 ALTER TABLE `eg_image_produit`
@@ -6656,12 +6682,6 @@ ALTER TABLE `eg_partenaire`
 --
 ALTER TABLE `eg_produit`
   ADD PRIMARY KEY (`eg_produit_id`);
-
---
--- Index pour la table `eg_produit_composant`
---
-ALTER TABLE `eg_produit_composant`
-  ADD PRIMARY KEY (`eg_produit_composant_id`);
 
 --
 -- Index pour la table `eg_raccourci`
@@ -6740,6 +6760,18 @@ ALTER TABLE `eg_comm`
   MODIFY `eg_comm_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
+-- AUTO_INCREMENT pour la table `eg_composant`
+--
+ALTER TABLE `eg_composant`
+  MODIFY `eg_composant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT pour la table `eg_composant_details`
+--
+ALTER TABLE `eg_composant_details`
+  MODIFY `eg_composant_details_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
 -- AUTO_INCREMENT pour la table `eg_image_produit`
 --
 ALTER TABLE `eg_image_produit`
@@ -6810,12 +6842,6 @@ ALTER TABLE `eg_partenaire`
 --
 ALTER TABLE `eg_produit`
   MODIFY `eg_produit_id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=776;
-
---
--- AUTO_INCREMENT pour la table `eg_produit_composant`
---
-ALTER TABLE `eg_produit_composant`
-  MODIFY `eg_produit_composant_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT pour la table `eg_raccourci`
