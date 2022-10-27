@@ -1,4 +1,4 @@
-<div class="banner-area style-three pt-40px pb-40px">
+<div class="banner-area style-three pt-40px pb-100px">
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
@@ -19,7 +19,7 @@
 			?>
                     
 			<div class="col-xl-12 col-lg-6">				
-				<div class="feature-right-content_h">
+				<div class="feature-right-content_h shadow-sm">
 					<div class="image-side">
 						<div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
 							<div class="carousel-inner">

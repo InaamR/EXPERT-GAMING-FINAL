@@ -5,7 +5,7 @@
 	$PDO_query_produit_index->execute();
 		while ($produit_index = $PDO_query_produit_index->fetch()){
 	
-			echo '<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">';
+			echo '<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-60px">';
 			echo '<div class="product">';
 			echo '<span class="badges">';
 				if($produit_index['eg_produit_dispo'] == 0){
@@ -50,7 +50,7 @@
 			}
 			$PDO_query_produit_index_image->closeCursor();
 
-			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 2 LIMIT 1");
+			$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 1 LIMIT 1");
 			$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
 			$PDO_query_produit_index_image->execute();
 			while ($produit_index_image = $PDO_query_produit_index_image->fetch()){
@@ -139,7 +139,7 @@ while ($menu_menu = $PDO_query_menu_menu->fetch()){
 				$PDO_query_produit_index->bindParam(":eg_sous_categorie_id", $menu_scat['eg_sous_categorie_id']);
 				$PDO_query_produit_index->execute();
 					while ($produit_index = $PDO_query_produit_index->fetch()){					
-						echo '<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-30px">';
+						echo '<div class="col-lg-4 col-xl-3 col-md-6 col-sm-6 col-xs-6 mb-60px">';
 						echo '<div class="product">';
 						echo '<span class="badges">';
 							if($produit_index['eg_produit_dispo'] == 0){
@@ -181,7 +181,7 @@ while ($menu_menu = $PDO_query_menu_menu->fetch()){
 						}
 						$PDO_query_produit_index_image->closeCursor();
 
-						$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 2 LIMIT 1");
+						$PDO_query_produit_index_image = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id AND eg_image_produit_ordre = 1 LIMIT 1");
 						$PDO_query_produit_index_image->bindParam(":eg_produit_id", $produit_index['eg_produit_id'], PDO::PARAM_INT);
 						$PDO_query_produit_index_image->execute();
 						while ($produit_index_image = $PDO_query_produit_index_image->fetch()){

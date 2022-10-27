@@ -7,8 +7,10 @@ include("../config/fonction.php");
 if(isset($_GET["page"]))
 {
 	$data = array();
-
-	$limit = 6;
+	if(isset($_GET["pagination"])){
+		$nb_produit = $_GET["pagination"];
+	}
+	$limit = $nb_produit;
 
 	$page = 1;
 

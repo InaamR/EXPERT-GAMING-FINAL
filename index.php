@@ -96,6 +96,18 @@
         ?>
         
         <!-- Banner Area End -->
+        <!-- Fashion Area Start -->
+        <div class="fashion-area" data-bg-image="assets/images/banner/geforce-rtx-4090.jpg">
+            <div class="container h-100 shadow-sm">
+                <div class="row justify-content-center align-items-center h-100">
+                    <div class="col-12 text-left">
+                        <h2 class="title"> <span>*PLUS QUE RAPIDE </span> GeForce RTX 4090</h2>
+                        <a href="#" class="btn btn-primary text-capitalize">Voir toutes les options d’achat</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Fashion Area End -->
         <!-- Feature product area start -->
         <?php
             include("include/promo.php");

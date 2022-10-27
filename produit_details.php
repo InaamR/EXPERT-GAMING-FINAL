@@ -126,13 +126,22 @@
                             <h2><?php echo $produit['eg_produit_nom']; ?></h2>
                             <div class="pricing-meta">
                                 <ul class="d-flex">
-                                    <li class="new-price text-danger">Prix : <?php echo $produit['eg_produit_prix']; ?> TND</li>
+                                    <li class="new-price text-danger">Prix : <?php echo round($produit['eg_produit_prix'], 3); ?> DT</li>
                                 </ul>                                
                             </div>
                             <p class="mt-30px"><?php echo $produit['eg_produit_description']; ?></p>
                             <hr>
                             <p class="facilite">Payez en plusieurs fois :</p>
                             <div class="product-details-table table-responsive">
+                                <?php 
+                                    $trois_mois = round($produit['eg_produit_prix']/3, 3);
+
+                                    $interet_six_mois = ($produit['eg_produit_prix']*5)/100;
+                                    $six_mois = round(($produit['eg_produit_prix']+$interet_six_mois)/6, 3);
+
+                                    $interet_neuf_mois = ($produit['eg_produit_prix']*10)/100;
+                                    $neuf_mois = round(($produit['eg_produit_prix']+$interet_neuf_mois)/9, 3);
+                                ?>
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -141,12 +150,16 @@
                                             <td class="titre_tab"><b>9 mois</b></td>
                                         </tr>
                                         <tr>
-                                            <td><span class="amount">150.000dt</span></td>
-                                            <td><span class="amount">1542.000dt</span></td>
-                                            <td><span class="amount">1542.000dt</span></td>
+                                            <td><span class="amount"><?php echo $trois_mois; ?> DT</span></td>
+                                            <td><span class="amount"><?php echo $six_mois; ?> DT</span></td>
+                                            <td><span class="amount"><?php echo $neuf_mois; ?> DT</span></td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="3" class="text-start"><small>* Facilité de paiement par chèque</small></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                
                             </div>
                             <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
                                 <span>REF :</span>

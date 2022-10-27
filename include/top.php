@@ -6,13 +6,13 @@
 			<div class="row justify-content-between align-items-center">
 				<div class="col">
 					<div class="welcome-text">
-						<p>Retours entièrement gratuits dans toute la Tunisie</p>
+						<p>Expert Gaming The Kingdom Of Gamers</p>
 					</div>
 				</div>
 				<div class="col d-none d-lg-block">
 					<div class="top-nav">
 						<ul>
-							<li><a href="tel:58554255"><i class="fa fa-phone"></i> 58 554 255</a></li>
+							<li><a href="tel:58554255"><i class="fa fa-phone"></i> (+216) 58 554 255</a></li>
 							<li><a href="mailto:contact@expert-gaming.tn"><i class="fa fa-envelope-o"></i> contact@expert-gaming.tn</a></li>
 							<li><a href="login.php"><i class="fa fa-user"></i> Compte</a></li>
 						</ul>
@@ -28,7 +28,7 @@
 			<div class="row justify-content-between align-items-center">
 				<div class="col-lg-3 col">
 					<div class="header-logo">
-						<a href="http://localhost/EXPERT-GAMING-FINAL/"><img src="assets/images/logo/logo.png" alt="Site Logo" width="120" /></a>
+						<a href="https://test.expert-gaming.tn/"><img src="assets/images/logo/logo.png" alt="Site Logo" width="120" /></a>
 					</div>
 				</div>
 				<div class="col-lg-6 d-none d-lg-block">
@@ -104,7 +104,7 @@
 			<div class="header-nav">
 				<div class="main-menu position-relative">
 					<ul>
-						<li class="dropdown"><a href="http://localhost/EXPERT-GAMING-FINAL/">Accueil</a></li>                                
+						<li class="dropdown"><a href="https://test.expert-gaming.tn/">Accueil</a></li>                                
 						<?php
 
 							$PDO_query_menu = Bdd::connectBdd()->prepare("SELECT * FROM eg_menu WHERE eg_menu_statut = 1 ORDER BY eg_menu_ordre ASC");

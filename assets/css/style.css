@@ -1954,13 +1954,15 @@ body.offcanvas-open {
 }
 
 .btn-primary {
-  border-width: 2px;
-  border-color: white;
-  border-style: solid;
-  border-radius: 5px;
-  width: 215px;
-  height: 61px;
-  background-color: transparent;
+    border-width: 1px;
+    border-color: white;
+    border-style: solid;
+    border-radius: 5px;
+    width: 330px;
+    height: 53px;
+    /* background-color: transparent; */
+    background: #f7bb11;
+    color:#191919;
 }
 @media only screen and (max-width: 575px) {
   .btn-primary {
@@ -2400,6 +2402,7 @@ body.offcanvas-open {
   border-top: none;
   z-index: 11;
   width: calc(100% + 2px);
+  border-radius: 5px;
 }
 .product .actions .action {
   display: -webkit-box;
@@ -2545,9 +2548,9 @@ body.offcanvas-open {
       align-self: center;
 }
 .product:hover {
-  -webkit-transform: scaleY(1.05);
+  /*-webkit-transform: scaleY(1.05);
           transform: scaleY(1.05);
-  z-index: 1;
+  z-index: 1;*/
 }
 .product:hover .badges {
   z-index: 111;
@@ -2568,7 +2571,7 @@ body.offcanvas-open {
 .product:hover .content .title a:hover {
   color: #f7bb11;
 }
-.product:hover .actions {
+.product .actions {
   opacity: 1;
   visibility: visible;
 }

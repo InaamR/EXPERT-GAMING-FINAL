@@ -367,6 +367,12 @@
         var is_grid = true;
         document.getElementById("list").onclick = function(event) {
             is_grid = false;
+            load_product(1);
+            event.preventDefault();
+        }
+        document.getElementById("grid").onclick = function(event) {
+            is_grid = true;
+            load_product(1);
             event.preventDefault();
         }
         
@@ -384,7 +390,14 @@
 
             $('#skeleton_area').innerHTML = make_skeleton();
 
-            fetch('process/process.php?page='+page+query+'&scat='+scat+'').then(function(response){
+            if(is_grid == true)
+            {
+            var pagination = 6;
+            }else{
+            var pagination = 2;
+            }
+
+            fetch('process/process.php?page='+page+query+'&scat='+scat+'&pagination='+pagination+'').then(function(response){
 
                 return response.json();
 
@@ -414,7 +427,7 @@
 
                                                 for(var i = 0; i < responseData.data.length; i++)
                                                 {
-                                                    html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-30px">';
+                                                    html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-60px">';
                                                         html += '<!-- Single Prodect -->';
                                                         html += '<div class="product">';
 
@@ -545,11 +558,19 @@
             {
                 output += '<div class="col-4 mb-3 p-4">';
 
-                output += '<div class="mb-2 bg-light text-dark" style="height:240px;"></div>';
+                output += '<div class="mb-2 bg-light text-dark">';
+
+                output += '<div class="d-flex justify-content-center p-5">';
+                output += '<div class="spinner-border" role="status">';
+                output += '<span class="visually-hidden">Chargement...</span>';
+                output += '</div>';
+                output += '</div>';
+                
+                output += '</div>';
 
                 output += '<div class="mb-2 bg-light text-dark" style="height:50px;"></div>';
 
-                output += '<div class="mb-2 bg-light text-dark" style="height:25px;"></div>';
+                output += '<div class="mb-2 bg-light text-dark"><span class="d-flex justify-content-center p-5">Loading...</span></div>';
 
                 output += '</div>';
             }

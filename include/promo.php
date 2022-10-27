@@ -1,4 +1,4 @@
-<div class="feature-product-area pt-40px pb-40px">
+<div class="feature-product-area pt-100px pb-40px">
 	<div class="container">
 		
 		<div class="row">
@@ -20,7 +20,7 @@
 
 			?>
 				<div class="col-lg-6 mb-40px">
-					<div class="single-feature-content">
+					<div class="single-feature-content shadow-sm pb-5">
 						<div class="feature-image">
 						<?php
 
@@ -86,7 +86,7 @@
 
 			<div class="col-xl-6 col-lg-6 mb-40px">
 				
-				<div class="feature-right-content">
+				<div class="feature-right-content shadow-sm">
 					<div class="image-side">
 						<?php
 
