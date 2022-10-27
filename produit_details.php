@@ -244,13 +244,15 @@
                                 <div class="product-anotherinfo-wrapper text-start">
                                     <ul>
                                         <?php
-                                            $PDO_query_composant = Bdd::connectBdd()->prepare("SELECT * FROM eg_jointure INNER JOIN eg_produit_composant ON eg_produit_composant.eg_produit_composant_id = eg_jointure.eg_produit_composant_id WHERE eg_jointure_status = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_jointure_id ASC");
+                                            $PDO_query_composant = Bdd::connectBdd()->prepare("SELECT * FROM eg_jointure INNER JOIN eg_composant ON eg_composant.eg_composant_id = eg_jointure.eg_composant_id
+                                            INNER JOIN eg_composant_details ON eg_composant_details.eg_composant_id = eg_jointure.eg_composant_id
+                                            WHERE eg_jointure.eg_jointure_status = 1 AND eg_jointure.eg_produit_id = :eg_produit_id ORDER BY eg_jointure.eg_jointure_id ASC;");
                                             $PDO_query_composant->bindParam(":eg_produit_id", $_GET['id_prod'], PDO::PARAM_INT);
                                             $PDO_query_composant->execute();
                                             while ($composant = $PDO_query_composant->fetch()){
 
                                                 echo'
-                                                <li><span>' . $composant['eg_produit_composant_label'] . ' :</span> ' . $composant['eg_produit_composant_desc'] . '</li>
+                                                <li><span>' . $composant['eg_composant_label'] . ' :</span> ' . $composant['eg_composant_details_label'] . '</li>
                                                 ';                                        
                                             
                                             }

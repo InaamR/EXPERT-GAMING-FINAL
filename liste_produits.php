@@ -148,7 +148,7 @@
 
     
     <!-- Modal -->
-    <div class="modal modal-2 fade" id="exampleModal" tabindex="-1" role="dialog">
+    <div class="modal modal-2 fade" id="Modal_prod" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body">
@@ -272,6 +272,7 @@
         </div>
     </div>
     <!-- Modal end -->
+
     <!-- Modal Cart -->
     <div class="modal customize-class fade" id="exampleModal-Cart" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
@@ -352,19 +353,19 @@
     <!--Main JS (Common Activation Codes)-->
     <script src="assets/js/main.js"></script>
     <script>
+
+        
         var auto_complete = new Autocomplete(document.getElementById('prod_name'), {
             data:<?php echo json_encode($data); ?>,
             maximumItems:10,
             highlightTyped:true,
             highlightClass : 'fw-bold text-primary'
-        });
-        
+        });        
         function $(selector){
-
             return document.querySelector(selector);
-
         }
         var is_grid = true;
+        
         document.getElementById("list").onclick = function(event) {
             is_grid = false;
             load_product(1);
@@ -375,11 +376,7 @@
             load_product(1);
             event.preventDefault();
         }
-        
-
         load_product(1);
-        
-
         function load_product(page = 1, query = '')
         {
             window.$_GET = new URLSearchParams(location.search);
@@ -457,7 +454,7 @@
                                                             html += '<div class="actions">';
                                                                 html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
                                                                 html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
+                                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#Modal_prod" click="handleDetailsClicked('+responseData.data[i].id_prod +')"><i class="pe-7s-look"></i></button>';
                                                                 html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
                                                             html += '</div>';
 
@@ -505,7 +502,7 @@
                                                 html += '<div class="actions">';
                                                 html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
                                                 html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="pe-7s-look"></i></button>';
+                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#Modal_prod"><i class="pe-7s-look"></i></button>';
                                                 html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
                                                 html += '</div>';
                                                 html += '</div>';
@@ -773,8 +770,24 @@
                     $('html, body').animate({scrollTop: '0px'}, 1000); 
                 }
             }
-        }            
+        }
+        // document.getElementById("test_2").onClick = function(event) {
+        //     //var rowid = $(this).data('id');
+        //     console.log("ddd");
+        //     /*.ajax({
+        //         type : 'post',
+        //         url : 'fetch_record.php', //Here you will fetch records 
+        //         data :  'rowid='+ rowid, //Pass $id
+        //         success : function(data){
+        //             $('.fetched-data').html(data);//Show fetched data from database
+        //         }
+        //     });*/
+        // }
 
+        console.log("here!");
+        function handleDetailsClicked(id) {
+            console.log("Clicked => ", id)
+        }
     </script>
 </body>
 

@@ -176,6 +176,7 @@ if(isset($_GET["page"]))
 
 		$phrase_event = $row['eg_produit_description'];
 		$max_words = 40;
+		$id_prod = $row['eg_produit_id'];
 		$phrase_array = explode(' ',$phrase_event);
 		if(count($phrase_array) > $max_words && $max_words > 0){
 			$phrase_courte = implode(' ',array_slice($phrase_array, 0, $max_words)).'...'; 
@@ -192,7 +193,8 @@ if(isset($_GET["page"]))
 			'image'		=>	$image,
 			'image_nom'		=>	$image_nom,
 			'logo_marque'		=>	$logo_marque,
-			'nom_marque'		=>	$nom_marque
+			'nom_marque'		=>	$nom_marque,
+			'id_prod'		=>	$id_prod
 		);
 
 	}
