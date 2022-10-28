@@ -148,14 +148,13 @@
 
     
     <!-- Modal -->
-    <div class="modal modal-2 fade" id="Modal_prod" tabindex="-1" role="dialog">
+    <div class="modal modal-2 fade" id="post_modal" tabindex="-1" role="dialog">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-                <div class="modal-body">
+                <div class="modal-body" id="post_detail">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
-                    <div class="row">
+                    <!--<div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
-                            <!-- Swiper -->
                             <div class="swiper-container gallery-top">
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
@@ -193,7 +192,6 @@
                                         <img class="img-responsive m-auto" src="assets/images/product-image/small-image/5.webp" alt="">
                                     </div>
                                 </div>
-                                <!-- Add Arrows -->
                                 <div class="swiper-buttons">
                                     <div class="swiper-button-next"></div>
                                     <div class="swiper-button-prev"></div>
@@ -266,7 +264,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
@@ -360,7 +358,8 @@
             maximumItems:10,
             highlightTyped:true,
             highlightClass : 'fw-bold text-primary'
-        });        
+        });
+
         function $(selector){
             return document.querySelector(selector);
         }
@@ -371,12 +370,15 @@
             load_product(1);
             event.preventDefault();
         }
+
         document.getElementById("grid").onclick = function(event) {
             is_grid = true;
             load_product(1);
             event.preventDefault();
         }
+
         load_product(1);
+
         function load_product(page = 1, query = '')
         {
             window.$_GET = new URLSearchParams(location.search);
@@ -454,7 +456,7 @@
                                                             html += '<div class="actions">';
                                                                 html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
                                                                 html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#Modal_prod" click="handleDetailsClicked('+responseData.data[i].id_prod +')"><i class="pe-7s-look"></i></button>';
+                                                                html += '<button class="action quickview_grid" title="Quick view" id="'+responseData.data[i].id_prod+'"><i class="pe-7s-look"></i></button>';
                                                                 html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
                                                             html += '</div>';
 
@@ -502,7 +504,7 @@
                                                 html += '<div class="actions">';
                                                 html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
                                                 html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#Modal_prod"><i class="pe-7s-look"></i></button>';
+                                                html += '<button class="action quickview" data-link-action="quickview" title="Quick view" data-bs-toggle="modal" data-bs-target="#Modal_prod" id="'+responseData.data[i].id_prod+'"><i class="pe-7s-look"></i></button>';
                                                 html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
                                                 html += '</div>';
                                                 html += '</div>';
@@ -521,6 +523,11 @@
                         //Pagination zone
 
                         $('#product_area').innerHTML = html;
+                        $('.quickview_grid').onclick = function(){
+                            var post_id = this.id;
+                            //fetch_post_data(post_id);
+                            console.log(post_id)
+                        }
                         
                     }
                     else
@@ -540,6 +547,7 @@
                     $('#product_area').style.display = 'block';
 
                     $('#skeleton_area').style.display = 'none';
+                    
 
                 }, 1000);
                 
@@ -771,24 +779,31 @@
                 }
             }
         }
-        // document.getElementById("test_2").onClick = function(event) {
-        //     //var rowid = $(this).data('id');
-        //     console.log("ddd");
-        //     /*.ajax({
-        //         type : 'post',
-        //         url : 'fetch_record.php', //Here you will fetch records 
-        //         data :  'rowid='+ rowid, //Pass $id
-        //         success : function(data){
-        //             $('.fetched-data').html(data);//Show fetched data from database
-        //         }
-        //     });*/
-        // }
-
-        console.log("here!");
-        function handleDetailsClicked(id) {
-            console.log("Clicked => ", id)
+        function fetch_post_data(post_id)
+        {
+            $.ajax({
+                url:"process/fetch.php",
+                method:"POST",
+                data:{post_id:post_id},
+                success:function(data)
+                {
+                    $('#post_modal').modal('show');
+                    $('#post_detail').html(data);
+                }
+            });
         }
+
+        
+
+        /*$(document).on('click', '.previous', function(){
+            var post_id = $(this).attr("id");
+            fetch_post_data(post_id);
+        });
+
+        $(document).on('click', '.next', function(){
+            var post_id = $(this).attr("id");
+            fetch_post_data(post_id);
+        });*/
     </script>
 </body>
-
 </html>
