@@ -377,7 +377,6 @@
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>
     <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
     <script src="assets/js/autocomplete.js"></script>
 
     <!-- Minify Version -->

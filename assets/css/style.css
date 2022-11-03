@@ -6315,8 +6315,8 @@ margin-bottom: 20px;
 }
 .modal-dialog .btn-close {
   position: absolute;
-  top: 0;
-  right: -35px;
+  top: -15px;
+  right: -15px;
   color: #fff;
   border: 1px solid #f7bb11;
   padding: 0px;

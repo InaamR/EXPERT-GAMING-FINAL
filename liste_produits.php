@@ -232,7 +232,6 @@
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>
     <script src="assets/js/plugins/jquery-ui.min.js"></script>
-    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
     <script src="assets/js/autocomplete.js"></script>
 
     <!-- Minify Version -->
@@ -441,18 +440,15 @@
                 }, 1000);
             
                 var menu = document.querySelector(".ouuh");                
-                menu.addEventListener("click", function(e){                    
+                menu.addEventListener("click", function(e){   
+
                     fetch_post_data(e.target.getAttribute("id"));
                 });
-                //var post_id = this.id;                
-                            
-                
-                        
+                //var post_id = this.id;   
 
                 function fetch_post_data(post_id)
                 {
                     
-                    cont_box
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST", 'process/fetch.php', true);
                     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -463,6 +459,7 @@
                             });
 
                             $('#cont_box').innerHTML = xhr.responseText;
+                            
                             galleryModal.show();                      
 
 
@@ -698,18 +695,6 @@
                 }
             }
         }
-        
-        
-
-        /*$(document).on('click', '.previous', function(){
-            var post_id = $(this).attr("id");
-            fetch_post_data(post_id);
-        });
-
-        $(document).on('click', '.next', function(){
-            var post_id = $(this).attr("id");
-            fetch_post_data(post_id);
-        });*/
     </script>
 </body>
 </html>
