@@ -148,123 +148,14 @@
 
     
     <!-- Modal -->
-    <div class="modal modal-2 fade" id="post_modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal modal-2 fade" id="Modal_prod" tabindex="-1" role="dialog">
+        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-body" id="post_detail">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
-                    <!--<div class="row">
-                        <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
-                            <div class="swiper-container gallery-top">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/1.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/2.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/3.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/zoom-image/5.webp" alt="">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-container gallery-thumbs mt-20px slider-nav-style-1 small-nav">
-                                <div class="swiper-wrapper">
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/1.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/2.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/3.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/5.webp" alt="">
-                                    </div>
-                                </div>
-                                <div class="swiper-buttons">
-                                    <div class="swiper-button-next"></div>
-                                    <div class="swiper-button-prev"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
-                            <div class="product-details-content quickview-content">
-                                <h2>Modern Smart Phone</h2>
-                                <div class="pricing-meta">
-                                    <ul class="d-flex">
-                                        <li class="new-price">$20.90</li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-rating-wrap">
-                                    <div class="rating-product">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-                                    <span class="read-review"><a class="reviews" href="#">( 2 Review )</a></span>
-                                </div>
-                                <p class="mt-30px">Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmll tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mill veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exet commodo consequat. Duis aute irure dolor</p>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>SKU:</span>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#">Ch-256xl</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>Categories: </span>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#">Smart Device, </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">ETC</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
-                                    <span>Tags: </span>
-                                    <ul class="d-flex">
-                                        <li>
-                                            <a href="#">Smart Device, </a>
-                                        </li>
-                                        <li>
-                                            <a href="#">Phone</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div class="pro-details-quality">
-                                    <div class="cart-plus-minus">
-                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
-                                    </div>
-                                    <div class="pro-details-cart">
-                                        <button class="add-cart"> Add To
-                                            Cart</button>
-                                    </div>
-                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
-                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
-                                    </div>
-                                </div>
-                                <div class="payment-img">
-                                    <a href="#"><img src="assets/images/icons/payment.png" alt=""></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>-->
+                    <div id="cont_box">
+                        
+                    </div>
                 </div>
             </div>
         </div>
@@ -341,6 +232,7 @@
     <script src="assets/js/plugins/scrollUp.js"></script>
     <script src="assets/js/plugins/venobox.min.js"></script>
     <script src="assets/js/plugins/jquery-ui.min.js"></script>
+    <script src="assets/js/plugins/mailchimp-ajax.js"></script>
     <script src="assets/js/autocomplete.js"></script>
 
     <!-- Minify Version -->
@@ -422,17 +314,17 @@
                                         }else{
                                             html += '<div class="tab-pane fade" id="shop-grid">';
                                         }
-                                            html += '<div class="row mb-n-30px">';
+                                            html += '<div class="row mb-n-30px ouuh">';
 
                                                 for(var i = 0; i < responseData.data.length; i++)
                                                 {
-                                                    html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-60px">';
+                                                    html += '<div class="col-lg-4 col-md-6 col-sm-6 col-xs-6 mb-60px yop">';
                                                         html += '<!-- Single Prodect -->';
                                                         html += '<div class="product">';
 
                                                             html += '<span class="badges">';
                                                                 html += ''+responseData.data[i].status+'';
-                                                                html += '</span>';
+                                                            html += '</span>';
 
                                                             html += '<div class="thumb">';
                                                                 html += '<a href="'+responseData.data[i].link_details+'" class="image">';
@@ -456,7 +348,7 @@
                                                             html += '<div class="actions">';
                                                                 html += '<button title="Add To Cart" class="action add-to-cart" data-bs-toggle="modal" data-bs-target="#exampleModal-Cart"><i class="pe-7s-shopbag"></i></button>';
                                                                 html += '<button class="action wishlist" title="Wishlist" data-bs-toggle="modal" data-bs-target="#exampleModal-Wishlist"><i class="pe-7s-like"></i></button>';
-                                                                html += '<button class="action quickview_grid" title="Quick view" id="'+responseData.data[i].id_prod+'"><i class="pe-7s-look"></i></button>';
+                                                                html += '<button class="action quickview quickview_grid" title="Quick view"><i class="pe-7s-look" id="'+responseData.data[i].id_prod+'"></i></button>';
                                                                 html += '<button class="action compare" title="Compare" data-bs-toggle="modal" data-bs-target="#exampleModal-Compare"><i class="pe-7s-refresh-2"></i></button>';
                                                             html += '</div>';
 
@@ -473,7 +365,6 @@
                                         }else{
                                             html += '<div class="tab-pane fade mb-n-30px" id="shop-list">';
                                         }
-
                                             for(var i = 0; i < responseData.data.length; i++)
                                             {
                                                 html += '<div class="shop-list-wrapper mb-30px">';
@@ -521,27 +412,25 @@
                             html += '</div>';                                 
 
                         //Pagination zone
-
-                        $('#product_area').innerHTML = html;
-                        $('.quickview_grid').onclick = function(){
-                            var post_id = this.id;
-                            //fetch_post_data(post_id);
-                            console.log(post_id)
-                        }
+                        
+                        $('#product_area').innerHTML = html;    
+                       
                         
                     }
                     else
                     {
                         $('#product_area').innerHTML = '<div class="alert alert-warning text-center"><h4 class="alert-heading"><b>Malheureusement !</b></h4><hr><p class="mb-0">Aucun produit trouvé !</p></div>';
                     }
-                    window.scrollTo(0, 0);
+                    
                 }
 
                 if(responseData.pagination)
                 {
                     $('#pagination_area').innerHTML = responseData.pagination;
                 }
-
+                window.scrollTo(0, 0);
+                
+                
                 setTimeout(function(){
 
                     $('#product_area').style.display = 'block';
@@ -550,11 +439,41 @@
                     
 
                 }, 1000);
+            
+                var menu = document.querySelector(".ouuh");                
+                menu.addEventListener("click", function(e){                    
+                    fetch_post_data(e.target.getAttribute("id"));
+                });
+                //var post_id = this.id;                
+                            
                 
+                        
+
+                function fetch_post_data(post_id)
+                {
+                    
+                    cont_box
+                    var xhr = new XMLHttpRequest();
+                    xhr.open("POST", 'process/fetch.php', true);
+                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.onreadystatechange = function() {
+                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+                            var galleryModal = new bootstrap.Modal(document.getElementById('Modal_prod'), {
+                                keyboard: false
+                            });
+
+                            $('#cont_box').innerHTML = xhr.responseText;
+                            galleryModal.show();                      
+
+
+                        }
+                    }
+                    xhr.send('post_id='+post_id);
+                }
 
             });
         }
-
+        
         function make_skeleton()
         {
             var output = '<div class="row">';
@@ -779,20 +698,7 @@
                 }
             }
         }
-        function fetch_post_data(post_id)
-        {
-            $.ajax({
-                url:"process/fetch.php",
-                method:"POST",
-                data:{post_id:post_id},
-                success:function(data)
-                {
-                    $('#post_modal').modal('show');
-                    $('#post_detail').html(data);
-                }
-            });
-        }
-
+        
         
 
         /*$(document).on('click', '.previous', function(){
