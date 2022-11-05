@@ -153,14 +153,138 @@
             <div class="modal-content">
                 <div class="modal-body" id="post_detail">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
-                    <div id="cont_box">
-                        
+                    <div id="cont_box" class="row">
+                        <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                            <!-- Swiper -->
+                            <div class="swiper-container gallery-top">
+                                <div class="swiper-wrapper" id="big_img_prod">
+
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" id="slider-image-0" src="assets/images/product-image/zoom-image/1.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" id="slider-image-1" src="assets/images/product-image/zoom-image/2.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" id="slider-image-2" src="assets/images/product-image/zoom-image/3.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" id="slider-image-3" src="assets/images/product-image/zoom-image/4.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" id="slider-image-4" src="assets/images/product-image/zoom-image/5.webp" alt="">
+                                    </div>
+
+
+
+
+
+                                </div>
+                            </div>
+                            <div class="swiper-container gallery-thumbs mt-20px slider-nav-style-1 small-nav">
+                                <div class="swiper-wrapper"  id="petite_img_prod">
+
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/1.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/2.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/3.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/4.webp" alt="">
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/5.webp" alt="">
+                                    </div>
+
+
+
+
+
+                                </div>
+                                <!-- Add Arrows -->
+                                <div class="swiper-buttons">
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                            <div class="product-details-content quickview-content">
+                                <h2  id="label_prod"></h2>
+                                <div class="pricing-meta">
+                                    <ul class="d-flex">
+                                        <li class="new-price"  id="prix_prod"></li>
+                                    </ul>
+                                </div>
+                                <div class="pro-details-rating-wrap">
+                                    <div class="rating-product">
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                        <i class="fa fa-star"></i>
+                                    </div>
+                                    <span class="read-review"><a class="reviews" href="#">( 2 Review )</a></span>
+                                </div>
+                                <p class="mt-30px">Lorem ipsum dolor sit amet, consecte adipisicing elit, sed do eiusmll tempor incididunt ut labore et dolore magna aliqua. Ut enim ad mill veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip exet commodo consequat. Duis aute irure dolor</p>
+                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                    <span>SKU:</span>
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a href="#">Ch-256xl</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                    <span>Categories: </span>
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a href="#">Smart Device, </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">ETC</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                                    <span>Tags: </span>
+                                    <ul class="d-flex">
+                                        <li>
+                                            <a href="#">Smart Device, </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Phone</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="pro-details-quality">
+                                    <div class="cart-plus-minus">
+                                        <input class="cart-plus-minus-box" type="text" name="qtybutton" value="1" />
+                                    </div>
+                                    <div class="pro-details-cart">
+                                        <button class="add-cart"> Add To
+                                            Cart</button>
+                                    </div>
+                                    <div class="pro-details-compare-wishlist pro-details-wishlist ">
+                                        <a href="wishlist.html"><i class="pe-7s-like"></i></a>
+                                    </div>
+                                </div>
+                                <div class="payment-img">
+                                    <a href="#"><img src="assets/images/icons/payment.png" alt=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <!-- Modal end -->
+    
 
     <!-- Modal Cart -->
     <div class="modal customize-class fade" id="exampleModal-Cart" tabindex="-1" aria-hidden="true">
@@ -448,19 +572,43 @@
 
                 function fetch_post_data(post_id)
                 {
-                    
                     var xhr = new XMLHttpRequest();
                     xhr.open("POST", 'process/fetch.php', true);
-                    xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                    xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
                     xhr.onreadystatechange = function() {
-                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
-                            var galleryModal = new bootstrap.Modal(document.getElementById('Modal_prod'), {
-                                keyboard: false
-                            });
+                        
 
-                            $('#cont_box').innerHTML = xhr.responseText;
-                            
-                            galleryModal.show();                      
+
+
+                        if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
+
+                            fetch('process/fetch.php?post_id_json='+post_id+'').then(function(response){
+                                return response.json();
+                            }).then(function(responseData){                                
+                                let $ = jQuery.noConflict();
+
+                                // Populate modal
+                                $('#label_prod').innerText = responseData.name;
+                                
+
+                                for (let index = 0; index < responseData.images.length; index++) {
+                                    // document.getElementById('#slider-image-' + index).src = responseData.images[index];
+                                    console.log('#slider-image-' + index)
+                                    $("#slider-image-" + index).attr("src", responseData.images[index]);
+                                }
+
+                                
+                                // $('#prix_prod').innerHTML = responseData.prix;
+                                // $('#big_img_prod').innerHTML = responseData.big_img_prod;
+                                // $('#petite_img_prod').innerHTML = responseData.petite_img_prod;
+
+                                // Show modal
+                                var galleryModal = new bootstrap.Modal(document.getElementById('Modal_prod'), {
+                                    keyboard: false
+                                });
+                                galleryModal.show();
+                            })
+                                                
 
 
                         }
