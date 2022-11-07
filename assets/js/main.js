@@ -284,14 +284,14 @@
     var galleryThumb = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
         slidesPerView: 3,
-        freeMode: true,
+        freeMode: false,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         centerMood:true,
     });
     var galleryTop = new Swiper('.gallery-top', {
         spaceBetween: 0,
-        loop: true,
+        loop: false,
         slidesPerView: 1,
         centerMood:true,
         thumbs: {

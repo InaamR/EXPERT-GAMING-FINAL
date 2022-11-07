@@ -149,60 +149,40 @@
     
     <!-- Modal -->
     <div class="modal modal-2 fade" id="Modal_prod" tabindex="-1" role="dialog">
-        <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+        <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-body" id="post_detail">
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> <i class="pe-7s-close"></i></button>
-                    <div id="cont_box" class="row">
+                    <div class="row">
                         <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
                             <!-- Swiper -->
                             <div class="swiper-container gallery-top">
-                                <div class="swiper-wrapper" id="big_img_prod">
+                                <div class="swiper-wrapper">
 
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" id="slider-image-0" src="assets/images/product-image/zoom-image/1.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-0" src="" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" id="slider-image-1" src="assets/images/product-image/zoom-image/2.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-1" src="" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" id="slider-image-2" src="assets/images/product-image/zoom-image/3.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-2" src="" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" id="slider-image-3" src="assets/images/product-image/zoom-image/4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" id="slider-image-4" src="assets/images/product-image/zoom-image/5.webp" alt="">
-                                    </div>
-
-
-
-
 
                                 </div>
                             </div>
                             <div class="swiper-container gallery-thumbs mt-20px slider-nav-style-1 small-nav">
-                                <div class="swiper-wrapper"  id="petite_img_prod">
+                                <div class="swiper-wrapper">
 
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/1.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-minus-0" src="" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/2.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-minus-1" src="" alt="">
                                     </div>
                                     <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/3.webp" alt="">
+                                        <img class="img-responsive m-auto" id="slider-image-minus-2" src="" alt="">
                                     </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/4.webp" alt="">
-                                    </div>
-                                    <div class="swiper-slide">
-                                        <img class="img-responsive m-auto" src="assets/images/product-image/small-image/5.webp" alt="">
-                                    </div>
-
-
-
-
 
                                 </div>
                                 <!-- Add Arrows -->
@@ -272,9 +252,6 @@
                                     <div class="pro-details-compare-wishlist pro-details-wishlist ">
                                         <a href="wishlist.html"><i class="pe-7s-like"></i></a>
                                     </div>
-                                </div>
-                                <div class="payment-img">
-                                    <a href="#"><img src="assets/images/icons/payment.png" alt=""></a>
                                 </div>
                             </div>
                         </div>
@@ -536,9 +513,7 @@
 
                         //Pagination zone
                         
-                        $('#product_area').innerHTML = html;    
-                       
-                        
+                        $('#product_area').innerHTML = html;
                     }
                     else
                     {
@@ -564,11 +539,9 @@
                 }, 1000);
             
                 var menu = document.querySelector(".ouuh");                
-                menu.addEventListener("click", function(e){   
-
+                menu.addEventListener("click", function(e){  
                     fetch_post_data(e.target.getAttribute("id"));
                 });
-                //var post_id = this.id;   
 
                 function fetch_post_data(post_id)
                 {
@@ -576,9 +549,6 @@
                     xhr.open("POST", 'process/fetch.php', true);
                     xhr.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
                     xhr.onreadystatechange = function() {
-                        
-
-
 
                         if (this.readyState === XMLHttpRequest.DONE && this.status === 200) {
 
@@ -588,19 +558,15 @@
                                 let $ = jQuery.noConflict();
 
                                 // Populate modal
-                                $('#label_prod').innerText = responseData.name;
-                                
+                                $("#label_prod").html(responseData.name);
+                                $("#prix_prod").html(responseData.prix);                                                               
 
                                 for (let index = 0; index < responseData.images.length; index++) {
-                                    // document.getElementById('#slider-image-' + index).src = responseData.images[index];
-                                    console.log('#slider-image-' + index)
                                     $("#slider-image-" + index).attr("src", responseData.images[index]);
+                                    $("#slider-image-" + index).attr("alt", responseData.name);
+                                    $("#slider-image-minus-" + index).attr("src", responseData.images[index]);
+                                    $("#slider-image-minus-" + index).attr("alt", responseData.name);
                                 }
-
-                                
-                                // $('#prix_prod').innerHTML = responseData.prix;
-                                // $('#big_img_prod').innerHTML = responseData.big_img_prod;
-                                // $('#petite_img_prod').innerHTML = responseData.petite_img_prod;
 
                                 // Show modal
                                 var galleryModal = new bootstrap.Modal(document.getElementById('Modal_prod'), {
@@ -608,9 +574,6 @@
                                 });
                                 galleryModal.show();
                             })
-                                                
-
-
                         }
                     }
                     xhr.send('post_id='+post_id);
