@@ -352,7 +352,7 @@
     var galleryThumb = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
         slidesPerView: 3,
-        freeMode: true,
+        freeMode: false,
         watchSlidesVisibility: true,
         watchSlidesProgress: true,
         // Navigation arrows
