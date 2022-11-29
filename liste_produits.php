@@ -435,7 +435,7 @@
 
                                                             html += '<div class="content">';
                                                                 html += '<span class="category">';
-                                                                    html += '<img src="https://betatest.expert-gaming.tn'+responseData.data[i].logo_marque+'" alt="'+responseData.data[i].nom_marque+'" width="130">';
+                                                                    html += '<img src="https://betatest.expert-gaming.tn'+responseData.data[i].logo_marque+'" alt="'+responseData.data[i].nom_marque+'" width="130" style="width: 130px;height: 60px;object-fit: cover;">';
                                                                 html += '</span>';
                                                                 html += '<h5 class="title">';
                                                                     html += '<a href="'+responseData.data[i].link_details+'">'+responseData.data[i].name+'</a>';

@@ -168,8 +168,8 @@ if(isset($_GET["page"]))
 		$PDO_query_produit_marque->closeCursor(); 
 
 		if($row['eg_produit_promo'] <> "0.000"){
-			$prix = '<span class="old">' . round($row['eg_produit_promo'], 3) . ' TND</span>';
-			$prix .= '<span class="new text-danger"> ' . round($row['eg_produit_prix'], 3) . 'TND</span>';
+			$prix = '<span class="old text-dark">' . round($row['eg_produit_prix'], 3) . ' TND</span>';
+			$prix .= '<span class="new text-danger"> ' . round($row['eg_produit_promo'], 3) . 'TND</span>';
 		}else{
 			$prix = '<span class="new"> ' . round($row['eg_produit_prix'], 3) . 'TND</span>';
 		}

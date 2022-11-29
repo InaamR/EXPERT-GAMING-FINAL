@@ -19,7 +19,7 @@ if(isset($_POST["post_id"]) || isset($_GET['post_id_json']))
         "prix"  => $modale['eg_produit_prix'],
     ];
 
-    $PDO_query_produit_img_modale = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_image_produit_ordre DESC LIMIT 3");
+    $PDO_query_produit_img_modale = Bdd::connectBdd()->prepare("SELECT * FROM eg_image_produit WHERE eg_image_produit_statut = 1 AND eg_produit_id = :eg_produit_id ORDER BY eg_image_produit_ordre ASC LIMIT 3");
     $PDO_query_produit_img_modale->bindParam(":eg_produit_id", $modale["eg_produit_id"], PDO::PARAM_INT);
     $PDO_query_produit_img_modale->execute();
     while ($produit_image = $PDO_query_produit_img_modale->fetch()){

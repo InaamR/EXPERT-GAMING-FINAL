@@ -2491,16 +2491,16 @@ body.offcanvas-open {
 }
 .product .content .title {
   font-size: 16px;
-  margin: 10px 0 15px;
+  margin: 0px 0 5px;
   font-family: "Poppins", sans-serif;
   text-align: center;
-  height: 80px;
+  height: 70px;
 }
 .product .content .title a {
   text-decoration: none;
   color: #000000;
   font-size: 16px;
-  font-weight: 600;
+  font-weight: normal;
 }
 @media only screen and (max-width: 575px) {
   .product .content .title a {
@@ -2513,17 +2513,17 @@ body.offcanvas-open {
   }
 }
 .product .content .price {
-  font-size: 18px;
+  font-size: 22px;
   font-family: "Poppins", sans-serif;
   line-height: 1;
-  font-weight: 500;
-  color: #666666;
+  font-weight: bold;
+  color: #dc3545;
 }
 .product .content .price:not(:last-child) {
   margin-bottom: 20px;
 }
 .product .content .price span.new {
-  font-weight: 500;
+  /*font-weight: 500;*/
 }
 .product .content .price span.old {
   margin-right: 15px;

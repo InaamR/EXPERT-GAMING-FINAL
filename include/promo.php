@@ -1,7 +1,7 @@
 <div class="feature-product-area pt-100px pb-40px">
 	<div class="container">
 		
-		<div class="row">
+		<!--<div class="row">
 			<div class="col-12">
 				<div class="section-title text-center">
 					<h2 class="title">Promo Expert</h2>
@@ -64,7 +64,8 @@
 				}
 				$PDO_query_produit_promo->closeCursor();
 			?>
-		</div>
+		</div>-->
+
 		<div class="row">
 			<div class="col-12">
 				<div class="section-title text-center">
